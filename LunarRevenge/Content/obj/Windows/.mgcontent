@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Boss/boss outline x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Boss/boss outline x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Boss/boss outline x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Boss/boss x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Boss/boss x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Boss/boss x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Boss/No Outlines/boss x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Boss/No Outlines/boss x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Boss/No Outlines/boss x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Enemies/enemies x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Enemies/enemies x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Enemies/enemies x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/NPC/npc x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/NPC/npc x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/NPC/npc x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players blue x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players blue x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players blue x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players green x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players green x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players green x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players grey x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players grey x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players grey x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players blue x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players blue x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players blue x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players green x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players green x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players green x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players grey x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players grey x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players grey x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players red x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players red x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/players red x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Projectiles/projectiles x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Projectiles/projectiles x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Projectiles/projectiles x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/tileset x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/tileset x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/tileset x3.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/UI/ui x1.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/UI/ui x2.png</File>
+    <File>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/UI/ui x3.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
