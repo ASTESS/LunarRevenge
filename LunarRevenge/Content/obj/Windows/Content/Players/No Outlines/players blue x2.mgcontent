@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players blue x2.png</SourceFile>
-  <SourceTime>2021-09-24T13:06:40.5409693+02:00</SourceTime>
-  <DestFile>C:/Users/antho/Desktop/LunarRevenge/LunarRevenge/Content/bin/Windows/Content/Players/No Outlines/players blue x2.xnb</DestFile>
-  <DestTime>2021-11-23T13:11:55.6587537+01:00</DestTime>
+  <SourceFile>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players blue x2.png</SourceFile>
+  <SourceTime>2021-11-28T21:48:25.3607161+01:00</SourceTime>
+  <DestFile>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/bin/Windows/Content/Players/No Outlines/players blue x2.xnb</DestFile>
+  <DestTime>2021-11-28T22:25:15.5909313+01:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
+  <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2020-08-10T16:17:54+02:00</ProcessorTime>
+  <ProcessorTime>2020-08-10T18:17:54+02:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

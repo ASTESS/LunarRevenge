@@ -2,20 +2,23 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace LunarRevenge
 {
-    public class Game1 : Game
+    public class LunarRevenge : Game
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
-        private Texture2D _player;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+
+        private List<Entity> entitys = new List<Entity>();
+
 
         Entity player;
 
-        public Game1()
+        public LunarRevenge()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -29,11 +32,9 @@ namespace LunarRevenge
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _player = Content.Load<Texture2D>("Players/players blue x3");
-            player = new Entity(_player);
+            spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            entitys.Add(new Player(Content.Load<Texture2D>("Players/players blue x3"))); //add player
         }
 
         protected override void Update(GameTime gameTime)
@@ -41,7 +42,10 @@ namespace LunarRevenge
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            player.Update();
+            foreach(Entity e in entitys)
+            {
+                e.Update(gameTime);
+            }
 
             base.Update(gameTime);
         }
@@ -50,10 +54,14 @@ namespace LunarRevenge
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            spriteBatch.Begin();
 
-            player.Draw(_spriteBatch);
+            foreach (Entity e in entitys)
+            {
+                e.Draw(spriteBatch);
+            }
 
-
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
