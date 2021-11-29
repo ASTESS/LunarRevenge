@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace LunarRevenge.NewFolder
+namespace LunarRevenge.Scripts.Entitys
 {
     class Entity
     {
@@ -54,7 +54,7 @@ namespace LunarRevenge.NewFolder
                 height = 48;
             }
             //spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White
-            spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 0f);
+            spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
         }
     }
 }

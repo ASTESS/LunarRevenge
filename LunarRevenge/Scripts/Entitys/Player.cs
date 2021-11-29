@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LunarRevenge.NewFolder
+namespace LunarRevenge.Scripts.Entitys
 {
     class Player : Entity
     {
@@ -16,23 +16,23 @@ namespace LunarRevenge.NewFolder
 
         public override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Z))
+            if (Keyboard.GetState().IsKeyDown(Keys.Z) || Keyboard.GetState().IsKeyDown(Keys.Up))
             {
                 pos.Y -= speed;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.S))
+            if (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.Down))
             {
                 pos.Y += speed;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.D))
+            if (Keyboard.GetState().IsKeyDown(Keys.D) || Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 pos.X += speed;
-                flip = SpriteEffects.None;
+                flip = SpriteEffects.None; //look right
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Q))
+            if (Keyboard.GetState().IsKeyDown(Keys.Q) || Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 pos.X -= speed;
-                flip = SpriteEffects.FlipHorizontally;
+                flip = SpriteEffects.FlipHorizontally; //look left
             }
             base.Update(gameTime);
         }
