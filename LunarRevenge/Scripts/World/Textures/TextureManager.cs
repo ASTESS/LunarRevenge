@@ -17,7 +17,7 @@ namespace LunarRevenge.Scripts.World.Textures
         {
             this.texture = texture;
             this.graphicsDevice = graphics;
-            worldTextures.Add("floor", GetTitle(new Rectangle(3264, 96, 99, 99)));
+            worldTextures.Add("floor", GetTitle(new Rectangle(1088, 32, 33, 33)));
         }
 
         public Texture2D GetTitle(Rectangle box) //will split up sprite for easy use
@@ -29,11 +29,6 @@ namespace LunarRevenge.Scripts.World.Textures
             Color[] data = new Color[box.Width * box.Height];
             originalTexture.GetData(0, box, data, 0, data.Length);
             cropTexture.SetData(data);
-
-            /*Texture2D newTexture = new Texture2D(graphicsDevice, 96, 96); //making clean texture
-            this.texture.GetData(0, box, color, 0, 9216);
-            newTexture.SetData(color);
-            newTexture.SaveAsPng(File.Create("test.png"), 96, 96);*/
             return cropTexture;
         }
     }

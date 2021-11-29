@@ -37,9 +37,9 @@ namespace LunarRevenge
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            entitys.Add(new Player(Content.Load<Texture2D>("Players/players blue x3"))); //add player
+            entitys.Add(new Player(Content.Load<Texture2D>("Players/bluex1Ani", new JsonContentLoader())); //add player //alles x3 voor de x3
         
-            textureManager = new TextureManager(Content.Load<Texture2D>("tileset x3"), GraphicsDevice);
+            textureManager = new TextureManager(Content.Load<Texture2D>("tileset x1"), GraphicsDevice);
             world = new World(textureManager);
         }
 

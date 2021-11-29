@@ -27,9 +27,9 @@ namespace LunarRevenge.Scripts.World
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(textureManager.worldTextures["floor"], new Vector2(50, 50), Color.White);
-            spriteBatch.Draw(textureManager.worldTextures["floor"], new Vector2(149, 50), Color.White);
-            spriteBatch.Draw(textureManager.worldTextures["floor"], new Vector2(149, 149), Color.White);
-            spriteBatch.Draw(textureManager.worldTextures["floor"], new Vector2(50, 149), Color.White);
+            spriteBatch.Draw(textureManager.worldTextures["floor"], new Vector2(83, 50), Color.White);
+            spriteBatch.Draw(textureManager.worldTextures["floor"], new Vector2(83, 83), Color.White);
+            spriteBatch.Draw(textureManager.worldTextures["floor"], new Vector2(50, 83), Color.White);
             /*foreach (WorldSprite sprite in worldSprites)
             {
                 sprite.Draw(spriteBatch);
