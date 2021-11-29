@@ -64,16 +64,25 @@ namespace LunarRevenge
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            //ending to split layers
             spriteBatch.Begin();
+            world.Draw(spriteBatch);
+            spriteBatch.End();
 
+            spriteBatch.Begin();
+            //render walls
+            spriteBatch.End();
+
+            spriteBatch.Begin();
             foreach (Entity e in entitys)
             {
                 e.Draw(spriteBatch);
             }
-
-            world.Draw(spriteBatch);
-
             spriteBatch.End();
+
+            
+
+
             base.Draw(gameTime);
         }
     }

@@ -17,17 +17,17 @@ namespace LunarRevenge.Scripts.World.Textures
         {
             this.texture = texture;
             this.graphicsDevice = graphics;
-            worldTextures.Add("floor", GetTitle(new Rectangle(288, 192, 96,96)));
+            worldTextures.Add("floor", GetTitle(new Rectangle(3264, 96, 99, 99)));
         }
 
-        public Texture2D GetTitle(Rectangle box)
+        public Texture2D GetTitle(Rectangle box) //will split up sprite for easy use
+                                                 //code idea from https://gamedev.stackexchange.com/questions/35358/create-a-texture2d-from-larger-image
         {
             Texture2D originalTexture = texture;
-            Rectangle sourceRectangle = new Rectangle(3266, 98, 95, 95); //of 96
 
-            Texture2D cropTexture = new Texture2D(graphicsDevice, sourceRectangle.Width, sourceRectangle.Height);
-            Color[] data = new Color[sourceRectangle.Width * sourceRectangle.Height];
-            originalTexture.GetData(0, sourceRectangle, data, 0, data.Length);
+            Texture2D cropTexture = new Texture2D(graphicsDevice, box.Width, box.Height);
+            Color[] data = new Color[box.Width * box.Height];
+            originalTexture.GetData(0, box, data, 0, data.Length);
             cropTexture.SetData(data);
 
             /*Texture2D newTexture = new Texture2D(graphicsDevice, 96, 96); //making clean texture
