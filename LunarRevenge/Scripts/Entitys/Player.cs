@@ -16,24 +16,25 @@ namespace LunarRevenge.Scripts.Entitys
 
         public override void Update(GameTime gameTime)
         {
-            speed = collisionCheck();
-            if (Keyboard.GetState().IsKeyDown(Keys.Z) || Keyboard.GetState().IsKeyDown(Keys.Up))
+            Vector2 newPos = pos;
+            KeyboardState state = Keyboard.GetState();
+            Keys key = Keys.None;
+
+            if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.Up))
             {
-                pos.Y -= speed ;
+                Move(Direction.up);
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.Down))
+            if (state.IsKeyDown(Keys.S) || state.IsKeyDown(Keys.Down))
             {
-                pos.Y += speed;
+                Move(Direction.down);
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.D) || Keyboard.GetState().IsKeyDown(Keys.Right))
+            if (state.IsKeyDown(Keys.D) || state.IsKeyDown(Keys.Right))
             {
-                pos.X += speed;
-                flip = SpriteEffects.None; //look right
+                Move(Direction.right);
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Q) || Keyboard.GetState().IsKeyDown(Keys.Left))
+            if (state.IsKeyDown(Keys.Q) || state.IsKeyDown(Keys.Left))
             {
-                pos.X -= speed;
-                flip = SpriteEffects.FlipHorizontally; //look left
+                Move(Direction.left);
             }
             base.Update(gameTime);
         }

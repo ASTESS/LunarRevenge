@@ -20,6 +20,14 @@ namespace LunarRevenge.Scripts.Entitys
             activate
         }
 
+        public enum Direction
+        {
+            up,
+            down,
+            left,
+            right,
+        }
+
         public float health;
         public Vector2 pos;
         public EntityState state = EntityState.idle;
@@ -57,19 +65,51 @@ namespace LunarRevenge.Scripts.Entitys
             spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
         }
 
-        public float collisionCheck() //collisoon check for now untile walls are introduced
+        public void Move(Direction direction)
         {
-            if (pos.X < 0 + width)
+            if (direction == Direction.up)
             {
-                pos.X += 0.1f;
-                return 0f;
+                pos.Y -= speed;
             }
-            if (pos.Y < 0 + height)
+            if (direction == Direction.down)
             {
-                pos.Y += 0.1f;
-                return 0f;
+                pos.Y += speed;
             }
-            return 5f;
+            if (direction == Direction.left)
+            {
+                pos.X -= speed;
+                flip = SpriteEffects.FlipHorizontally; //look left
+            }
+            if (direction == Direction.right)
+            {
+                pos.X += speed;
+                flip = SpriteEffects.None; //look right
+            }
+        }
+
+        public Vector2 collisionCheck(KeyboardState state, Vector2 newPos) //collisoon check for now untile walls are introduced
+        {
+            if (pos.X < 0 + width && (state.IsKeyDown(Keys.Q) || state.IsKeyDown(Keys.Left)))
+            {
+                //pos.X += 0.1f;
+                return pos;
+            }
+            if (pos.Y < 0 + height && (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.Up)))
+            {
+                //pos.Y += 0.1f;
+                return pos;
+            }
+            if (pos.Y > 100 - height && (state.IsKeyDown(Keys.S) || state.IsKeyDown(Keys.Down)))
+            {
+                //pos.Y += 0.1f;
+                return pos;
+            }
+            if (pos.X > 100 - width && (state.IsKeyDown(Keys.D) || state.IsKeyDown(Keys.Up)))
+            {
+                //pos.Y += 0.1f;
+                return pos;
+            }
+            return newPos;
         }
     }
 }

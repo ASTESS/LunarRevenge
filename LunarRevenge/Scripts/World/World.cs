@@ -13,18 +13,47 @@ namespace LunarRevenge.Scripts.World
         List<WorldSprite> worldSprites = new List<WorldSprite>();
         private TextureManager textureManager;
 
-        string[,] map = new string[10, 10] {
-        {"floor","floor","floor","floor","floor","floor","floor","floor","floor","floor" },
-        {"floor","floor","floor","floor","floor","floor","floor","floor","floor","floor" },
-        {"floor","floor","floor","floor","floor","floor","floor","floor","floor","floor" },
-        {"floor","floor","floor","floor","floor","floor","floor","floor","floor","floor" },
-        {"floor","floor","floor","floor","floor","floor","floor","floor","floor","floor" },
-        {"floor","floor","floor","floor","floor","floor","floor","floor","floor","floor" },
-        {"floor","floor","floor","floor","floor","floor","floor","floor","floor","floor" },
-        {"floor","floor","floor","floor","floor","floor","floor","floor","floor","floor" },
-        {"floor","floor","floor","floor","floor","floor","floor","floor","floor","floor" },
-        {"floor","floor","floor","floor","floor","floor","floor","floor","floor","floor" },
-        }; 
+        string[,] floorMap = new string[11, 11] {
+        {"","","","","","","","","","" ,"" },
+        {"","","","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","","","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","","","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","","","","","","","","","" ,"" },
+        };
+
+        string[,] obstacles = new string[11, 11] {
+            {"","","","","","","","","","","", },
+            {"","waterTopLeft","waterBottomLeft","","","","","","","","", },
+            {"","waterTopMiddle","waterBottomMiddle","","","","","","","","", },
+            {"","waterTopRight","waterBottomRight","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+        };
+
+        string[,] walls = new string[11, 11] {
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+        };
 
         private bool loaded = false;
         public World(TextureManager textureManager)
@@ -49,11 +78,25 @@ namespace LunarRevenge.Scripts.World
         {
             if (!loaded)
             {
-                for (int x = 0; x < 10; x++)
+                for (int x = 0; x < 11; x++)
                 {
-                    for (int y = 0; y < 10; y++)
+                    for (int y = 0; y < 11; y++)
                     {
-                        spriteBatch.Draw(textureManager.worldTextures[map[x,y]], new Vector2(x * 33, y * 33), Color.White);
+                        string floorKey = floorMap[x, y];
+                        string obstacleKey = obstacles[x, y];
+                        string wallKey = walls[x, y];
+                        if (textureManager.worldTextures.ContainsKey(floorKey)) //makes sure everything exist and can load empty squires
+                        {
+                            spriteBatch.Draw(textureManager.worldTextures[floorKey], new Vector2(100 + (x * 32), 100 + (y * 32)), Color.White);
+                        }
+                        if (textureManager.worldTextures.ContainsKey(obstacleKey))
+                        {
+                            spriteBatch.Draw(textureManager.worldTextures[obstacleKey], new Vector2(100 + (x * 32), 100 + (y * 32)), Color.White);
+                        }
+                        if (textureManager.worldTextures.ContainsKey(wallKey))
+                        {
+                            spriteBatch.Draw(textureManager.worldTextures[wallKey], new Vector2(100 + (x * 32), 100 + (y * 32)), Color.White);
+                        }
                     }
                 }
                 loaded = false;

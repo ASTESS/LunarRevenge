@@ -4,6 +4,7 @@ using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -44,17 +45,25 @@ namespace LunarRevenge
             world = new World(textureManager);
         }
 
+
+        private double secondcounter = 0;
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            secondcounter += gameTime.ElapsedGameTime.TotalSeconds;
 
-            foreach(Entity e in entitys)
+            if (secondcounter >= 1d/60) //updating game at 60fps
             {
-                e.Update(gameTime);
-            }
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                    Exit();
 
-            world.Update(gameTime);
+                foreach (Entity e in entitys)
+                {
+                    e.Update(gameTime);
+                }
+
+                world.Update(gameTime);
+                secondcounter = 0;
+            }
 
 
 
