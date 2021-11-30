@@ -11,14 +11,15 @@ namespace LunarRevenge.Scripts.Entitys
     {
         public Player(Texture2D texture) : base(texture)
         {
-            pos = new Vector2(0,0); //stating position
+            pos = new Vector2(50,50); //stating position
         }
 
         public override void Update(GameTime gameTime)
         {
+            speed = collisionCheck();
             if (Keyboard.GetState().IsKeyDown(Keys.Z) || Keyboard.GetState().IsKeyDown(Keys.Up))
             {
-                pos.Y -= speed;
+                pos.Y -= speed ;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.Down))
             {

@@ -56,5 +56,20 @@ namespace LunarRevenge.Scripts.Entitys
             //spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White
             spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
         }
+
+        public float collisionCheck() //collisoon check for now untile walls are introduced
+        {
+            if (pos.X < 0 + width)
+            {
+                pos.X += 0.1f;
+                return 0f;
+            }
+            if (pos.Y < 0 + height)
+            {
+                pos.Y += 0.1f;
+                return 0f;
+            }
+            return 5f;
+        }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace LunarRevenge
 {
@@ -66,22 +67,16 @@ namespace LunarRevenge
 
             //ending to split layers
             spriteBatch.Begin();
+
+
+
             world.Draw(spriteBatch);
-            spriteBatch.End();
-
-            spriteBatch.Begin();
-            //render walls
-            spriteBatch.End();
-
-            spriteBatch.Begin();
             foreach (Entity e in entitys)
             {
                 e.Draw(spriteBatch);
             }
+
             spriteBatch.End();
-
-            
-
 
             base.Draw(gameTime);
         }
