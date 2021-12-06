@@ -19,7 +19,7 @@ namespace LunarRevenge
         private TextureManager textureManager;
 
         Entity player;
-        World world;
+        private WorldLoader world;
 
         public LunarRevenge()
         {
@@ -39,10 +39,11 @@ namespace LunarRevenge
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            entitys.Add(new Player(Content.Load<Texture2D>("Players/players blue x1"))); //add player //alles x3 voor de x3
+            
         
             textureManager = new TextureManager(Content.Load<Texture2D>("tileset x1"), GraphicsDevice);
-            world = new World(textureManager);
+            world = new WorldLoader(textureManager);
+            entitys.Add(new Player(Content.Load<Texture2D>("Players/players blue x1"), world)); //add player //alles x3 voor de x3
         }
 
 
@@ -82,7 +83,7 @@ namespace LunarRevenge
             world.Draw(spriteBatch);
             foreach (Entity e in entitys)
             {
-                e.Draw(spriteBatch);
+                e.Draw(spriteBatch, GraphicsDevice);
             }
 
             spriteBatch.End();

@@ -8,9 +8,8 @@ using System.Text;
 
 namespace LunarRevenge.Scripts.World
 {
-    class World
+    class WorldLoader
     {
-        List<WorldSprite> worldSprites = new List<WorldSprite>();
         private TextureManager textureManager;
 
         string[,] floorMap = new string[11, 11] {
@@ -27,7 +26,7 @@ namespace LunarRevenge.Scripts.World
         {"","","","","","","","","","" ,"" },
         };
 
-        string[,] obstacles = new string[11, 11] {
+        public static string[,] obstacles = new string[11, 11] {
             {"","","","","","","","","","","", },
             {"","waterTopLeft","waterBottomLeft","","","","","","","","", },
             {"","waterTopMiddle","waterBottomMiddle","","","","","","","","", },
@@ -41,22 +40,24 @@ namespace LunarRevenge.Scripts.World
             {"","","","","","","","","","","", },
         };
 
-        string[,] walls = new string[11, 11] {
+        public static string[,] walls = new string[11, 11] {
             {"","","","","","","","","","","", },
-            {"","","","","","","","","","","", },
-            {"","","","","","","","","","","", },
-            {"","","","","","","","","","","", },
-            {"","","","","","","","","","","", },
-            {"","","","","","","","","","","", },
-            {"","","","","","","","","","","", },
-            {"","","","","","","","","","","", },
-            {"","","","","","","","","","","", },
-            {"","","","","","","","","","","", },
+            {"wallTopMiddle","","","","","","","","","","", },
+            {"wallTopMiddle","","","","","","","","","","", },
+            {"wallTopMiddle","","","","","","","","","","", },
+            {"wallTopMiddle","","","","","wallRightSide","","","","","", },
+            {"wallTopMiddle","","","","","","","","","","", },
+            {"wallTopMiddle","","","","","","","","","","", },
+            {"wallTopMiddle","","","","","","","","","","", },
+            {"wallTopMiddle","","","","","","","","","","", },
+            {"wallTopRight","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide", },
             {"","","","","","","","","","","", },
         };
 
+        public List<Rectangle> rectangles = new List<Rectangle>();
+
         private bool loaded = false;
-        public World(TextureManager textureManager)
+        public WorldLoader(TextureManager textureManager)
         {
             this.textureManager = textureManager;
         }
@@ -76,26 +77,33 @@ namespace LunarRevenge.Scripts.World
 
         private void renderMap(SpriteBatch spriteBatch)
         {
+            int offset = 100;
             if (!loaded)
             {
-                for (int x = 0; x < 11; x++)
+                for (int x = 0; x < walls.GetLength(1); x++)
                 {
-                    for (int y = 0; y < 11; y++)
+                    for (int y = 0; y < walls.GetLength(0); y++)
                     {
                         string floorKey = floorMap[x, y];
                         string obstacleKey = obstacles[x, y];
                         string wallKey = walls[x, y];
                         if (textureManager.worldTextures.ContainsKey(floorKey)) //makes sure everything exist and can load empty squires
                         {
-                            spriteBatch.Draw(textureManager.worldTextures[floorKey], new Vector2(100 + (x * 32), 100 + (y * 32)), Color.White);
+                            spriteBatch.Draw(textureManager.worldTextures[floorKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
                         }
                         if (textureManager.worldTextures.ContainsKey(obstacleKey))
                         {
-                            spriteBatch.Draw(textureManager.worldTextures[obstacleKey], new Vector2(100 + (x * 32), 100 + (y * 32)), Color.White);
+                            spriteBatch.Draw(textureManager.worldTextures[obstacleKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
                         }
                         if (textureManager.worldTextures.ContainsKey(wallKey))
                         {
-                            spriteBatch.Draw(textureManager.worldTextures[wallKey], new Vector2(100 + (x * 32), 100 + (y * 32)), Color.White);
+                            spriteBatch.Draw(textureManager.worldTextures[wallKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
+                            if (wallKey == "wallRightSide") {
+                                rectangles.Add(new Rectangle(offset + 24 + (x * 32), offset + (y * 32), 32, 32));
+                            }if (wallKey == "wallTopMiddle") {
+                                rectangles.Add(new Rectangle(offset + (x * 32), offset + 16 + (y * 32), 32, 32));
+                            }
+                            
                         }
                     }
                 }

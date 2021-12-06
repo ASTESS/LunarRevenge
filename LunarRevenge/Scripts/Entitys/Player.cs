@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using LunarRevenge.Scripts.World;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -9,7 +10,7 @@ namespace LunarRevenge.Scripts.Entitys
 {
     class Player : Entity
     {
-        public Player(Texture2D texture) : base(texture)
+        public Player(Texture2D texture, WorldLoader world) : base(texture, world)
         {
             pos = new Vector2(50,50); //stating position
         }

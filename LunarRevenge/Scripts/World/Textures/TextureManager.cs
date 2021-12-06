@@ -24,6 +24,11 @@ namespace LunarRevenge.Scripts.World.Textures
             worldTextures.Add("waterBottomMiddle", GetTitle(new Rectangle(1120, 96, 32, 32)));
             worldTextures.Add("waterBottomLeft", GetTitle(new Rectangle(1088, 96, 32, 32)));
             worldTextures.Add("waterBottomRight", GetTitle(new Rectangle(1152, 96, 32, 32)));
+
+            worldTextures.Add("wallTopMiddle", GetTitle(new Rectangle(160, 0, 32, 32)));
+            worldTextures.Add("wallTopRight", GetTitle(new Rectangle(256, 0, 32, 32)));
+
+            worldTextures.Add("wallRightSide", GetTitle(new Rectangle(288, 64, 32, 32)));
         }
 
         public Texture2D GetTitle(Rectangle box) //will split up sprite for easy use
