@@ -29,7 +29,7 @@ namespace LunarRevenge.Scripts.Entitys
             right,
         }
 
-        public float health;
+        private float health;
         public Vector2 pos;
         public EntityState state = EntityState.idle;
         public SpriteEffects flip = SpriteEffects.None;
@@ -45,6 +45,16 @@ namespace LunarRevenge.Scripts.Entitys
         public int startingY;
         public int width;
         public int height;
+
+        public void damageEntity(float damage)
+        {
+            health -= damage;
+            if (health <= 0) // player died
+            {
+                health = 0;
+                state = EntityState.death;
+            }
+        }
 
         public Entity(Texture2D texture, WorldLoader world)
         {
@@ -68,6 +78,17 @@ namespace LunarRevenge.Scripts.Entitys
             }
             //spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White
             spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
+
+            Texture2D rect = new Texture2D(graphics, 80, 30);
+
+            Color[] data = new Color[80 * 30];
+            for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
+            rect.SetData(data);
+
+            foreach (Rectangle item in world.rectangles)
+            {
+                spriteBatch.Draw(rect, item, Color.White);
+            }
         }
 
         public void Move(Direction direction)
@@ -96,17 +117,38 @@ namespace LunarRevenge.Scripts.Entitys
 
         public bool collisionCheck(Direction direction) //collisoon check for now untile walls are introduced
         {
-            Console.WriteLine(world.rectangles[0].Right +" : " + collisionBox.Right);
+            Console.WriteLine("Right: " + world.rectangles[0].Right + " : " + collisionBox.Right);
+            Console.WriteLine("Left: " + world.rectangles[0].Left + " : " + collisionBox.Left);
+            Console.WriteLine("Top: " + world.rectangles[0].Top + " : " + collisionBox.Top);
+            Console.WriteLine("Bottom: " + world.rectangles[0].Bottom + " : " + collisionBox.Bottom);
             foreach (Rectangle rec in world.rectangles)
             {
                 if (rec.Left <= collisionBox.Right &&
                     rec.Right >= collisionBox.Right &&
-                    rec.Bottom + 16 >= collisionBox.Bottom &&
-                    rec.Top - 16 <= collisionBox.Top &&
+                    rec.Bottom + 8 >= collisionBox.Bottom &&
+                    rec.Top - 8 <= collisionBox.Top &&
                     direction == Direction.right)
                 {
                     return false;
                 }
+                if (rec.Left <= collisionBox.Left &&
+                    rec.Right >= collisionBox.Left &&
+                    rec.Bottom + 8 >= collisionBox.Bottom &&
+                    rec.Top - 8 <= collisionBox.Top &&
+                    direction == Direction.left)
+                {
+                    return false;
+                }
+                if (rec.Bottom >= collisionBox.Bottom &&
+                    rec.Top  <= collisionBox.Bottom &&
+                    rec.Left - 8 <= collisionBox.Left &&
+                    rec.Right + 8 >= collisionBox.Right &&
+                    direction == Direction.up)
+                {
+                    return false;
+                }
+
+
                 /*if (rec.Intersects(collisionBox)){
                     return false;
                 }*/

@@ -99,11 +99,10 @@ namespace LunarRevenge.Scripts.World
                         {
                             spriteBatch.Draw(textureManager.worldTextures[wallKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
                             if (wallKey == "wallRightSide") {
-                                rectangles.Add(new Rectangle(offset + 24 + (x * 32), offset + (y * 32), 32, 32));
+                                rectangles.Add(new Rectangle(offset + 24 + (x * 32), offset + (y * 32), 8, 32));
                             }if (wallKey == "wallTopMiddle") {
-                                rectangles.Add(new Rectangle(offset + (x * 32), offset + 16 + (y * 32), 32, 32));
-                            }
-                            
+                                rectangles.Add(new Rectangle(offset + (x * 32), offset + 16 + (y * 32), 32, 10));
+                            } 
                         }
                     }
                 }
