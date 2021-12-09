@@ -1,5 +1,6 @@
 
 .vs/LunarRevenge/DesignTimeBuild/.dtbcache.v2
+<<<<<<< Updated upstream
 .vs/LunarRevenge/v16/.suo
 LunarRevenge/bin/Debug/netcoreapp3.1/LunarRevenge.dll
 LunarRevenge/bin/Debug/netcoreapp3.1/LunarRevenge.exe
@@ -76,3 +77,12 @@ LunarRevenge/obj/LunarRevenge.csproj.nuget.g.props
 LunarRevenge/obj/LunarRevenge.csproj.nuget.g.targets
 LunarRevenge/obj/project.assets.json
 LunarRevenge/obj/project.nuget.cache
+=======
+.vs/LunarRevenge/v17/.futdcache.v1
+.vs/LunarRevenge/v17/.suo
+LunarRevenge/bin/Debug/netcoreapp3.1/LunarRevenge.dll
+LunarRevenge/bin/Debug/netcoreapp3.1/LunarRevenge.pdb
+LunarRevenge/obj/Debug/netcoreapp3.1/LunarRevenge.csproj.CoreCompileInputs.cache
+LunarRevenge/obj/Debug/netcoreapp3.1/LunarRevenge.dll
+LunarRevenge/obj/Debug/netcoreapp3.1/LunarRevenge.pdb
+>>>>>>> Stashed changes
