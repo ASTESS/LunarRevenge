@@ -48,6 +48,9 @@ namespace LunarRevenge.Scripts.World.Textures
 
             // Prop Textures
             worldTextures.Add("testprops", GetProp(new Rectangle(0, 0, 32, 32)));
+            worldTextures.Add("ComputerON", GetProp(new Rectangle(0, 62, 32, 32)));
+            worldTextures.Add("ComputerOFF", GetProp(new Rectangle(0, 94, 32, 32)));
+            worldTextures.Add("MonitorOFF", GetProp(new Rectangle(9, 169, 47, 22)));
         }
 
         public Texture2D GetProp(Rectangle box) 
@@ -59,8 +62,7 @@ namespace LunarRevenge.Scripts.World.Textures
             return cropTexture;
         }
 
-        public Texture2D GetTile(Rectangle box) //will split up sprite for easy use
-                                                 //code idea from https://gamedev.stackexchange.com/questions/35358/create-a-texture2d-from-larger-image
+        public Texture2D GetTile(Rectangle box) //will split up sprite for easy use, code idea from https://gamedev.stackexchange.com/questions/35358/create-a-texture2d-from-larger-image
         {
             Texture2D cropTexture = new Texture2D(graphicsDevice, box.Width, box.Height);
             Color[] data = new Color[box.Width * box.Height];

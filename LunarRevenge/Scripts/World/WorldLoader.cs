@@ -27,7 +27,7 @@ namespace LunarRevenge.Scripts.World
         };
 
         public static string[,] props = new string[11, 11] {            
-            {"","","","","","","","","","","", },
+            {"ComputerOFF","ComputerON","MonitorOFF","","","","","","","","", },
             {"","","","","","","","","","","", },
             {"","","","","","","","","","","", },
             {"","","","","","","","","","","", },
@@ -107,10 +107,6 @@ namespace LunarRevenge.Scripts.World
                         {
                             spriteBatch.Draw(textureManager.worldTextures[floorKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
                         }
-                        if (textureManager.worldTextures.ContainsKey(propKey))
-                        {
-                            spriteBatch.Draw(textureManager.worldTextures[propKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
-                        }
                         if (textureManager.worldTextures.ContainsKey(obstacleKey))
                         {
                             spriteBatch.Draw(textureManager.worldTextures[obstacleKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
@@ -123,6 +119,10 @@ namespace LunarRevenge.Scripts.World
                             }if (wallKey == "wallTopMiddle") {
                                 rectangles.Add(new Rectangle(offset + (x * 32), offset + 16 + (y * 32), 32, 10));
                             } 
+                        }
+                        if (textureManager.worldTextures.ContainsKey(propKey))
+                        {
+                            spriteBatch.Draw(textureManager.worldTextures[propKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
                         }
                     }
                 }
