@@ -41,7 +41,7 @@ namespace LunarRevenge
 
             
         
-            textureManager = new TextureManager(Content.Load<Texture2D>("tileset x1"), GraphicsDevice);
+            textureManager = new TextureManager(Content.Load<Texture2D>("tileset x1"), Content.Load<Texture2D>("Props and Items/props and items x1"), GraphicsDevice);
             world = new WorldLoader(textureManager);
             entitys.Add(new Player(Content.Load<Texture2D>("Players/players blue x1"), world)); //add player //alles x3 voor de x3
         }

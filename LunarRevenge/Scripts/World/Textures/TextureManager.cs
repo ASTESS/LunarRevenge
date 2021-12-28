@@ -9,14 +9,16 @@ namespace LunarRevenge.Scripts.World.Textures
 {
     class TextureManager
     {
-        public Dictionary<string,Texture2D> worldTextures = new Dictionary<string, Texture2D>();
+        public Dictionary<string, Texture2D> worldTextures = new Dictionary<string, Texture2D>();
         private Texture2D texture;
+        private Texture2D props;
         private GraphicsDevice graphicsDevice;
         private Color[] color = new Color[9216];
-        public TextureManager(Texture2D texture, GraphicsDevice graphics)
+        public TextureManager(Texture2D texture, Texture2D props, GraphicsDevice graphics)
         {
             this.texture = texture;
             this.graphicsDevice = graphics;
+            this.props = props;
 
             // Texture Explaination:
             // new Rectangle(x, y, z, z)
@@ -45,7 +47,16 @@ namespace LunarRevenge.Scripts.World.Textures
             worldTextures.Add("wallRightSide", GetTitle(new Rectangle(288, 64, 32, 32)));
 
             // Prop Textures
+            worldTextures.Add("testprops", GetProp(new Rectangle(0, 0, 32, 32)));
+        }
 
+        public Texture2D GetProp(Rectangle box) 
+        {
+            Texture2D cropTexture = new Texture2D(graphicsDevice, box.Width, box.Height);
+            Color[] data = new Color[box.Width * box.Height];
+            props.GetData(0, box, data, 0, data.Length);
+            cropTexture.SetData(data);
+            return cropTexture;
         }
 
         public Texture2D GetTitle(Rectangle box) //will split up sprite for easy use
