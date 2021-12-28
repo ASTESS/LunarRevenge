@@ -85,10 +85,10 @@ namespace LunarRevenge.Scripts.Entitys
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
             rect.SetData(data);
 
-            foreach (Rectangle item in world.rectangles)
+            /*foreach (Rectangle item in world.rectangles)
             {
                 spriteBatch.Draw(rect, item, Color.White);
-            }
+            }*/
         }
 
         public void Move(Direction direction)

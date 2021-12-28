@@ -118,7 +118,11 @@ namespace LunarRevenge.Scripts.World
                                 rectangles.Add(new Rectangle(offset + 24 + (x * 32), offset + (y * 32), 8, 32));
                             }if (wallKey == "wallTopMiddle") {
                                 rectangles.Add(new Rectangle(offset + (x * 32), offset + 16 + (y * 32), 32, 10));
-                            } 
+                            }if (wallKey == "wallLeftSide"){
+                                rectangles.Add(new Rectangle(offset + (x * 32), offset + (y * 32), 8, 32));
+                            }if (wallKey == "wallBottomMiddle"){
+                                rectangles.Add(new Rectangle(offset + (x * 32), offset + (y * 32), 32, 10));
+                            }
                         }
                         if (textureManager.worldTextures.ContainsKey(propKey))
                         {
