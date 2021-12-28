@@ -57,8 +57,8 @@ namespace LunarRevenge.Scripts.World
         public static string[,] walls = new string[11, 11] {
             {"","","","","","","","","","","", },
             {"wallTopMiddle","","","","","","","","","","", },
-            {"wallTopMiddle","","","","","","","","","","", },
-            {"wallTopMiddle","","","","","","","","","","", },
+            {"wallTopMiddle","","","","","","","","","wallBottomMiddle","", },
+            {"wallTopMiddle","","","","","wallLeftSide","","","","wallBottomMiddle","", },
             {"wallTopMiddle","","","","","wallRightSide","","","","","", },
             {"wallTopMiddle","","","","","","","","","","", },
             {"wallTopMiddle","","","","","","","","","","", },
