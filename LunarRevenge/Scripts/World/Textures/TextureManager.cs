@@ -17,7 +17,21 @@ namespace LunarRevenge.Scripts.World.Textures
         {
             this.texture = texture;
             this.graphicsDevice = graphics;
+
+            // Texture Explaination:
+            // new Rectangle(x, y, z, z)
+            // x = X Coordinate of LeftTop of the texture
+            // y = Y Coordinate of LeffTop of the texture
+            // z = The texture size (example: 32x32)
+
+            // Floor Textures
             worldTextures.Add("floor", GetTitle(new Rectangle(1088, 32, 32, 32)));
+            worldTextures.Add("floorVentBlack", GetTitle(new Rectangle(1024, 32, 32, 32)));
+            worldTextures.Add("floorVentGreen", GetTitle(new Rectangle(1152, 32, 32, 32)));
+            worldTextures.Add("floorCenter", GetTitle(new Rectangle(1024, 64, 32, 32)));
+            worldTextures.Add("floorQuadTile", GetTitle(new Rectangle(1056, 32, 32, 32)));
+
+            // Acid/Water Textures
             worldTextures.Add("waterTopMiddle", GetTitle(new Rectangle(1120, 64, 32, 32)));
             worldTextures.Add("waterTopLeft", GetTitle(new Rectangle(1088, 64, 32, 32)));
             worldTextures.Add("waterTopRight", GetTitle(new Rectangle(1152, 64, 32, 32)));
@@ -25,10 +39,13 @@ namespace LunarRevenge.Scripts.World.Textures
             worldTextures.Add("waterBottomLeft", GetTitle(new Rectangle(1088, 96, 32, 32)));
             worldTextures.Add("waterBottomRight", GetTitle(new Rectangle(1152, 96, 32, 32)));
 
+            // Wall Textures
             worldTextures.Add("wallTopMiddle", GetTitle(new Rectangle(160, 0, 32, 32)));
             worldTextures.Add("wallTopRight", GetTitle(new Rectangle(256, 0, 32, 32)));
-
             worldTextures.Add("wallRightSide", GetTitle(new Rectangle(288, 64, 32, 32)));
+
+            // Prop Textures
+
         }
 
         public Texture2D GetTitle(Rectangle box) //will split up sprite for easy use

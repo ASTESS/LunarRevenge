@@ -36,7 +36,7 @@ namespace LunarRevenge.Scripts.Entitys
 
         private Rectangle collisionBox = Rectangle.Empty;
 
-        protected float speed = 5f;
+        protected float speed = 2f;
 
         protected Texture2D texture;
         protected WorldLoader world;

@@ -1,21 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\antho\\Desktop\\LunarRevenge\\LunarRevenge\\LunarRevenge.csproj": {}
+    "C:\\Users\\matth\\Documents\\GitHub\\LunarRevenge\\LunarRevenge\\LunarRevenge.csproj": {}
   },
   "projects": {
-    "C:\\Users\\antho\\Desktop\\LunarRevenge\\LunarRevenge\\LunarRevenge.csproj": {
+    "C:\\Users\\matth\\Documents\\GitHub\\LunarRevenge\\LunarRevenge\\LunarRevenge.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\antho\\Desktop\\LunarRevenge\\LunarRevenge\\LunarRevenge.csproj",
+        "projectUniqueName": "C:\\Users\\matth\\Documents\\GitHub\\LunarRevenge\\LunarRevenge\\LunarRevenge.csproj",
         "projectName": "LunarRevenge",
-        "projectPath": "C:\\Users\\antho\\Desktop\\LunarRevenge\\LunarRevenge\\LunarRevenge.csproj",
-        "packagesPath": "C:\\Users\\antho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\antho\\Desktop\\LunarRevenge\\LunarRevenge\\obj\\",
+        "projectPath": "C:\\Users\\matth\\Documents\\GitHub\\LunarRevenge\\LunarRevenge\\LunarRevenge.csproj",
+        "packagesPath": "C:\\Users\\matth\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matth\\Documents\\GitHub\\LunarRevenge\\LunarRevenge\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\antho\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\matth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -62,12 +68,9 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
-            },
-            "Microsoft.WindowsDesktop.App.WindowsForms": {
-              "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
