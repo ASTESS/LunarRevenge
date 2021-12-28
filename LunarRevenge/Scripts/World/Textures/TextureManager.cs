@@ -27,24 +27,24 @@ namespace LunarRevenge.Scripts.World.Textures
             // z = The texture size (example: 32x32)
 
             // Floor Textures
-            worldTextures.Add("floor", GetTitle(new Rectangle(1088, 32, 32, 32)));
-            worldTextures.Add("floorVentBlack", GetTitle(new Rectangle(1024, 32, 32, 32)));
-            worldTextures.Add("floorVentGreen", GetTitle(new Rectangle(1152, 32, 32, 32)));
-            worldTextures.Add("floorCenter", GetTitle(new Rectangle(1024, 64, 32, 32)));
-            worldTextures.Add("floorQuadTile", GetTitle(new Rectangle(1056, 32, 32, 32)));
+            worldTextures.Add("floor", GetTile(new Rectangle(1088, 32, 32, 32)));
+            worldTextures.Add("floorVentBlack", GetTile(new Rectangle(1024, 32, 32, 32)));
+            worldTextures.Add("floorVentGreen", GetTile(new Rectangle(1152, 32, 32, 32)));
+            worldTextures.Add("floorCenter", GetTile(new Rectangle(1024, 64, 32, 32)));
+            worldTextures.Add("floorQuadTile", GetTile(new Rectangle(1056, 32, 32, 32)));
 
             // Acid/Water Textures
-            worldTextures.Add("waterTopMiddle", GetTitle(new Rectangle(1120, 64, 32, 32)));
-            worldTextures.Add("waterTopLeft", GetTitle(new Rectangle(1088, 64, 32, 32)));
-            worldTextures.Add("waterTopRight", GetTitle(new Rectangle(1152, 64, 32, 32)));
-            worldTextures.Add("waterBottomMiddle", GetTitle(new Rectangle(1120, 96, 32, 32)));
-            worldTextures.Add("waterBottomLeft", GetTitle(new Rectangle(1088, 96, 32, 32)));
-            worldTextures.Add("waterBottomRight", GetTitle(new Rectangle(1152, 96, 32, 32)));
+            worldTextures.Add("waterTopMiddle", GetTile(new Rectangle(1120, 64, 32, 32)));
+            worldTextures.Add("waterTopLeft", GetTile(new Rectangle(1088, 64, 32, 32)));
+            worldTextures.Add("waterTopRight", GetTile(new Rectangle(1152, 64, 32, 32)));
+            worldTextures.Add("waterBottomMiddle", GetTile(new Rectangle(1120, 96, 32, 32)));
+            worldTextures.Add("waterBottomLeft", GetTile(new Rectangle(1088, 96, 32, 32)));
+            worldTextures.Add("waterBottomRight", GetTile(new Rectangle(1152, 96, 32, 32)));
 
             // Wall Textures
-            worldTextures.Add("wallTopMiddle", GetTitle(new Rectangle(160, 0, 32, 32)));
-            worldTextures.Add("wallTopRight", GetTitle(new Rectangle(256, 0, 32, 32)));
-            worldTextures.Add("wallRightSide", GetTitle(new Rectangle(288, 64, 32, 32)));
+            worldTextures.Add("wallTopMiddle", GetTile(new Rectangle(160, 0, 32, 32)));
+            worldTextures.Add("wallTopRight", GetTile(new Rectangle(256, 0, 32, 32)));
+            worldTextures.Add("wallRightSide", GetTile(new Rectangle(288, 64, 32, 32)));
 
             // Prop Textures
             worldTextures.Add("testprops", GetProp(new Rectangle(0, 0, 32, 32)));
@@ -59,7 +59,7 @@ namespace LunarRevenge.Scripts.World.Textures
             return cropTexture;
         }
 
-        public Texture2D GetTitle(Rectangle box) //will split up sprite for easy use
+        public Texture2D GetTile(Rectangle box) //will split up sprite for easy use
                                                  //code idea from https://gamedev.stackexchange.com/questions/35358/create-a-texture2d-from-larger-image
         {
             Texture2D cropTexture = new Texture2D(graphicsDevice, box.Width, box.Height);

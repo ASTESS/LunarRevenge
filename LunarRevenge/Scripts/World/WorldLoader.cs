@@ -23,7 +23,21 @@ namespace LunarRevenge.Scripts.World
         {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
         {"","floor","floor","floor","floor","floor","floor","floorQuadTile","floorCenter","floor" ,"" },
         {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
-        {"","","","","","","","","","" ,"" },
+        {"","","","","","","","","","" ,"" }
+        };
+
+        public static string[,] props = new string[11, 11] {            
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", }
         };
 
         public static string[,] obstacles = new string[11, 11] {
@@ -37,7 +51,7 @@ namespace LunarRevenge.Scripts.World
             {"","","","","","","","","","","", },
             {"","","","","","","","","","","", },
             {"","","","","","","","","","","", },
-            {"","","","","","","","","","","", },
+            {"","","","","","","","","","","", }
         };
 
         public static string[,] walls = new string[11, 11] {
@@ -87,9 +101,15 @@ namespace LunarRevenge.Scripts.World
                         string floorKey = floorMap[x, y];
                         string obstacleKey = obstacles[x, y];
                         string wallKey = walls[x, y];
+                        string propKey = props[x, y];
+
                         if (textureManager.worldTextures.ContainsKey(floorKey)) //makes sure everything exist and can load empty squires
                         {
                             spriteBatch.Draw(textureManager.worldTextures[floorKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
+                        }
+                        if (textureManager.worldTextures.ContainsKey(propKey))
+                        {
+                            spriteBatch.Draw(textureManager.worldTextures[propKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
                         }
                         if (textureManager.worldTextures.ContainsKey(obstacleKey))
                         {
