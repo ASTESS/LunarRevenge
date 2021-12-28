@@ -45,8 +45,14 @@ namespace LunarRevenge.Scripts.World.Textures
             worldTextures.Add("wallTopMiddle", GetTile(new Rectangle(160, 0, 32, 32)));
             worldTextures.Add("wallBottomMiddle", GetTile(new Rectangle(160, 320, 32, 32)));
             worldTextures.Add("wallTopRight", GetTile(new Rectangle(256, 0, 32, 32)));
+            worldTextures.Add("wallTopLeft", GetTile(new Rectangle(64, 0, 32, 32)));
             worldTextures.Add("wallRightSide", GetTile(new Rectangle(288, 64, 32, 32)));
             worldTextures.Add("wallLeftSide", GetTile(new Rectangle(32, 64, 32, 32)));
+            worldTextures.Add("wallCornerLeftTop", GetTile(new Rectangle(128, 256, 32, 32)));
+            worldTextures.Add("wallCornerRightTop", GetTile(new Rectangle(192, 256, 32, 32)));
+            worldTextures.Add("wallCornerLeftTopEnding", GetTile(new Rectangle(128, 288, 32, 32)));
+            worldTextures.Add("wallCornerRightTopEnding", GetTile(new Rectangle(192, 288, 32, 32)));
+
 
             // Prop Textures
             worldTextures.Add("testprops", GetProp(new Rectangle(0, 0, 32, 32)));
