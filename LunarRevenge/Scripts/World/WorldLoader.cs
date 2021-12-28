@@ -15,7 +15,7 @@ namespace LunarRevenge.Scripts.World
         string[,] floorMap = new string[11, 11] {
         {"","","","","","","","","","" ,"" },
         {"","","","floor","floor","floor","floor","floor","floor","floor" ,"" },
-        {"","","","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","","","floorVentGreen","floor","floor","floor","floor","floor","floor" ,"" },
         {"","","","floor","floor","floor","floor","floor","floor","floor" ,"" },
         {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
         {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
@@ -43,7 +43,7 @@ namespace LunarRevenge.Scripts.World
         public static string[,] obstacles = new string[11, 11] {
             {"","","","","","","","","","","", },
             {"","waterTopLeft","waterBottomLeft","","","","","","","","", },
-            {"","waterTopMiddle","waterBottomMiddle","waterBottomMiddle","","","","","","","", },
+            {"","waterTopMiddle","waterBottomMiddle","","","","","","","","", },
             {"","waterTopRight","waterBottomRight","","","","","","","","", },
             {"","","","","","","","","","","", },
             {"","","","","","","","","","","", },
@@ -56,7 +56,7 @@ namespace LunarRevenge.Scripts.World
 
         public static string[,] walls = new string[11, 11] {
             {"","","","","","","","","","","", },
-            {"wallTopMiddle","","","","","","","","","","", },
+            {"wallTopLeft","wallLeftSide","wallLeftSide","wallLeftSide","","","","","","","", },
             {"wallTopMiddle","","","","","","","","","wallBottomMiddle","", },
             {"wallTopMiddle","","","","","wallLeftSide","","","","wallBottomMiddle","", },
             {"wallTopMiddle","","","","","wallRightSide","","","","","", },
