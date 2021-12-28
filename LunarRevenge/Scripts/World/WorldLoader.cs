@@ -64,7 +64,7 @@ namespace LunarRevenge.Scripts.World
             {"wallTopMiddle","","","","","","","","","","", },
             {"wallTopMiddle","","","","","","","","","","", },
             {"wallTopMiddle","","","","","","","","","","", },
-            {"wallTopRight","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide", },
+            {"wallTopRight","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallCornerRightTopEnding","wallRightSide","wallRightSide","wallRightSide","wallRightSide", },
             {"","","","","","","","","","","", },
         };
 
@@ -114,15 +114,28 @@ namespace LunarRevenge.Scripts.World
                         if (textureManager.worldTextures.ContainsKey(wallKey))
                         {
                             spriteBatch.Draw(textureManager.worldTextures[wallKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
-                            if (wallKey == "wallRightSide") {
+
+                            if (wallKey == "wallRightSide" ||
+                                wallKey == "wallTopRight") 
+                            {
                                 rectangles.Add(new Rectangle(offset + 24 + (x * 32), offset + (y * 32), 8, 32));
-                            }if (wallKey == "wallTopMiddle") {
+                            }
+                            
+                            if (wallKey == "wallTopMiddle" ||
+                                wallKey == "wallBottomMiddle" ||
+                                wallKey == "wallTopRight" ||
+                                wallKey == "wallTopLeft") 
+                            {
                                 rectangles.Add(new Rectangle(offset + (x * 32), offset + 16 + (y * 32), 32, 10));
-                            }if (wallKey == "wallLeftSide"){
-                                rectangles.Add(new Rectangle(offset + (x * 32), offset + (y * 32), 8, 32));
-                            }if (wallKey == "wallBottomMiddle"){
                                 rectangles.Add(new Rectangle(offset + (x * 32), offset + (y * 32), 32, 10));
                             }
+
+                            if (wallKey == "wallLeftSide" ||
+                                wallKey == "wallTopLeft")
+                            {
+                                rectangles.Add(new Rectangle(offset + (x * 32), offset + (y * 32), 8, 32));
+                            }
+
                         }
                         if (textureManager.worldTextures.ContainsKey(propKey))
                         {
