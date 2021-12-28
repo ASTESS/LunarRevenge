@@ -117,10 +117,6 @@ namespace LunarRevenge.Scripts.Entitys
 
         public bool collisionCheck(Direction direction) //collisoon check for now untile walls are introduced
         {
-            Console.WriteLine("Right: " + world.rectangles[0].Right + " : " + collisionBox.Right);
-            Console.WriteLine("Left: " + world.rectangles[0].Left + " : " + collisionBox.Left);
-            Console.WriteLine("Top: " + world.rectangles[0].Top + " : " + collisionBox.Top);
-            Console.WriteLine("Bottom: " + world.rectangles[0].Bottom + " : " + collisionBox.Bottom);
             foreach (Rectangle rec in world.rectangles)
             {
                 if (rec.Left <= collisionBox.Right &&
@@ -139,11 +135,19 @@ namespace LunarRevenge.Scripts.Entitys
                 {
                     return false;
                 }
-                if (rec.Bottom >= collisionBox.Bottom &&
-                    rec.Top  <= collisionBox.Bottom &&
+                if (rec.Bottom >= collisionBox.Top &&
+                    rec.Top <= collisionBox.Top
+                    && rec.Right +8 >= collisionBox.Right &&
                     rec.Left - 8 <= collisionBox.Left &&
-                    rec.Right + 8 >= collisionBox.Right &&
                     direction == Direction.up)
+                {
+                    return false;
+                }
+                if (rec.Top <= collisionBox.Bottom &&
+                    rec.Bottom >= collisionBox.Bottom
+                    && rec.Right + 8 >= collisionBox.Right &&
+                    rec.Left - 8 <= collisionBox.Left &&
+                    direction == Direction.down)
                 {
                     return false;
                 }

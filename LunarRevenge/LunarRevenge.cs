@@ -57,6 +57,13 @@ namespace LunarRevenge
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                     Exit();
 
+                if (Keyboard.GetState().IsKeyDown(Keys.F))
+                {
+                    graphics.ToggleFullScreen();
+
+                    //graphics.ApplyChanges();
+                }
+
                 foreach (Entity e in entitys)
                 {
                     e.Update(gameTime);
