@@ -91,6 +91,7 @@ namespace LunarRevenge.Scripts.World
 
         private void renderMap(SpriteBatch spriteBatch)
         {
+            rectangles.Clear();
             int offset = 100;
             if (!loaded)
             {
