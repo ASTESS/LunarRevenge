@@ -62,6 +62,11 @@ namespace LunarRevenge.Scripts.World.Textures
             worldTextures.Add("wallCornerRightTopEnding", GetTile(new Rectangle(192, 288, 32, 32)));
 
 
+            // Wall Decoration Textures
+            worldTextures.Add("wall_yellow_stripe", GetTile(new Rectangle(161, 384, 32, 32)));
+
+            //161 384
+
             // Prop Textures
             worldTextures.Add("testprops", GetProp(new Rectangle(0, 0, 32, 32)));
             worldTextures.Add("ComputerON", GetProp(new Rectangle(0, 62, 32, 32)));

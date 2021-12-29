@@ -80,7 +80,7 @@ namespace LunarRevenge
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             //ending to split layers
             spriteBatch.Begin();
