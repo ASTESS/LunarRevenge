@@ -67,6 +67,18 @@ namespace LunarRevenge.Scripts.World.Textures
             worldTextures.Add("ComputerON", GetProp(new Rectangle(0, 62, 32, 32)));
             worldTextures.Add("ComputerOFF", GetProp(new Rectangle(0, 94, 32, 32)));
             worldTextures.Add("MonitorOFF", GetProp(new Rectangle(9, 169, 47, 22)));
+            worldTextures.Add("greenStain", GetProp(new Rectangle(0, 32, 32, 32)));
+            worldTextures.Add("greenStain_2", GetProp(new Rectangle(32, 32, 32, 32)));
+            worldTextures.Add("waterStain", GetProp(new Rectangle(96, 32, 32, 32)));
+            worldTextures.Add("waterStain_2", GetProp(new Rectangle(128, 32, 32, 32)));
+            worldTextures.Add("gate_small_locked", GetProp(new Rectangle(0, 544, 32, 32)));
+            worldTextures.Add("gate_small_locked_1", GetProp(new Rectangle(64, 544, 32, 32)));
+            worldTextures.Add("gate_small_locked_2", GetProp(new Rectangle(96, 544, 32, 32)));
+            worldTextures.Add("gate_small_locked_3", GetProp(new Rectangle(128, 544, 32, 32)));
+            worldTextures.Add("chest_locked", GetProp(new Rectangle(352, 191, 32, 32)));
+            worldTextures.Add("chest_open", GetProp(new Rectangle(384, 191, 32, 32)));
+            worldTextures.Add("chest_locked_1", GetProp(new Rectangle(416, 191, 32, 32)));
+            worldTextures.Add("chest_unlocked_1", GetProp(new Rectangle(448, 191, 32, 32)));
         }
 
         public Texture2D GetProp(Rectangle box) 
