@@ -14,7 +14,7 @@ namespace LunarRevenge.Scripts.World
 
         string[,] floorMap = new string[11, 11] {
         {"","","","","","","","","","" ,"" },
-        {"","","","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","","","floor","floor","floor","floor","floor","floor","" ,"" },
         {"","","","floorVentGreen","floor","floor","floor","floor","floor","floor" ,"" },
         {"","","","floor","floor","floor","floor","floor","floor","floor" ,"" },
         {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
@@ -22,16 +22,16 @@ namespace LunarRevenge.Scripts.World
         {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
         {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
         {"","floor","floor","floor","floor","floor","floor","floorQuadTile","floorCenter","floor" ,"" },
-        {"","floor","floor","floor","floor","floor","floor","floor","floor","floor" ,"" },
+        {"","floor","floor","floor","floor","floor","floor","floor","floor","" ,"" },
         {"","","","","","","","","","" ,"" }
         };
 
         public static string[,] props = new string[11, 11] {            
-            {"ComputerOFF","ComputerON","MonitorOFF","","","","","","","","", },
             {"","","","","","","","","","","", },
             {"","","","","","","","","","","", },
             {"","","","","","","","","","","", },
             {"","","","","","","","","","","", },
+            {"","","","","ComputerON","","","","","","", },
             {"","","","","","","","","","","", },
             {"","","","","","","","","","","", },
             {"","","","","","","","","","","", },
@@ -56,15 +56,15 @@ namespace LunarRevenge.Scripts.World
 
         public static string[,] walls = new string[11, 11] {
             {"","","","","","","","","","","", },
-            {"wallTopLeft","wallLeftSide","wallLeftSide","wallLeftSide","","","","","","","", },
+            {"wallTopLeft","wallLeftSide","wallLeftSide","wallLeftSideEndBottom","","wallLeftSideEndTop","wallLeftSide","wallLeftSide","wallLeftSide","wallBottomLeft","", },
             {"wallTopMiddle","","","","","","","","","wallBottomMiddle","", },
-            {"wallTopMiddle","","","","","wallLeftSide","","","","wallBottomMiddle","", },
-            {"wallTopMiddle","","","","","wallRightSide","","","","","", },
             {"wallTopMiddle","","","","","","","","","","", },
             {"wallTopMiddle","","","","","","","","","","", },
             {"wallTopMiddle","","","","","","","","","","", },
             {"wallTopMiddle","","","","","","","","","","", },
-            {"wallTopRight","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallCornerRightTopEnding","wallRightSide","wallRightSide","wallRightSide","wallRightSide", },
+            {"wallTopMiddle","","","","","","","","","","", },
+            {"wallTopMiddle","","","","","","","","","wallBottomMiddle","", },
+            {"wallTopRight","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallRightSide","wallCornerRightTopEnding","wallRightSide","wallRightSide","wallBottomRight","", },
             {"","","","","","","","","","","", },
         };
 
@@ -124,14 +124,20 @@ namespace LunarRevenge.Scripts.World
                             if (wallKey == "wallTopMiddle" ||
                                 wallKey == "wallBottomMiddle" ||
                                 wallKey == "wallTopRight" ||
-                                wallKey == "wallTopLeft") 
+                                wallKey == "wallTopLeft" ||
+                                wallKey == "wallBottomLeft" ||
+                                wallKey == "wallBottomRight"
+                                )
                             {
                                 rectangles.Add(new Rectangle(offset + (x * 32), offset + 16 + (y * 32), 32, 10));
                                 rectangles.Add(new Rectangle(offset + (x * 32), offset + (y * 32), 32, 10));
                             }
 
                             if (wallKey == "wallLeftSide" ||
-                                wallKey == "wallTopLeft")
+                                wallKey == "wallTopLeft" ||
+                                wallKey == "wallLeftSideEndBottom" ||
+                                wallKey == "wallLeftSideEndTop"
+                                )
                             {
                                 rectangles.Add(new Rectangle(offset + (x * 32), offset + (y * 32), 8, 32));
                             }

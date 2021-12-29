@@ -43,11 +43,19 @@ namespace LunarRevenge.Scripts.World.Textures
 
             // Wall Textures
             worldTextures.Add("wallTopMiddle", GetTile(new Rectangle(160, 0, 32, 32)));
+            worldTextures.Add("wallTopMiddleEndLeft", GetTile(new Rectangle(160, 0, 32, 32)));
+            worldTextures.Add("wallTopMiddleEndRight", GetTile(new Rectangle(160, 0, 32, 32)));
             worldTextures.Add("wallBottomMiddle", GetTile(new Rectangle(160, 320, 32, 32)));
+            worldTextures.Add("wallBottomMiddleEndLeft", GetTile(new Rectangle(160, 320, 32, 32)));
+            worldTextures.Add("wallBottomMiddleEndRight", GetTile(new Rectangle(160, 320, 32, 32)));
             worldTextures.Add("wallTopRight", GetTile(new Rectangle(256, 0, 32, 32)));
             worldTextures.Add("wallTopLeft", GetTile(new Rectangle(64, 0, 32, 32)));
+            worldTextures.Add("wallBottomRight", GetTile(new Rectangle(256, 320, 32, 32)));
+            worldTextures.Add("wallBottomLeft", GetTile(new Rectangle(64, 320, 32, 32)));
             worldTextures.Add("wallRightSide", GetTile(new Rectangle(288, 64, 32, 32)));
             worldTextures.Add("wallLeftSide", GetTile(new Rectangle(32, 64, 32, 32)));
+            worldTextures.Add("wallLeftSideEndBottom", GetTile(new Rectangle(32, 96, 32, 32)));
+            worldTextures.Add("wallLeftSideEndTop", GetTile(new Rectangle(32, 128, 32, 32)));
             worldTextures.Add("wallCornerLeftTop", GetTile(new Rectangle(128, 256, 32, 32)));
             worldTextures.Add("wallCornerRightTop", GetTile(new Rectangle(192, 256, 32, 32)));
             worldTextures.Add("wallCornerLeftTopEnding", GetTile(new Rectangle(128, 288, 32, 32)));

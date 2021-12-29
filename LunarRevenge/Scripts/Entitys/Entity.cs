@@ -105,12 +105,12 @@ namespace LunarRevenge.Scripts.Entitys
                 if (direction == Direction.left)
                 {
                     pos.X -= speed;
-                    flip = SpriteEffects.FlipHorizontally; //look left
+                    flip = SpriteEffects.FlipHorizontally; // Turn character to the left
                 }
                 if (direction == Direction.right)
                 {
                     pos.X += speed;
-                    flip = SpriteEffects.None; //look right
+                    flip = SpriteEffects.None; // Turn Character to the right
                 }
             }       
         }
