@@ -90,7 +90,7 @@ namespace LunarRevenge
             world.Draw(spriteBatch);
             foreach (Entity e in entitys)
             {
-                e.Draw(spriteBatch, GraphicsDevice);
+                e.Draw(spriteBatch, GraphicsDevice, gameTime);
             }
 
             spriteBatch.End();

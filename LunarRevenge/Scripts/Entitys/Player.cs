@@ -25,6 +25,14 @@ namespace LunarRevenge.Scripts.Entitys
         private void KeyboardInput()
         {
             KeyboardState state = Keyboard.GetState();
+            if (state.GetPressedKeys().Length > 0)
+            {
+                this.state = EntityState.running;
+            }
+            else
+            {
+                this.state = EntityState.idle;
+            }
 
             if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.Up))
             {

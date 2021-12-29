@@ -45,6 +45,11 @@ namespace LunarRevenge.Scripts.Entitys
         public int startingY;
         public int width;
         public int height;
+        public int frames;
+
+
+        private int currentX;
+        int timeFromPreFrame = 0;
 
         public void damageEntity(float damage)
         {
@@ -64,31 +69,62 @@ namespace LunarRevenge.Scripts.Entitys
 
         public virtual void Update(GameTime gameTime)
         {
-            collisionBox = new Rectangle((int)pos.X - width / 2, (int)pos.Y - height / 2, width, height);
+            collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch, GraphicsDevice graphics)
+        public virtual void Draw(SpriteBatch spriteBatch, GraphicsDevice graphics, GameTime gameTime)
         {
             if (state == EntityState.idle)
             {
-                startingX = 10;
-                startingY = 16;
-                width = 12;
-                height = 16;
+                startingX = 0;
+                startingY = 0;
+                width = 32;
+                height = 32;
+                frames = 1;
+                currentX = startingX;
+            }
+            if (state == EntityState.running)
+            {
+                startingX = 0;
+                startingY = 96;
+                width = 32;
+                height = 32;
+                frames = 4;
+            }
+
+            timeFromPreFrame += gameTime.ElapsedGameTime.Milliseconds;
+            if (timeFromPreFrame > 150)
+            {
+                timeFromPreFrame -= 150;
+                if (frames > 1)
+                {
+                    currentX += width;
+                    if (32 * (frames - 1) < currentX)
+                    {
+                        currentX = startingX;
+                    }
+                }
             }
             //spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White
-            spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
+            spriteBatch.Draw(texture, pos, new Rectangle(currentX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
 
+
+            //for testing collision boxes
             Texture2D rect = new Texture2D(graphics, 80, 30);
-
             Color[] data = new Color[80 * 30];
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
             rect.SetData(data);
 
-            /*foreach (Rectangle item in world.rectangles)
+            foreach (Rectangle item in world.rectangles)
             {
                 spriteBatch.Draw(rect, item, Color.White);
-            }*/
+            }
+
+            Texture2D rect2 = new Texture2D(graphics, 80, 30);
+            Color[] data2 = new Color[80 * 30];
+            for (int i = 0; i < data2.Length; ++i) data2[i] = Color.Red;
+            rect2.SetData(data2);
+            //spriteBatch.Draw(rect2, collisionBox, Color.White);
         }
 
         public void Move(Direction direction)
@@ -121,32 +157,32 @@ namespace LunarRevenge.Scripts.Entitys
             {
                 if (rec.Left <= collisionBox.Right &&
                     rec.Right >= collisionBox.Right &&
-                    rec.Bottom + 8 >= collisionBox.Bottom &&
-                    rec.Top - 8 <= collisionBox.Top &&
+                    rec.Bottom + 16 >= collisionBox.Bottom &&
+                    rec.Top - 16 <= collisionBox.Top &&
                     direction == Direction.right)
                 {
                     return false;
                 }
                 if (rec.Left <= collisionBox.Left &&
                     rec.Right >= collisionBox.Left &&
-                    rec.Bottom + 8 >= collisionBox.Bottom &&
-                    rec.Top - 8 <= collisionBox.Top &&
+                    rec.Bottom + 16 >= collisionBox.Bottom &&
+                    rec.Top - 16 <= collisionBox.Top &&
                     direction == Direction.left)
                 {
                     return false;
                 }
                 if (rec.Bottom >= collisionBox.Top &&
                     rec.Top <= collisionBox.Top
-                    && rec.Right +8 >= collisionBox.Right &&
-                    rec.Left - 8 <= collisionBox.Left &&
+                    && rec.Right + 16 >= collisionBox.Right &&
+                    rec.Left - 16 <= collisionBox.Left &&
                     direction == Direction.up)
                 {
                     return false;
                 }
                 if (rec.Top <= collisionBox.Bottom &&
                     rec.Bottom >= collisionBox.Bottom
-                    && rec.Right + 8 >= collisionBox.Right &&
-                    rec.Left - 8 <= collisionBox.Left &&
+                    && rec.Right + 16 >= collisionBox.Right &&
+                    rec.Left - 16 <= collisionBox.Left &&
                     direction == Direction.down)
                 {
                     return false;
