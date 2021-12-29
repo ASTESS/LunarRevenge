@@ -31,7 +31,7 @@ namespace LunarRevenge
         protected override void Initialize()
         {
             // TODO: Add your initialization logic 
-
+            IsFixedTimeStep = false; //fix's lag after a few minutes
             base.Initialize();
         }
 

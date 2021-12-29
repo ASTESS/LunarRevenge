@@ -142,10 +142,24 @@ namespace LunarRevenge.Scripts.World
                                 rectangles.Add(new Rectangle(offset + (x * 32), offset + (y * 32), 8, 32));
                             }
 
+                            if (wallKey == "wallCornerRightTopEnding")
+                            {
+                                rectangles.Add(new Rectangle(offset + (x * 32), offset + 16 + (y * 32), 32, 10));
+                                rectangles.Add(new Rectangle(offset + (x * 32), offset + (y * 32), 32, 10));
+                                rectangles.Add(new Rectangle(offset + 24 + (x * 32), offset + (y * 32), 8, 32));
+                                rectangles.Add(new Rectangle(offset + (x * 32), offset + (y * 32), 8, 26));
+                            }
+
                         }
                         if (textureManager.worldTextures.ContainsKey(propKey))
                         {
                             spriteBatch.Draw(textureManager.worldTextures[propKey], new Vector2(offset + (x * 32), offset + (y * 32)), Color.White);
+
+                            if (propKey == "ComputerON")
+                            {
+                                rectangles.Add(new Rectangle(offset + 3 + (x * 32), offset + 14 + (y * 32), 25, 16));
+                                rectangles.Add(new Rectangle(offset + 7 + (x * 32), offset + 4 + (y * 32), 14, 10));
+                            }
                         }
                     }
                 }
