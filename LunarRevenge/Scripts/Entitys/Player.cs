@@ -12,7 +12,7 @@ namespace LunarRevenge.Scripts.Entitys
     {
         public Player(Texture2D texture, WorldLoader world) : base(texture, world)
         {
-            pos = new Vector2(50,50); //stating position
+            pos = new Vector2(275, 250); //stating position
         }
 
         public override void Update(GameTime gameTime)
