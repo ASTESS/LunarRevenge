@@ -10,34 +10,65 @@ namespace LunarRevenge.Scripts.Entitys
 {
     class Player : Entity
     {
-        public Player(Texture2D texture, WorldLoader world) : base(texture, world)
+        public static Vector2 offset = new Vector2(0, 0);
+        public Player(Texture2D texture, WorldLoader world, GraphicsDeviceManager graphics) : base(texture, world)
         {
-            pos = new Vector2(50,50); //stating position
+            pos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2); //stating position
         }
 
         public override void Update(GameTime gameTime)
         {
-            Vector2 newPos = pos;
+            KeyboardInput();
+            base.Update(gameTime);
+        }
+
+        private void KeyboardInput()
+        {
             KeyboardState state = Keyboard.GetState();
-            Keys key = Keys.None;
 
             if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.Up))
             {
-                Move(Direction.up);
+                MovePlayer(Direction.up);
             }
             if (state.IsKeyDown(Keys.S) || state.IsKeyDown(Keys.Down))
             {
-                Move(Direction.down);
+                MovePlayer(Direction.down);
             }
             if (state.IsKeyDown(Keys.D) || state.IsKeyDown(Keys.Right))
             {
-                Move(Direction.right);
+                MovePlayer(Direction.right);
             }
             if (state.IsKeyDown(Keys.Q) || state.IsKeyDown(Keys.Left))
             {
-                Move(Direction.left);
+                MovePlayer(Direction.left);
             }
-            base.Update(gameTime);
+        }
+
+        private void MovePlayer(Direction direction)
+        {
+            if (collisionCheck(direction))
+            {
+                if (direction == Direction.up)
+                {
+                    offset.Y += speed;
+                }
+                if (direction == Direction.down)
+                {
+                    offset.Y -= speed;
+                }
+                if (direction == Direction.right)
+                {
+                    flip = SpriteEffects.None;
+                    offset.X -= speed;
+
+                }
+                if (direction == Direction.left)
+                {
+                    flip = SpriteEffects.FlipHorizontally;
+                    offset.X += speed;
+
+                }
+            }
         }
     }
 }

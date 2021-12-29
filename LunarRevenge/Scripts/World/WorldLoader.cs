@@ -1,4 +1,5 @@
-﻿using LunarRevenge.Scripts.World.Levels;
+﻿using LunarRevenge.Scripts.Entitys;
+using LunarRevenge.Scripts.World.Levels;
 using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -64,20 +65,20 @@ namespace LunarRevenge.Scripts.World
 
                                 if (textureManager.worldTextures.ContainsKey(floorKey)) //makes sure everything exist and can load empty squires
                                 {
-                                    spriteBatch.Draw(textureManager.worldTextures[floorKey], new Vector2((offset * xMap) + (x * 32), (offset * yMap) + (y * 32 )), Color.White);
+                                    spriteBatch.Draw(textureManager.worldTextures[floorKey], new Vector2((offset * xMap) + (x * 32) + Player.offset.X, (offset * yMap) + (y * 32 ) + Player.offset.Y), Color.White);
                                 }
                                 if (textureManager.worldTextures.ContainsKey(obstacleKey))
                                 {
-                                    spriteBatch.Draw(textureManager.worldTextures[obstacleKey], new Vector2((offset * xMap) + (x * 32), (offset * yMap) + (y * 32)), Color.White);
+                                    spriteBatch.Draw(textureManager.worldTextures[obstacleKey], new Vector2((offset * xMap) + (x * 32) + Player.offset.X, (offset * yMap) + (y * 32) + Player.offset.Y), Color.White);
                                 }
                                 if (textureManager.worldTextures.ContainsKey(wallKey))
                                 {
-                                    spriteBatch.Draw(textureManager.worldTextures[wallKey], new Vector2((offset * xMap) + (x * 32), (offset * yMap) + (y * 32)), Color.White);
+                                    spriteBatch.Draw(textureManager.worldTextures[wallKey], new Vector2((offset * xMap) + (x * 32) + Player.offset.X, (offset * yMap) + (y * 32) + Player.offset.Y), Color.White);
 
                                     if (wallKey == "wallRightSide" ||
                                         wallKey == "wallTopRight")
                                     {
-                                        rectangles.Add(new Rectangle((offset * xMap) + 24 + (x * 32), (offset * yMap) + (y * 32), 8, 32));
+                                        rectangles.Add(new Rectangle((int)((offset * xMap) + 24 + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 8, 32));
                                     }
 
                                     if (wallKey == "wallTopMiddle" ||
@@ -88,8 +89,8 @@ namespace LunarRevenge.Scripts.World
                                         wallKey == "wallBottomRight"
                                         )
                                     {
-                                        rectangles.Add(new Rectangle((offset * xMap) + (x * 32), (offset * yMap) + 16 + (y * 32), 32, 10));
-                                        rectangles.Add(new Rectangle((offset * xMap) + (x * 32), (offset * yMap) + (y * 32), 32, 10));
+                                        rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + 16 + (y * 32) + Player.offset.Y), 32, 10));
+                                        rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 32, 10));
                                     }
 
                                     if (wallKey == "wallLeftSide" ||
@@ -98,26 +99,26 @@ namespace LunarRevenge.Scripts.World
                                         wallKey == "wallLeftSideEndTop"
                                         )
                                     {
-                                        rectangles.Add(new Rectangle((offset * xMap) + (x * 32), (offset * yMap) + (y * 32), 8, 32));
+                                        rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 8, 32));
                                     }
 
                                     if (wallKey == "wallCornerRightTopEnding")
                                     {
-                                        rectangles.Add(new Rectangle((offset * xMap) + (x * 32), (offset * yMap) + 16 + (y * 32), 32, 10));
-                                        rectangles.Add(new Rectangle((offset * xMap) + (x * 32), (offset * yMap) + (y * 32), 32, 10));
-                                        rectangles.Add(new Rectangle((offset * xMap) + 24 + (x * 32), (offset * yMap) + (y * 32), 8, 32));
-                                        rectangles.Add(new Rectangle((offset * xMap) + (x * 32), (offset * yMap) + (y * 32), 8, 26));
+                                        rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + 16 + (y * 32) + Player.offset.Y), 32, 10));
+                                        rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 32, 10));
+                                        rectangles.Add(new Rectangle((int)((offset * xMap) + 24 + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 8, 32));
+                                        rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 8, 26));
                                     }
 
                                 }
                                 if (textureManager.worldTextures.ContainsKey(propKey))
                                 {
-                                    spriteBatch.Draw(textureManager.worldTextures[propKey], new Vector2((offset * xMap) + (x * 32), (offset * yMap) + (y * 32)), Color.White);
+                                    spriteBatch.Draw(textureManager.worldTextures[propKey], new Vector2((offset * xMap) + (x * 32) + Player.offset.X, (offset * yMap) + (y * 32) + Player.offset.Y), Color.White);
 
                                     if (propKey == "ComputerON")
                                     {
-                                        rectangles.Add(new Rectangle((offset * xMap) + 3 + (x * 32), (offset * yMap) + 14 + (y * 32), 25, 16));
-                                        rectangles.Add(new Rectangle((offset * xMap) + 7 + (x * 32), (offset * yMap) + 4 + (y * 32), 14, 10));
+                                        rectangles.Add(new Rectangle((int)((offset * xMap) + 3 + (x * 32) + Player.offset.X), (int)((offset * yMap) + 14 + (y * 32) + Player.offset.Y), 25, 16));
+                                        rectangles.Add(new Rectangle((int)((offset * xMap) + 7 + (x * 32) + Player.offset.X), (int)((offset * yMap) + 4 + (y * 32) + Player.offset.Y), 14, 10));
                                     }
                                 }
                             }
