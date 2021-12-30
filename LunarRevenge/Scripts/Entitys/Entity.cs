@@ -155,8 +155,8 @@ namespace LunarRevenge.Scripts.Entitys
         {
             foreach (Rectangle rec in world.rectangles)
             {
-                if (rec.Left <= collisionBox.Right &&
-                    rec.Right >= collisionBox.Right &&
+                if (rec.Right >= collisionBox.Right &&
+                    rec.Left + 6 <= collisionBox.Right &&
                     rec.Bottom + 16 >= collisionBox.Bottom &&
                     rec.Top - 16 <= collisionBox.Top &&
                     direction == Direction.right)
@@ -174,7 +174,7 @@ namespace LunarRevenge.Scripts.Entitys
                 if (rec.Bottom >= collisionBox.Top &&
                     rec.Top <= collisionBox.Top
                     && rec.Right + 16 >= collisionBox.Right &&
-                    rec.Left - 16 <= collisionBox.Left &&
+                    rec.Left - 10 <= collisionBox.Left &&
                     direction == Direction.up)
                 {
                     return false;
@@ -182,7 +182,7 @@ namespace LunarRevenge.Scripts.Entitys
                 if (rec.Top <= collisionBox.Bottom &&
                     rec.Bottom >= collisionBox.Bottom
                     && rec.Right + 16 >= collisionBox.Right &&
-                    rec.Left - 16 <= collisionBox.Left &&
+                    rec.Left - 10 <= collisionBox.Left &&
                     direction == Direction.down)
                 {
                     return false;

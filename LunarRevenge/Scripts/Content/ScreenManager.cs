@@ -27,6 +27,7 @@ namespace LunarRevenge.Scripts.Content
         private WorldLoader world;
         private StartScreen startScreen;
         private KeyBinding keyBinding;
+        private PauseScreen pauseScreen;
 
 
 
@@ -52,6 +53,7 @@ namespace LunarRevenge.Scripts.Content
         {
             startScreen = new StartScreen(this);
             keyBinding = new KeyBinding();
+            pauseScreen = new PauseScreen(this);
 
 
 
@@ -104,7 +106,7 @@ namespace LunarRevenge.Scripts.Content
             }
             else if (state == ScreenStates.paused)
             {
-
+                pauseScreen.Draw(graphicsDevice, spriteBatch);
             }
         }
     }

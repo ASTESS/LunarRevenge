@@ -10,13 +10,18 @@ namespace LunarRevenge.Scripts.Content
     internal class KeyBinding
     {
         private bool isPausedPressed = false;
+        private bool isFullschreenPressed = false;
         public void Update(ScreenManager screenManager, GraphicsDeviceManager graphics)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.F))
+            if (Keyboard.GetState().IsKeyDown(Keys.F) && !isFullschreenPressed)
             {
+                isFullschreenPressed=true;
                 graphics.ToggleFullScreen();
 
                 //graphics.ApplyChanges();
+            }else if (Keyboard.GetState().IsKeyUp(Keys.F))
+            {
+                isFullschreenPressed = false;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.P) && !isPausedPressed)
             {
