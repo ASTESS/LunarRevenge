@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -79,6 +80,8 @@ namespace LunarRevenge.Scripts.World.Levels
             {"","","","","","","","","","","", },
         };
 
+
+        string jsonString = "[{1: [{'floor' : [[null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null],[null,null,null,'floor','floor','floor','floor',null,null,null,null],[null,null,null,'floor',null,null,null,null,null,null,null],[null,null,null,null,'floor',null,null,null,null,null,null],[null,null,null,'floor',null,null,null,null,null,null,null],[null,null,null,'floor','floor','floor','floor',null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null]]},{'props' :  [{}]},{ 'obstacles':  [{ }]},	{ 'walls':  [{ }]} ], 2: [{'floor' : [{}]},	{ 'props' :  [{ }]},{ 'obstacles':  [{ }]},{ 'walls':  [{ }]} ]  }]";
 
         public Level[,] levels = new Level[2, 2];
 

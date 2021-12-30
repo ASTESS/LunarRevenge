@@ -29,7 +29,7 @@ namespace LunarRevenge.Scripts.Entitys
             right,
         }
 
-        private float health;
+        public float health = 100;
         public Vector2 pos;
         public EntityState state = EntityState.idle;
         public SpriteEffects flip = SpriteEffects.None;
@@ -90,6 +90,30 @@ namespace LunarRevenge.Scripts.Entitys
                 width = 32;
                 height = 32;
                 frames = 4;
+            }
+            if (state == EntityState.shooting)
+            {
+                startingX = 0;
+                startingY = 128;
+                width = 32;
+                height = 32;
+                frames = 4;
+            }
+            if (state == EntityState.reloading)
+            {
+                startingX = 0;
+                startingY = 64;
+                width = 32;
+                height = 32;
+                frames = 5;
+            }
+            if (state == EntityState.death)
+            {
+                startingX = 0;
+                startingY = 160;
+                width = 32;
+                height = 32;
+                frames = 7;
             }
 
             timeFromPreFrame += gameTime.ElapsedGameTime.Milliseconds;

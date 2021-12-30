@@ -18,37 +18,116 @@ namespace LunarRevenge.Scripts.Entitys
 
         public override void Update(GameTime gameTime)
         {
-            KeyboardInput();
+            KeyboardInput(gameTime);
             base.Update(gameTime);
         }
 
-        private void KeyboardInput()
+        private bool shooting = false;
+        private int shootingTimer;
+
+        private bool reloading = false;
+        private int reloadingTimer;
+
+        private void shoot(GameTime gameTime)
         {
-            KeyboardState state = Keyboard.GetState();
-            if (state.GetPressedKeys().Length > 0)
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
-                this.state = EntityState.running;
-            }
-            else
-            {
-                this.state = EntityState.idle;
+                this.state = EntityState.shooting;
+                shooting = true;
             }
 
-            if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.Up))
+            if (shooting)
             {
-                MovePlayer(Direction.up);
+                shootingTimer += gameTime.ElapsedGameTime.Milliseconds;
+                if (shootingTimer > 150)
+                {
+                    shootingTimer -= 150;
+                    if (frames > 1)
+                    {
+                        shooting = false;
+                    }
+                }
             }
-            if (state.IsKeyDown(Keys.S) || state.IsKeyDown(Keys.Down))
+        }
+
+        private void Reload(GameTime gameTime)
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.R) && !reloading)
             {
-                MovePlayer(Direction.down);
+                reloading = true;
+                state = EntityState.reloading;
             }
-            if (state.IsKeyDown(Keys.D) || state.IsKeyDown(Keys.Right))
+
+
+            if (reloading)
             {
-                MovePlayer(Direction.right);
+                reloadingTimer += gameTime.ElapsedGameTime.Milliseconds;
+                if (reloadingTimer > 150)
+                {
+                    reloadingTimer -= 150;
+                    if (frames > 1)
+                    {
+                        reloading = false;
+                    }
+                }
             }
-            if (state.IsKeyDown(Keys.Q) || state.IsKeyDown(Keys.Left))
+        }
+
+        private void DamagePlayer()
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.H))
             {
-                MovePlayer(Direction.left);
+                health = 0;
+                state = EntityState.death;
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.J))
+            {
+                health = 100;
+            }
+        }
+
+        private void KeyboardInput(GameTime gameTime)
+        {
+            DamagePlayer();
+
+            if (health > 0)
+            {
+                KeyboardState state = Keyboard.GetState();
+
+                Reload(gameTime);
+                if (!reloading)
+                {
+                    shoot(gameTime);
+                    if (!shooting)
+                    {
+                        if (state.GetPressedKeys().Length > 0 && !shooting && !reloading)
+                        {
+                            this.state = EntityState.running;
+                        }
+                        else if (!shooting && !reloading)
+                        {
+                            this.state = EntityState.idle;
+                        }
+                    }
+                }
+
+                if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.Up))
+                {
+                    MovePlayer(Direction.up);
+                }
+                if (state.IsKeyDown(Keys.S) || state.IsKeyDown(Keys.Down))
+                {
+                    MovePlayer(Direction.down);
+                }
+                if (state.IsKeyDown(Keys.D) || state.IsKeyDown(Keys.Right))
+                {
+                    MovePlayer(Direction.right);
+                }
+                if (state.IsKeyDown(Keys.Q) || state.IsKeyDown(Keys.Left))
+                {
+                    MovePlayer(Direction.left);
+                }
             }
         }
 
