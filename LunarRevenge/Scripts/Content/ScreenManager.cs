@@ -1,4 +1,5 @@
-﻿using LunarRevenge.Scripts.Entitys;
+﻿using LunarRevenge.Scripts.Content.Screens;
+using LunarRevenge.Scripts.Entitys;
 using LunarRevenge.Scripts.World;
 using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
@@ -20,16 +21,10 @@ namespace LunarRevenge.Scripts.Content
             paused,
         }
 
-        private List<Entity> entitys = new List<Entity>();
-        private TextureManager textureManager;
-
-        Entity player;
-        private WorldLoader world;
         private StartScreen startScreen;
         private KeyBinding keyBinding;
         private PauseScreen pauseScreen;
-
-
+        private LevelScreen levelScreen;
 
         private ContentManager content;
         private GraphicsDeviceManager graphics;
@@ -54,12 +49,7 @@ namespace LunarRevenge.Scripts.Content
             startScreen = new StartScreen(this);
             keyBinding = new KeyBinding();
             pauseScreen = new PauseScreen(this);
-
-
-
-            textureManager = new TextureManager(content.Load<Texture2D>("tileset x1"), content.Load<Texture2D>("Props and Items/props and items x1"), graphicsDevice);
-            world = new WorldLoader(textureManager);
-            entitys.Add(new Player(content.Load<Texture2D>("Players/players blue x1"), world, graphics)); //add player //alles x3 voor de x3
+            levelScreen = new LevelScreen(content, graphicsDevice, graphics);
         }
 
         public void changeState(ScreenStates states)
@@ -76,11 +66,7 @@ namespace LunarRevenge.Scripts.Content
                 startScreen.Update();
             }else if (state == ScreenStates.level)
             {
-                foreach (Entity e in entitys)
-                {
-                    e.Update(gameTime);
-                }
-                world.Update(gameTime);
+                levelScreen.Update(gameTime);
             }else if (state == ScreenStates.paused)
             {
 
@@ -97,12 +83,7 @@ namespace LunarRevenge.Scripts.Content
             }
             else if (state == ScreenStates.level)
             {
-                world.Draw(spriteBatch);
-                foreach (Entity e in entitys)
-                {
-                    e.Draw(spriteBatch, graphicsDevice, gameTime);
-                }
-
+                levelScreen.Draw(spriteBatch, gameTime);
             }
             else if (state == ScreenStates.paused)
             {
