@@ -80,7 +80,7 @@ namespace LunarRevenge.Scripts.Entitys
                 startingY = 0;
                 width = 32;
                 height = 32;
-                frames = 1;
+                frames = 2;
                 currentX = startingX;
             }
             if (state == EntityState.running)
