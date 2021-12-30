@@ -280,3 +280,4 @@ C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\obj\Debug\netcoreapp3.
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\obj\Debug\netcoreapp3.1\LunarRevenge.csproj.CopyComplete
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\obj\Debug\netcoreapp3.1\LunarRevenge.genruntimeconfig.cache
 C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

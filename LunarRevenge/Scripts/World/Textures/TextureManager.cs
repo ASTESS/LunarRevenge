@@ -43,11 +43,7 @@ namespace LunarRevenge.Scripts.World.Textures
 
             // Wall Textures
             worldTextures.Add("wallTopMiddle", GetTile(new Rectangle(160, 0, 32, 32)));
-            worldTextures.Add("wallTopMiddleEndLeft", GetTile(new Rectangle(160, 0, 32, 32)));
-            worldTextures.Add("wallTopMiddleEndRight", GetTile(new Rectangle(160, 0, 32, 32)));
             worldTextures.Add("wallBottomMiddle", GetTile(new Rectangle(160, 320, 32, 32)));
-            worldTextures.Add("wallBottomMiddleEndLeft", GetTile(new Rectangle(160, 320, 32, 32)));
-            worldTextures.Add("wallBottomMiddleEndRight", GetTile(new Rectangle(160, 320, 32, 32)));
             worldTextures.Add("wallTopRight", GetTile(new Rectangle(256, 0, 32, 32)));
             worldTextures.Add("wallTopLeft", GetTile(new Rectangle(64, 0, 32, 32)));
             worldTextures.Add("wallBottomRight", GetTile(new Rectangle(256, 320, 32, 32)));
@@ -64,8 +60,6 @@ namespace LunarRevenge.Scripts.World.Textures
 
             // Wall Decoration Textures
             worldTextures.Add("wall_yellow_stripe", GetTile(new Rectangle(161, 384, 32, 32)));
-
-            //161 384
 
             // Prop Textures
             worldTextures.Add("testprops", GetProp(new Rectangle(0, 0, 32, 32)));
