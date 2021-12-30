@@ -1,4 +1,5 @@
-﻿using LunarRevenge.Scripts.Entitys;
+﻿using LunarRevenge.Scripts.Content;
+using LunarRevenge.Scripts.Entitys;
 using LunarRevenge.Scripts.World;
 using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
@@ -15,11 +16,7 @@ namespace LunarRevenge
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
-        private List<Entity> entitys = new List<Entity>();
-        private TextureManager textureManager;
-
-        Entity player;
-        private WorldLoader world;
+        private ScreenManager screenManager;
 
         public LunarRevenge()
         {
@@ -38,12 +35,7 @@ namespace LunarRevenge
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            
-        
-            textureManager = new TextureManager(Content.Load<Texture2D>("tileset x1"), Content.Load<Texture2D>("Props and Items/props and items x1"), GraphicsDevice);
-            world = new WorldLoader(textureManager);
-            entitys.Add(new Player(Content.Load<Texture2D>("Players/players blue x1"), world, graphics)); //add player //alles x3 voor de x3
+            screenManager = new ScreenManager(this.Content, this.graphics, GraphicsDevice, spriteBatch);
         }
 
 
@@ -52,49 +44,23 @@ namespace LunarRevenge
         {
             secondcounter += gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (secondcounter >= 1d/60) //updating game at 60fps
+            if (secondcounter >= 1d / 60) //updating game at 60fps
             {
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                     Exit();
 
-                if (Keyboard.GetState().IsKeyDown(Keys.F))
-                {
-                    graphics.ToggleFullScreen();
-
-                    //graphics.ApplyChanges();
-                }
-
-                foreach (Entity e in entitys)
-                {
-                    e.Update(gameTime);
-                }
-
-                world.Update(gameTime);
+                screenManager.Update(gameTime);
                 secondcounter = 0;
             }
-
-
-
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
-            //ending to split layers
             spriteBatch.Begin();
-
-
-
-            world.Draw(spriteBatch);
-            foreach (Entity e in entitys)
-            {
-                e.Draw(spriteBatch, GraphicsDevice, gameTime);
-            }
-
+            screenManager.Draw(gameTime);
             spriteBatch.End();
-
             base.Draw(gameTime);
         }
     }
