@@ -22,6 +22,8 @@ namespace LunarRevenge.Scripts.Content.Screens
         GraphicsDevice graphicsDevice;
         GraphicsDeviceManager graphics;
 
+        GuiScreen gui;
+
         public LevelScreen(ContentManager content, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphics)
         {
             this.content = content;
@@ -35,19 +37,21 @@ namespace LunarRevenge.Scripts.Content.Screens
             textureManager = new TextureManager(content.Load<Texture2D>("tileset x1"), content.Load<Texture2D>("Props and Items/props and items x1"), graphicsDevice);
             world = new WorldLoader(textureManager);
             entitys.Add(new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), world, graphics)); //add player //alles x3 voor de x3
+            gui = new GuiScreen();
         }
 
         public void Update(GameTime gameTime)
         {
             world.Update(gameTime);
             UpdateEntitys(gameTime);
+            gui.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             world.Draw(spriteBatch);
             DrawEntitys(spriteBatch, gameTime);
-            
+            gui.Draw(gameTime, graphics, spriteBatch);
         }
 
         public void DrawEntitys(SpriteBatch spriteBatch, GameTime gameTime)
