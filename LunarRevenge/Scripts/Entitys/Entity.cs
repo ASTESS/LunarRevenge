@@ -49,7 +49,8 @@ namespace LunarRevenge.Scripts.Entitys
 
 
         private int currentX;
-        int timeFromPreFrame = 0;
+        private int timeFromPreFrame = 0;
+        private int duration;
 
         public void damageEntity(float damage)
         {
@@ -72,7 +73,7 @@ namespace LunarRevenge.Scripts.Entitys
             collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch, GraphicsDevice graphics, GameTime gameTime)
+        private void Animation(GameTime gameTime)
         {
             if (state == EntityState.idle)
             {
@@ -82,6 +83,7 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 2;
                 currentX = startingX;
+                duration = 150;
             }
             if (state == EntityState.running)
             {
@@ -90,6 +92,7 @@ namespace LunarRevenge.Scripts.Entitys
                 width = 32;
                 height = 32;
                 frames = 4;
+                duration = 150;
             }
             if (state == EntityState.shooting)
             {
@@ -98,6 +101,7 @@ namespace LunarRevenge.Scripts.Entitys
                 width = 32;
                 height = 32;
                 frames = 4;
+                duration = 240;
             }
             if (state == EntityState.reloading)
             {
@@ -106,6 +110,7 @@ namespace LunarRevenge.Scripts.Entitys
                 width = 32;
                 height = 32;
                 frames = 5;
+                duration = 240;
             }
             if (state == EntityState.death)
             {
@@ -114,12 +119,13 @@ namespace LunarRevenge.Scripts.Entitys
                 width = 32;
                 height = 32;
                 frames = 7;
+                duration = 150;
             }
 
             timeFromPreFrame += gameTime.ElapsedGameTime.Milliseconds;
-            if (timeFromPreFrame > 150)
+            if (timeFromPreFrame > duration)
             {
-                timeFromPreFrame -= 150;
+                timeFromPreFrame -= duration;
                 if (frames > 1)
                 {
                     currentX += width;
@@ -129,12 +135,20 @@ namespace LunarRevenge.Scripts.Entitys
                     }
                 }
             }
+        }
+
+        public virtual void Draw(SpriteBatch spriteBatch, GraphicsDevice graphics, GameTime gameTime)
+        {
+            Animation(gameTime);
             //spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White
             spriteBatch.Draw(texture, pos, new Rectangle(currentX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
 
 
+
+
+
             //for testing collision boxes
-            Texture2D rect = new Texture2D(graphics, 80, 30);
+            /*Texture2D rect = new Texture2D(graphics, 80, 30);
             Color[] data = new Color[80 * 30];
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
             rect.SetData(data);
@@ -148,7 +162,7 @@ namespace LunarRevenge.Scripts.Entitys
             Color[] data2 = new Color[80 * 30];
             for (int i = 0; i < data2.Length; ++i) data2[i] = Color.Red;
             rect2.SetData(data2);
-            //spriteBatch.Draw(rect2, collisionBox, Color.White);
+            //spriteBatch.Draw(rect2, collisionBox, Color.White);*/
         }
 
         public void Move(Direction direction)
