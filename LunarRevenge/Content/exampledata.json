@@ -1,0 +1,64 @@
+{
+	"MapName": "Levelnaam",
+	"LevelMapping":
+					{
+						"FloorMapping":
+						[
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,"floor","floor","floor","floor",null,null,null,null],
+						[null,null,null,"floor",null,null,null,null,null,null,null],
+						[null,null,null,null,"floor",null,null,null,null,null,null],
+						[null,null,null,"floor",null,null,null,null,null,null,null],
+						[null,null,null,"floor","floor","floor","floor",null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null]
+						],
+						"ObstacleMapping":
+						[
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null]
+						],
+						"WallMapping":
+						[
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null]
+						],
+						"PropMapping":
+						[
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null],
+						[null,null,null,null,null,null,null,null,null,null,null]
+						]
+						
+						
+					}
+}

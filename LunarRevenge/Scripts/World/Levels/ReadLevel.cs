@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace LunarRevenge.Scripts.World.Levels
@@ -80,17 +82,17 @@ namespace LunarRevenge.Scripts.World.Levels
             {"","","","","","","","","","","", },
         };
 
+        string[,] brandNewFloors = JsonConvert.DeserializeObject<Level>(File.ReadAllText($@"Content\exampledata.json")).Level1.FloorMapping;
 
-        string jsonString = "[{1: [{'floor' : [[null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null],[null,null,null,'floor','floor','floor','floor',null,null,null,null],[null,null,null,'floor',null,null,null,null,null,null,null],[null,null,null,null,'floor',null,null,null,null,null,null],[null,null,null,'floor',null,null,null,null,null,null,null],[null,null,null,'floor','floor','floor','floor',null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null]]},{'props' :  [{}]},{ 'obstacles':  [{ }]},	{ 'walls':  [{ }]} ], 2: [{'floor' : [{}]},	{ 'props' :  [{ }]},{ 'obstacles':  [{ }]},{ 'walls':  [{ }]} ]  }]";
 
-        public Level[,] levels = new Level[2, 2];
+        public LevelMap[,] firstMap = new LevelMap[2, 2];
 
         public ReadLevel()
         {
-            levels[0, 0] = new Level(floorMap, props, obstacles, walls);
-            levels[1, 0] = new Level(floorMap2, props, obstacles, walls);
-            levels[0, 1] = new Level(floorMap2, props, obstacles, walls);
-            levels[1, 1] = new Level(floorMap, props, obstacles, walls);
+            firstMap[0, 0] = new LevelMap(brandNewFloors, props, obstacles, walls);    // -
+            firstMap[1, 0] = new LevelMap(floorMap2, props, obstacles, walls);   //  -
+            firstMap[0, 1] = new LevelMap(floorMap2, props, obstacles, walls);   // _
+            firstMap[1, 1] = new LevelMap(floorMap, props, obstacles, walls);    //  _
         }
     }
 }

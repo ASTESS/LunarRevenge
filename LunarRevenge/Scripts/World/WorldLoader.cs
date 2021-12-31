@@ -45,14 +45,14 @@ namespace LunarRevenge.Scripts.World
             int offset = 352;
             if (!loaded)
             {
-                for (int xMap = 0; xMap < levels.levels.GetLength(0); xMap++)
+                for (int xMap = 0; xMap < levels.firstMap.GetLength(0); xMap++)
                 {
-                    for (int yMap = 0; yMap < levels.levels.GetLength(1); yMap++)
+                    for (int yMap = 0; yMap < levels.firstMap.GetLength(1); yMap++)
                     {
-                        string[,] walls = levels.levels[xMap, yMap].WallMap;
-                        string[,] floorMap = levels.levels[xMap, yMap].FloorMap;
-                        string[,] props = levels.levels[xMap, yMap].PropMap;
-                        string[,] obstacles = levels.levels[xMap, yMap].ObstacleMap;
+                        string[,] walls = levels.firstMap[xMap, yMap].WallMap;
+                        string[,] floorMap = levels.firstMap[xMap, yMap].FloorMap;
+                        string[,] props = levels.firstMap[xMap, yMap].PropMap;
+                        string[,] obstacles = levels.firstMap[xMap, yMap].ObstacleMap;
 
                         for (int x = 0; x < walls.GetLength(0); x++)
                         {
