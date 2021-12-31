@@ -30,21 +30,23 @@ namespace LunarRevenge.Scripts.Entitys
 
         private void shoot(GameTime gameTime)
         {
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed && bullets > 0)
             {
                 this.state = EntityState.shooting;
                 shooting = true;
+                
             }
 
             if (shooting)
             {
                 shootingTimer += gameTime.ElapsedGameTime.Milliseconds;
-                if (shootingTimer > 150)
+                if (shootingTimer > 150) //delay needs to be changed to animation duration
                 {
                     shootingTimer -= 150;
                     if (frames > 1)
                     {
                         shooting = false;
+                        bullets--;
                     }
                 }
             }
@@ -68,6 +70,7 @@ namespace LunarRevenge.Scripts.Entitys
                     if (frames > 1)
                     {
                         reloading = false;
+                        bullets = 26;
                     }
                 }
             }

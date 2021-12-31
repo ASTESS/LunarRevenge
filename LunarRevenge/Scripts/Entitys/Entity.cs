@@ -30,6 +30,7 @@ namespace LunarRevenge.Scripts.Entitys
         }
 
         public float health = 100;
+        public int bullets = 26;
         public Vector2 pos;
         public EntityState state = EntityState.idle;
         public SpriteEffects flip = SpriteEffects.None;
