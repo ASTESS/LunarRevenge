@@ -10,7 +10,7 @@ namespace LunarRevenge.Scripts.Entitys
 {
     class Player : Entity
     {
-        public static Vector2 offset = new Vector2(0, 0);
+        public static Vector2 offset = new Vector2(-200, -1000);
         public Player(Texture2D texture, WorldLoader world, GraphicsDeviceManager graphics) : base(texture, world)
         {
             pos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2); //stating position
@@ -130,6 +130,70 @@ namespace LunarRevenge.Scripts.Entitys
                 if (state.IsKeyDown(Keys.Q) || state.IsKeyDown(Keys.Left))
                 {
                     MovePlayer(Direction.left);
+                }
+            }
+        }
+
+        public override void Animation(GameTime gameTime)
+        {
+            if (state == EntityState.idle)
+            {
+                startingX = 0;
+                startingY = 0;
+                width = 32;
+                height = 32;
+                frames = 2;
+                currentX = startingX;
+                duration = 150;
+            }
+            if (state == EntityState.running)
+            {
+                startingX = 0;
+                startingY = 96;
+                width = 32;
+                height = 32;
+                frames = 4;
+                duration = 150;
+            }
+            if (state == EntityState.shooting)
+            {
+                startingX = 0;
+                startingY = 128;
+                width = 32;
+                height = 32;
+                frames = 4;
+                duration = 240;
+            }
+            if (state == EntityState.reloading)
+            {
+                startingX = 0;
+                startingY = 64;
+                width = 32;
+                height = 32;
+                frames = 5;
+                duration = 240;
+            }
+            if (state == EntityState.death)
+            {
+                startingX = 0;
+                startingY = 160;
+                width = 32;
+                height = 32;
+                frames = 7;
+                duration = 150;
+            }
+
+            timeFromPreFrame += gameTime.ElapsedGameTime.Milliseconds;
+            if (timeFromPreFrame > duration)
+            {
+                timeFromPreFrame -= duration;
+                if (frames > 1)
+                {
+                    currentX += width;
+                    if (32 * (frames - 1) < currentX)
+                    {
+                        currentX = startingX;
+                    }
                 }
             }
         }
