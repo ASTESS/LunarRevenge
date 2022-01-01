@@ -44,7 +44,6 @@ namespace LunarRevenge.Scripts.Content.Screens
             int x = 64;
             int y = 76;
             int bulletsFired = 26 - player.bullets;
-            Console.WriteLine(bulletsFired);
             if (player.bullets >= 19)
             {
                 x = 448 - 64 * bulletsFired;
