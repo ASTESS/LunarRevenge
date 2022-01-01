@@ -1,21 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Newtonsoft.Json;
+using System.IO;
 
 namespace LunarRevenge.Scripts.World.Levels
 {
     internal class Level
     {
         public string MapName { get; set; }
-        public LevelMapping Level1 { get; set; }
-        public LevelMapping Level2 { get; set; }
-        public LevelMapping Level3 { get; set; }
-        public LevelMapping Level4 { get; set; }
-        public LevelMapping Level5 { get; set; }
-        public LevelMapping Level6 { get; set; }
-        public LevelMapping Level7 { get; set; }
-        public LevelMapping Level8 { get; set; }
-        public LevelMapping Level9 { get; set; }
+        public int LevelSize { get; set; }
+        public LevelMapping[] Levels { get; set; }
+
+        public Level(string JSON)
+        {
+            if (JSON != null)
+            {
+                Level l = JsonConvert.DeserializeObject<Level>(File.ReadAllText(JSON));
+                this.MapName = l.MapName;
+                this.LevelSize = l.LevelSize;
+                this.Levels = l.Levels;
+            }
+        }
     }
 
     public class LevelMapping

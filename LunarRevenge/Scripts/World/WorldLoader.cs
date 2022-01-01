@@ -17,7 +17,7 @@ namespace LunarRevenge.Scripts.World
 
 
         public List<Rectangle> rectangles = new List<Rectangle>();
-        ReadLevel levels = new ReadLevel();
+        ReadLevel levelRendering = new ReadLevel();
 
 
         private bool loaded = false;
@@ -45,14 +45,14 @@ namespace LunarRevenge.Scripts.World
             int offset = 352;
             if (!loaded)
             {
-                for (int xMap = 0; xMap < levels.firstMap.GetLength(0); xMap++)
+                for (int xMap = 0; xMap < levelRendering.firstMap.GetLength(0); xMap++)
                 {
-                    for (int yMap = 0; yMap < levels.firstMap.GetLength(1); yMap++)
+                    for (int yMap = 0; yMap < levelRendering.firstMap.GetLength(1); yMap++)
                     {
-                        string[,] walls = levels.firstMap[xMap, yMap].WallMap;
-                        string[,] floorMap = levels.firstMap[xMap, yMap].FloorMap;
-                        string[,] props = levels.firstMap[xMap, yMap].PropMap;
-                        string[,] obstacles = levels.firstMap[xMap, yMap].ObstacleMap;
+                        string[,] walls = levelRendering.firstMap[xMap, yMap].WallMap;
+                        string[,] floorMap = levelRendering.firstMap[xMap, yMap].FloorMap;
+                        string[,] props = levelRendering.firstMap[xMap, yMap].PropMap;
+                        string[,] obstacles = levelRendering.firstMap[xMap, yMap].ObstacleMap;
 
                         for (int x = 0; x < walls.GetLength(0); x++)
                         {

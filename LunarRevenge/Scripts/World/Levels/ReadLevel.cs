@@ -82,10 +82,13 @@ namespace LunarRevenge.Scripts.World.Levels
             {"","","","","","","","","","","", },
         };
 
-        string[,] brandNewFloors = JsonConvert.DeserializeObject<Level>(File.ReadAllText($@"Content\exampledata.json")).Level1.FloorMapping;
+        string[,] brandNewFloors = JsonConvert.DeserializeObject<Level>(File.ReadAllText($@"Content\exampledata.json")).Levels[0].FloorMapping;
 
-
+        
+        
         public LevelMap[,] firstMap = new LevelMap[2, 2];
+
+        Level lvl1 = new Level($@"Content\exampledata.json");
 
         public ReadLevel()
         {
