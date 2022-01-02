@@ -85,26 +85,30 @@ namespace LunarRevenge.Scripts.World
                             {
                                 spriteBatch.Draw(textureManager.worldTextures[wallKey], new Vector2((offset * xMap) + (x * 32) + Player.offset.X, (offset * yMap) + (y * 32) + Player.offset.Y), Color.White);
 
-                                if (wallKey == "wallRightSide" ||
-                                    wallKey == "wallTopRight")
+                                if (wallKey == "wall_side_1" ||
+                                    wallKey == "wall_2")
                                 {
                                     rectangles.Add(new Rectangle((int)((offset * xMap) + 24 + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 8, 32));
                                 }
 
-                                if (wallKey == "wallTopMiddle" ||
-                                    wallKey == "wallBottomMiddle" ||
-                                    wallKey == "wallTopRight" ||
-                                    wallKey == "wallTopLeft" ||
-                                    wallKey == "wallBottomLeft" ||
-                                    wallKey == "wallBottomRight"
+                                if (wallKey == "wall" ||
+                                    wallKey == "wall_1" ||
+                                    wallKey == "wall_2" ||
+                                    wallKey == "wall_3" ||
+                                    wallKey == "wall_11" ||
+                                    wallKey == "wall_12" ||
+                                    wallKey == "wall_7" ||
+                                    wallKey == "wall_8"
                                     )
                                 {
                                     rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + 16 + (y * 32) + Player.offset.Y), 32, 10));
                                     rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 32, 10));
                                 }
 
-                                if (wallKey == "wallLeftSide" ||
-                                    wallKey == "wallTopLeft" ||
+                                if (wallKey == "wall_side" ||
+                                    wallKey == "wall_side_2" ||
+                                    wallKey == "wall_3" ||
+                                    wallKey == "wall_1" ||
                                     wallKey == "wallLeftSideEndBottom" ||
                                     wallKey == "wallLeftSideEndTop"
                                     )

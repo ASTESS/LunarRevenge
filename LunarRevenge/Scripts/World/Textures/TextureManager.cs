@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 
 namespace LunarRevenge.Scripts.World.Textures
 {
@@ -24,52 +21,68 @@ namespace LunarRevenge.Scripts.World.Textures
             // new Rectangle(x, y, z, z)
             // x = X Coordinate of LeftTop of the texture
             // y = Y Coordinate of LeffTop of the texture
-            // z = The texture size (example: 32x32)
+            // z = The texture size (example: 32x32 => 32)
 
             // Floor Textures
             worldTextures.Add("floor", GetTile(new Rectangle(1088, 32, 32, 32)));
-            worldTextures.Add("floorVentBlack", GetTile(new Rectangle(1024, 32, 32, 32)));
-            worldTextures.Add("floorVentGreen", GetTile(new Rectangle(1152, 32, 32, 32)));
-            worldTextures.Add("floorCenter", GetTile(new Rectangle(1024, 64, 32, 32)));
-            worldTextures.Add("floorQuadTile", GetTile(new Rectangle(1056, 32, 32, 32)));
-
-            // Acid/Water Textures
-            worldTextures.Add("waterTopMiddle", GetTile(new Rectangle(1120, 64, 32, 32)));
-            worldTextures.Add("waterTopLeft", GetTile(new Rectangle(1088, 64, 32, 32)));
-            worldTextures.Add("waterTopRight", GetTile(new Rectangle(1152, 64, 32, 32)));
-            worldTextures.Add("waterBottomMiddle", GetTile(new Rectangle(1120, 96, 32, 32)));
-            worldTextures.Add("waterBottomLeft", GetTile(new Rectangle(1088, 96, 32, 32)));
-            worldTextures.Add("waterBottomRight", GetTile(new Rectangle(1152, 96, 32, 32)));
+            worldTextures.Add("floor_2", GetTile(new Rectangle(1056, 32, 32, 32)));
+            worldTextures.Add("floor_3", GetTile(new Rectangle(1024, 64, 32, 32)));
+            worldTextures.Add("floor_vent", GetTile(new Rectangle(1024, 32, 32, 32)));
+            worldTextures.Add("floor_vent_2", GetTile(new Rectangle(1152, 32, 32, 32)));
+            worldTextures.Add("acid", GetTile(new Rectangle(1120, 96, 32, 32)));
+            worldTextures.Add("acid_2", GetTile(new Rectangle(1120, 64, 32, 32)));
 
             // Wall Textures
-            worldTextures.Add("wallTopMiddle", GetTile(new Rectangle(160, 0, 32, 32)));
-            worldTextures.Add("wallBottomMiddle", GetTile(new Rectangle(160, 320, 32, 32)));
-            worldTextures.Add("wallTopRight", GetTile(new Rectangle(256, 0, 32, 32)));
-            worldTextures.Add("wallTopLeft", GetTile(new Rectangle(64, 0, 32, 32)));
-            worldTextures.Add("wallBottomRight", GetTile(new Rectangle(256, 320, 32, 32)));
-            worldTextures.Add("wallBottomLeft", GetTile(new Rectangle(64, 320, 32, 32)));
-            worldTextures.Add("wallRightSide", GetTile(new Rectangle(288, 64, 32, 32)));
-            worldTextures.Add("wallLeftSide", GetTile(new Rectangle(32, 64, 32, 32)));
-            worldTextures.Add("wallLeftSideEndBottom", GetTile(new Rectangle(32, 96, 32, 32)));
-            worldTextures.Add("wallLeftSideEndTop", GetTile(new Rectangle(32, 128, 32, 32)));
-            worldTextures.Add("wallCornerLeftTop", GetTile(new Rectangle(128, 256, 32, 32)));
-            worldTextures.Add("wallCornerRightTop", GetTile(new Rectangle(192, 256, 32, 32)));
-            worldTextures.Add("wallCornerLeftTopEnding", GetTile(new Rectangle(128, 288, 32, 32)));
-            worldTextures.Add("wallCornerRightTopEnding", GetTile(new Rectangle(192, 288, 32, 32)));
+            worldTextures.Add("wall", GetTile(new Rectangle(160, 0, 32, 32)));
+            worldTextures.Add("wall_1", GetTile(new Rectangle(64, 0, 32, 32)));
+            worldTextures.Add("wall_2", GetTile(new Rectangle(256, 0, 32, 32)));
+            worldTextures.Add("wall_3", GetTile(new Rectangle(128, 0, 32, 32)));
+            worldTextures.Add("wall_4", GetTile(new Rectangle(192, 0, 32, 32)));
+            worldTextures.Add("wall_5", GetTile(new Rectangle(128, 288, 32, 32)));
+            worldTextures.Add("wall_6", GetTile(new Rectangle(192, 288, 32, 32)));
+            worldTextures.Add("wall_7", GetTile(new Rectangle(128, 32, 32, 32)));
+            worldTextures.Add("wall_8", GetTile(new Rectangle(192, 32, 32, 32)));
+            worldTextures.Add("wall_9", GetTile(new Rectangle(384, 96, 32, 32)));
+            worldTextures.Add("wall_10", GetTile(new Rectangle(448, 224, 32, 32)));
+            worldTextures.Add("wall_11", GetTile(new Rectangle(64, 320, 32, 32)));
+            worldTextures.Add("wall_12", GetTile(new Rectangle(256, 320, 32, 32)));
+            worldTextures.Add("wall_13", GetTile(new Rectangle(128, 320, 32, 32)));
+            worldTextures.Add("wall_14", GetTile(new Rectangle(192, 0, 32, 32)));
+            worldTextures.Add("wall_15", GetTile(new Rectangle(448, 64, 32, 32)));
+            worldTextures.Add("wall_16", GetTile(new Rectangle(384, 192, 32, 32)));
+            worldTextures.Add("wall_17", GetTile(new Rectangle(448, 32, 32, 32)));
+            worldTextures.Add("wall_18", GetTile(new Rectangle(384, 160, 32, 32)));
+            worldTextures.Add("wall_19", GetTile(new Rectangle(288, 224, 32, 32)));
+            worldTextures.Add("wall_20", GetTile(new Rectangle(32, 224, 32, 32)));
+            worldTextures.Add("wall_side", GetTile(new Rectangle(32, 64, 32, 32)));
+            worldTextures.Add("wall_side_1", GetTile(new Rectangle(288, 64, 32, 32)));
+            worldTextures.Add("wall_side_2", GetTile(new Rectangle(64, 288, 32, 32)));
+            worldTextures.Add("wall_side_3", GetTile(new Rectangle(256, 288, 32, 32)));
+            worldTextures.Add("wall_side_4", GetTile(new Rectangle(32, 128, 32, 32)));
+            worldTextures.Add("wall_side_5", GetTile(new Rectangle(288, 128, 32, 32)));
+            worldTextures.Add("wall_side_6", GetTile(new Rectangle(32, 96, 32, 32)));
+            worldTextures.Add("wall_side_7", GetTile(new Rectangle(288, 96, 32, 32)));
+            worldTextures.Add("wall_side_8", GetTile(new Rectangle(64, 32, 32, 32)));
+            worldTextures.Add("wall_side_9", GetTile(new Rectangle(256, 32, 32, 32)));
 
 
             // Wall Decoration Textures
             worldTextures.Add("wall_yellow_stripe", GetTile(new Rectangle(161, 384, 32, 32)));
 
+
+            // New Prop Textures
+            worldTextures.Add("stain", GetProp(new Rectangle(0, 32, 32, 32)));
+            worldTextures.Add("stain_1", GetProp(new Rectangle(32, 32, 32, 32)));
+            worldTextures.Add("stain_2", GetProp(new Rectangle(96, 32, 32, 32)));
+            worldTextures.Add("stain_3", GetProp(new Rectangle(128, 32, 32, 32)));
+            worldTextures.Add("capsule_empty_top", GetProp(new Rectangle(1, 320, 32, 32)));
+            worldTextures.Add("capsule_empty_bottom", GetProp(new Rectangle(1, 352, 32, 32)));
+
+
             // Prop Textures
-            worldTextures.Add("testprops", GetProp(new Rectangle(0, 0, 32, 32)));
             worldTextures.Add("ComputerON", GetProp(new Rectangle(0, 62, 32, 32)));
             worldTextures.Add("ComputerOFF", GetProp(new Rectangle(0, 94, 32, 32)));
             worldTextures.Add("MonitorOFF", GetProp(new Rectangle(9, 169, 47, 22)));
-            worldTextures.Add("greenStain", GetProp(new Rectangle(0, 32, 32, 32)));
-            worldTextures.Add("greenStain_2", GetProp(new Rectangle(32, 32, 32, 32)));
-            worldTextures.Add("waterStain", GetProp(new Rectangle(96, 32, 32, 32)));
-            worldTextures.Add("waterStain_2", GetProp(new Rectangle(128, 32, 32, 32)));
             worldTextures.Add("gate_small_locked", GetProp(new Rectangle(0, 544, 32, 32)));
             worldTextures.Add("gate_small_locked_1", GetProp(new Rectangle(64, 544, 32, 32)));
             worldTextures.Add("gate_small_locked_2", GetProp(new Rectangle(96, 544, 32, 32)));
