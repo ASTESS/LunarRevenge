@@ -13,7 +13,7 @@ namespace LunarRevenge.Scripts.World
         {
             this.world = world;
         }
-        public bool collisionCheck(Player.Direction direction, Rectangle collisionBox)
+        public bool collisionCheck(Entity.Direction direction, Rectangle collisionBox)
         {
             foreach (Rectangle rec in world.rectangles)
             {
@@ -21,7 +21,7 @@ namespace LunarRevenge.Scripts.World
                     rec.Left + 6 <= collisionBox.Right &&
                     rec.Bottom + 16 >= collisionBox.Bottom &&
                     rec.Top - 16 <= collisionBox.Top &&
-                    direction == Player.Direction.right)
+                    direction == Entity.Direction.right)
                 {
                     return false;
                 }
@@ -29,7 +29,7 @@ namespace LunarRevenge.Scripts.World
                     rec.Right >= collisionBox.Left &&
                     rec.Bottom + 16 >= collisionBox.Bottom &&
                     rec.Top - 16 <= collisionBox.Top &&
-                    direction == Player.Direction.left)
+                    direction == Entity.Direction.left)
                 {
                     return false;
                 }
@@ -37,7 +37,7 @@ namespace LunarRevenge.Scripts.World
                     rec.Top <= collisionBox.Top
                     && rec.Right + 16 >= collisionBox.Right &&
                     rec.Left - 10 <= collisionBox.Left &&
-                    direction == Player.Direction.up)
+                    direction == Entity.Direction.up)
                 {
                     return false;
                 }
@@ -45,7 +45,7 @@ namespace LunarRevenge.Scripts.World
                     rec.Bottom >= collisionBox.Bottom
                     && rec.Right + 16 >= collisionBox.Right &&
                     rec.Left - 10 <= collisionBox.Left &&
-                    direction == Player.Direction.down)
+                    direction == Entity.Direction.down)
                 {
                     return false;
                 }

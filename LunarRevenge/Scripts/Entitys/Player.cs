@@ -39,7 +39,7 @@ namespace LunarRevenge.Scripts.Entitys
             {
                 this.state = EntityState.shooting;
                 shooting = true;
-                Shoot(10,currentDirection, new Vector2(midX - offset.X, midY - offset.Y));
+                Shoot(10, new Vector2(midX - offset.X, midY - offset.Y));
             }
 
             if (shooting)

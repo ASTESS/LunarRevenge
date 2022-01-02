@@ -31,7 +31,7 @@ namespace LunarRevenge.Scripts.Entitys
                 {
                     direction = Direction.left;
                 }
-                Shoot(10, direction, new Vector2(postition.X, postition.Y));
+                Shoot(10, new Vector2(postition.X, postition.Y));
             }
             state = EntityState.running;
             MoveEnemy(direction);

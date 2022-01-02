@@ -74,13 +74,14 @@ namespace LunarRevenge.Scripts.Entitys
         {
             collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
 
-            for(int e = 0; e < projectiles.Count - 1; e++)
-            {
-                /*if (!collision.collisionCheck(projectiles[e].direction, projectiles[e].collisionBox))
+            for(int e = 0; e < projectiles.Count; e++)
+            { 
+                projectiles[e].Update();
+                if (!collision.collisionCheck(projectiles[e].direction, projectiles[e].collisionBox))
                 {
                     projectiles.RemoveAt(e);
-                }*/
-                projectiles[e].Update();
+                }
+               
             }
         }
 
@@ -89,12 +90,19 @@ namespace LunarRevenge.Scripts.Entitys
             
         }
 
-
         List<Projectile> projectiles = new List<Projectile>();
 
-        public void Shoot(int damage, Player.Direction direction, Vector2 pos)
+        public void Shoot(int damage, Vector2 pos)
         {
-            projectiles.Add(new Projectile(damage, direction, pos));
+            Direction direct;
+            if (flip == SpriteEffects.None)
+            {
+                direct = Direction.right;
+            }
+            else {
+                direct = Direction.left;               
+            }
+            projectiles.Add(new Projectile(damage, direct, pos, collision));
         }
 
         public virtual void Draw(SpriteBatch spriteBatch, GraphicsDevice graphics, GameTime gameTime)
@@ -119,6 +127,11 @@ namespace LunarRevenge.Scripts.Entitys
             for (int i = 0; i < data2.Length; ++i) data2[i] = Color.Red;
             rect2.SetData(data2);
             spriteBatch.Draw(rect2, collisionBox, Color.White);
+
+            for (int e = 0; e < projectiles.Count; e++)
+            {
+                spriteBatch.Draw(rect, projectiles[e].collisionBox, Color.White);
+            }
 
             foreach (Projectile projectile in projectiles)
             {
