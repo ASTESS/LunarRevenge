@@ -10,10 +10,15 @@ namespace LunarRevenge.Scripts.Entitys
 {
     class Player : Entity
     {
-        public static Vector2 offset = new Vector2(-200, -1000);
-        public Player(Texture2D texture, WorldLoader world, GraphicsDeviceManager graphics) : base(texture, world)
+        public static Vector2 offset = new Vector2(0, 0);
+        private int midX = 0;
+        private int midY = 0;
+        private Direction currentDirection;
+        public Player(Texture2D texture, GraphicsDeviceManager graphics, Collision collision) : base(texture, collision)
         {
-            pos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2); //stating position
+            midY = graphics.GraphicsDevice.Viewport.Height / 2;
+            midX = graphics.GraphicsDevice.Viewport.Width / 2;
+            pos = new Vector2(midX, midY); //stating position
         }
 
         public override void Update(GameTime gameTime)
@@ -30,11 +35,11 @@ namespace LunarRevenge.Scripts.Entitys
 
         private void shoot(GameTime gameTime)
         {
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed && bullets > 0)
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed && bullets > 0 && !shooting)
             {
                 this.state = EntityState.shooting;
                 shooting = true;
-                
+                Shoot(10,currentDirection, new Vector2(midX - offset.X, midY - offset.Y));
             }
 
             if (shooting)
@@ -200,7 +205,8 @@ namespace LunarRevenge.Scripts.Entitys
 
         private void MovePlayer(Direction direction)
         {
-            if (collisionCheck(direction))
+            currentDirection = direction;
+            if (collision.collisionCheck(direction, collisionBox))
             {
                 if (direction == Direction.up)
                 {
@@ -220,7 +226,6 @@ namespace LunarRevenge.Scripts.Entitys
                 {
                     flip = SpriteEffects.FlipHorizontally;
                     offset.X += speed;
-
                 }
             }
         }

@@ -21,6 +21,7 @@ namespace LunarRevenge.Scripts.Content.Screens
         ContentManager content;
         GraphicsDevice graphicsDevice;
         GraphicsDeviceManager graphics;
+        private Collision collision;
 
         GuiScreen gui;
 
@@ -36,8 +37,9 @@ namespace LunarRevenge.Scripts.Content.Screens
         {
             textureManager = new TextureManager(content.Load<Texture2D>("tileset x1"), content.Load<Texture2D>("Props and Items/props and items x1"), graphicsDevice);
             world = new WorldLoader(textureManager);
-            entitys.Add(new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), world, graphics)); //add player //alles x3 voor de x3
-            entitys.Add(new ShooterEnemy(content.Load<Texture2D>("Enemies/enemies x1"), world));
+            collision = new Collision(world);
+            entitys.Add(new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision)); //add player //alles x3 voor de x3
+            entitys.Add(new ShooterEnemy(content.Load<Texture2D>("Enemies/enemies x1"), collision));
             gui = new GuiScreen(content, entitys[0]);
         }
 

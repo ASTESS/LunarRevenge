@@ -10,7 +10,7 @@ namespace LunarRevenge.Scripts.Entitys
     internal class ShooterEnemy : Entity
     {
         private Vector2 postition = new Vector2(200, 1100);
-        public ShooterEnemy(Texture2D texture, WorldLoader world) : base(texture, world)
+        public ShooterEnemy(Texture2D texture, Collision collision) : base(texture, collision)
         {
             this.health = 50;
             speed = 1f;
@@ -21,9 +21,8 @@ namespace LunarRevenge.Scripts.Entitys
         {
             
             pos = new Vector2(postition.X + Player.offset.X, postition.Y + Player.offset.Y);
-            Console.WriteLine(pos);
             collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
-            if (!collisionCheck(direction))
+            if (!collision.collisionCheck(direction, collisionBox))
             {
                 if (direction == Direction.left)
                 {
@@ -32,14 +31,16 @@ namespace LunarRevenge.Scripts.Entitys
                 {
                     direction = Direction.left;
                 }
+                Shoot(10, direction, new Vector2(postition.X, postition.Y));
             }
             state = EntityState.running;
             MoveEnemy(direction);
+            base.Update(gameTime);
         }
 
         public void MoveEnemy(Direction direction)
         {
-            if (collisionCheck(direction))
+            if (collision.collisionCheck(direction, collisionBox))
             {
                 if (direction == Direction.up)
                 {
@@ -60,13 +61,6 @@ namespace LunarRevenge.Scripts.Entitys
                     flip = SpriteEffects.None; // Turn Character to the right
                 }
             }
-        }
-
-        public override void Draw(SpriteBatch spriteBatch, GraphicsDevice graphics, GameTime gameTime)
-        {
-            Animation(gameTime);
-            //spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White
-            spriteBatch.Draw(texture, pos, new Rectangle(currentX, startingY, width, height), Color.White, 0f, new Vector2(width / 2, height / 2), 1f, flip, 1f);
         }
 
         public override void Animation(GameTime gameTime)
