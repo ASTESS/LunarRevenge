@@ -20,7 +20,7 @@ namespace LunarRevenge.Scripts.Entitys
         public override void Update(GameTime gameTime)
         {
             
-            pos = new Vector2(postition.X - Player.offset.X, postition.Y + Player.offset.Y);
+            pos = new Vector2(postition.X + Player.offset.X, postition.Y + Player.offset.Y);
             Console.WriteLine(pos);
             collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
             if (!collisionCheck(direction))
