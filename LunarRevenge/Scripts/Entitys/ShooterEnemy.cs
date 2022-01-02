@@ -33,7 +33,7 @@ namespace LunarRevenge.Scripts.Entitys
                     direction = Direction.left;
                 }
             }
-
+            state = EntityState.running;
             MoveEnemy(direction);
         }
 
@@ -62,22 +62,29 @@ namespace LunarRevenge.Scripts.Entitys
             }
         }
 
+        public override void Draw(SpriteBatch spriteBatch, GraphicsDevice graphics, GameTime gameTime)
+        {
+            Animation(gameTime);
+            //spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White
+            spriteBatch.Draw(texture, pos, new Rectangle(currentX, startingY, width, height), Color.White, 0f, new Vector2(width / 2, height / 2), 1f, flip, 1f);
+        }
+
         public override void Animation(GameTime gameTime)
         {
             if (state == EntityState.idle)
             {
                 startingX = 0;
-                startingY = 0;
+                startingY = 384;
                 width = 32;
                 height = 32;
-                frames = 2;
+                frames = 1;
                 currentX = startingX;
                 duration = 150;
             }
             if (state == EntityState.running)
             {
                 startingX = 0;
-                startingY = 96;
+                startingY = 416;
                 width = 32;
                 height = 32;
                 frames = 4;
@@ -86,28 +93,19 @@ namespace LunarRevenge.Scripts.Entitys
             if (state == EntityState.shooting)
             {
                 startingX = 0;
-                startingY = 128;
+                startingY = 448;
                 width = 32;
                 height = 32;
                 frames = 4;
                 duration = 240;
             }
-            if (state == EntityState.reloading)
-            {
-                startingX = 0;
-                startingY = 64;
-                width = 32;
-                height = 32;
-                frames = 5;
-                duration = 240;
-            }
             if (state == EntityState.death)
             {
                 startingX = 0;
-                startingY = 160;
+                startingY = 480;
                 width = 32;
                 height = 32;
-                frames = 7;
+                frames = 8;
                 duration = 150;
             }
 
