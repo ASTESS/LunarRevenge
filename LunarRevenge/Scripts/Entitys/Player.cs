@@ -150,6 +150,8 @@ namespace LunarRevenge.Scripts.Entitys
                 frames = 2;
                 currentX = startingX;
                 duration = 150;
+
+                soundDuration = 60;
             }
             if (state == EntityState.running)
             {
@@ -159,6 +161,8 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 4;
                 duration = 150;
+
+                soundDuration = 60;
             }
             if (state == EntityState.shooting)
             {
@@ -168,6 +172,8 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 4;
                 duration = 240;
+
+                soundDuration = 60;
             }
             if (state == EntityState.reloading)
             {
@@ -177,6 +183,8 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 5;
                 duration = 240;
+
+                soundDuration = 60;
             }
             if (state == EntityState.death)
             {
@@ -186,6 +194,8 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 7;
                 duration = 150;
+
+                soundDuration = 60;
             }
 
             timeFromPreFrame += gameTime.ElapsedGameTime.Milliseconds;
@@ -200,6 +210,22 @@ namespace LunarRevenge.Scripts.Entitys
                         currentX = startingX;
                     }
                 }
+            }
+
+            playSounds(gameTime);
+        }
+
+        private int soundTimer = 0;
+        private int soundDuration;
+        private void playSounds(GameTime gameTime)
+        {
+            soundTimer+=gameTime.ElapsedGameTime.Milliseconds;
+            if (soundTimer > soundDuration)
+            {
+                soundTimer -= soundDuration;
+
+                //play sound me mischien iets van variable da ge ook meegeeft zoals de duration als da mogenlijk is
+
             }
         }
 
