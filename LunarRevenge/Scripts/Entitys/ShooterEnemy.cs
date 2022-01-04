@@ -1,4 +1,5 @@
-﻿using LunarRevenge.Scripts.World;
+﻿using LunarRevenge.Scripts.Content.Screens;
+using LunarRevenge.Scripts.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -10,7 +11,7 @@ namespace LunarRevenge.Scripts.Entitys
     internal class ShooterEnemy : Entity
     {
         private Vector2 postition = new Vector2(200, 1100);
-        public ShooterEnemy(Texture2D texture, Collision collision) : base(texture, collision)
+        public ShooterEnemy(Texture2D texture, Collision collision, string name) : base(texture, collision, name)
         {
             this.health = 50;
             speed = 1f;
@@ -19,8 +20,10 @@ namespace LunarRevenge.Scripts.Entitys
         private Direction direction = Direction.right;
         public override void Update(GameTime gameTime)
         {
-            
             pos = new Vector2(postition.X + Player.offset.X, postition.Y + Player.offset.Y);
+            if (!(state == EntityState.death))
+            {
+            
             collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
             if (!collision.collisionCheck(direction, collisionBox))
             {
@@ -31,10 +34,11 @@ namespace LunarRevenge.Scripts.Entitys
                 {
                     direction = Direction.left;
                 }
-                Shoot(10, new Vector2(postition.X, postition.Y));
+                //Shoot(10, new Vector2(postition.X, postition.Y));
             }
             state = EntityState.running;
             MoveEnemy(direction);
+            }
             base.Update(gameTime);
         }
 
@@ -113,6 +117,11 @@ namespace LunarRevenge.Scripts.Entitys
                     if (32 * (frames - 1) < currentX)
                     {
                         currentX = startingX;
+
+                        if (state == EntityState.death)
+                        {
+                            LevelScreen.entitys.Remove(name);
+                        }
                     }
                 }
             }

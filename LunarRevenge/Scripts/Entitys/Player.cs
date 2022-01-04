@@ -14,7 +14,7 @@ namespace LunarRevenge.Scripts.Entitys
         private int midX = 0;
         private int midY = 0;
         private Direction currentDirection;
-        public Player(Texture2D texture, GraphicsDeviceManager graphics, Collision collision) : base(texture, collision)
+        public Player(Texture2D texture, GraphicsDeviceManager graphics, Collision collision, string name) : base(texture, collision, name)
         {
             midY = graphics.GraphicsDevice.Viewport.Height / 2;
             midX = graphics.GraphicsDevice.Viewport.Width / 2;

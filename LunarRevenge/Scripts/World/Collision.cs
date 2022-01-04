@@ -1,4 +1,5 @@
-﻿using LunarRevenge.Scripts.Entitys;
+﻿using LunarRevenge.Scripts.Content.Screens;
+using LunarRevenge.Scripts.Entitys;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -47,6 +48,19 @@ namespace LunarRevenge.Scripts.World
                     rec.Left - 10 <= collisionBox.Left &&
                     direction == Entity.Direction.down)
                 {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool collisionCheck(Rectangle collisionBox)
+        {
+            foreach (KeyValuePair<string, Entity> entity in LevelScreen.entitys)
+            {
+                if (collisionBox.Intersects(entity.Value.collisionBox) && !(entity.Value.GetType() == typeof(Player)))
+                {
+                    entity.Value.damageEntity(60f);
                     return false;
                 }
             }

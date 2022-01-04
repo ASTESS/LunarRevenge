@@ -35,6 +35,7 @@ namespace LunarRevenge.Scripts.Entitys
         public Vector2 pos;
         public EntityState state = EntityState.idle;
         public SpriteEffects flip = SpriteEffects.None;
+        public string name;
 
         public Rectangle collisionBox = Rectangle.Empty;
 
@@ -56,6 +57,7 @@ namespace LunarRevenge.Scripts.Entitys
 
         public void damageEntity(float damage)
         {
+            Console.WriteLine("dead");
             health -= damage;
             if (health <= 0) // player died
             {
@@ -64,10 +66,11 @@ namespace LunarRevenge.Scripts.Entitys
             }
         }
 
-        public Entity(Texture2D texture, Collision collision)
+        public Entity(Texture2D texture, Collision collision, string name)
         {
             this.collision = collision;
             this.texture = texture;
+            this.name = name;
         }
 
         public virtual void Update(GameTime gameTime)
@@ -80,8 +83,10 @@ namespace LunarRevenge.Scripts.Entitys
                 if (!collision.collisionCheck(projectiles[e].direction, projectiles[e].collisionBox))
                 {
                     projectiles.RemoveAt(e);
-                }
-               
+                }else if (!collision.collisionCheck(projectiles[e].collisionBox))
+                {
+                    projectiles.RemoveAt(e);
+                }   
             }
         }
 
@@ -112,7 +117,7 @@ namespace LunarRevenge.Scripts.Entitys
             spriteBatch.Draw(texture, pos, new Rectangle(currentX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
 
             //for testing collision boxes
-            Texture2D rect = new Texture2D(graphics, 80, 30);
+            /*Texture2D rect = new Texture2D(graphics, 80, 30);
             Color[] data = new Color[80 * 30];
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
             rect.SetData(data);
@@ -131,7 +136,7 @@ namespace LunarRevenge.Scripts.Entitys
             for (int e = 0; e < projectiles.Count; e++)
             {
                 spriteBatch.Draw(rect, projectiles[e].collisionBox, Color.White);
-            }
+            }*/
 
             foreach (Projectile projectile in projectiles)
             {

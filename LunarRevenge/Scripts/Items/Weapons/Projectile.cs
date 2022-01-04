@@ -34,7 +34,7 @@ namespace LunarRevenge.Scripts.Items.Weapons
             {
                 pos.X += speed;
             }
-            collisionBox = new Rectangle((int)(pos.X + Player.offset.X), (int)(pos.Y + Player.offset.Y), 5, 5);
+            collisionBox = new Rectangle((int)(pos.X + Player.offset.X), (int)(pos.Y + Player.offset.Y), 16, 16);
         }
 
         public void Draw(SpriteBatch spriteBatch, GraphicsDevice graphics, GameTime gameTime)

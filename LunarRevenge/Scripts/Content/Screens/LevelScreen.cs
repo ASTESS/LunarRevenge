@@ -15,7 +15,7 @@ namespace LunarRevenge.Scripts.Content.Screens
 
         private int currentLevel;
 
-        private List<Entity> entitys = new List<Entity>();
+        public static Dictionary<string, Entity> entitys = new Dictionary<string, Entity>();
         private WorldLoader world;
         private TextureManager textureManager;
         ContentManager content;
@@ -38,9 +38,9 @@ namespace LunarRevenge.Scripts.Content.Screens
             textureManager = new TextureManager(content.Load<Texture2D>("tileset x1"), content.Load<Texture2D>("Props and Items/props and items x1"), graphicsDevice);
             world = new WorldLoader(textureManager);
             collision = new Collision(world);
-            entitys.Add(new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision)); //add player //alles x3 voor de x3
-            entitys.Add(new ShooterEnemy(content.Load<Texture2D>("Enemies/enemies x1"), collision));
-            gui = new GuiScreen(content, entitys[0]);
+            entitys.Add("player", new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision, "player")); //add player //alles x3 voor de x3
+            entitys.Add("enemy1", new ShooterEnemy(content.Load<Texture2D>("Enemies/enemies x1"), collision, "enemy1"));
+            gui = new GuiScreen(content, entitys["player"]);
         }
 
         public void Update(GameTime gameTime)
@@ -59,17 +59,17 @@ namespace LunarRevenge.Scripts.Content.Screens
 
         public void DrawEntitys(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            foreach (Entity e in entitys)
+            foreach (KeyValuePair<string, Entity> e in entitys)
             {
-                e.Draw(spriteBatch, graphicsDevice, gameTime);
+                e.Value.Draw(spriteBatch, graphicsDevice, gameTime);
             }
         }
 
         public void UpdateEntitys(GameTime gameTime)
         {
-            foreach (Entity e in entitys)
+            foreach (KeyValuePair<string, Entity> e in entitys)
             {
-                e.Update(gameTime);
+                e.Value.Update(gameTime);
             }
         }
     }
