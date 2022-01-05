@@ -31,6 +31,7 @@ namespace LunarRevenge.Scripts.World
         }
         public void Update(GameTime gametime)
         {
+            updateTimer(gametime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -139,11 +140,58 @@ namespace LunarRevenge.Scripts.World
                                 }
                             }
 
+                            if (wallKey.Contains("animated_"))
+                            {
+                                walls[x,y] = Animate(wallKey);
+                            }
+
                         }
                     }
                     xMap++;
                 }
                 loaded = false;
+            }
+        }
+
+        private bool canUpdate = true;
+
+        private string Animate(string key)
+        {
+            if (canUpdate)
+            {
+            string[] split = key.Split('_');
+            int number = Convert.ToInt32(split[split.Length - 1]);
+            number++;
+            string newItem = "";
+            for (int i = 0; i < split.Length -1 ; i++)
+            {
+                newItem += split[i];
+                newItem += '_';
+            }
+
+            string test = newItem + number.ToString();
+            if (textureManager.worldTextures.ContainsKey(test))
+            {
+                newItem+=number.ToString();
+            }
+            else {
+                newItem += '1';
+            }
+            canUpdate = false;
+            return newItem;
+            }
+            return key;
+        }
+        float timer;
+
+        private void updateTimer(GameTime gameTime)
+        {
+            timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Console.WriteLine(timer);
+            if (timer >= 0.1f)
+            {
+                timer -= 0.1f;
+                canUpdate = true;
             }
         }
     }
