@@ -79,20 +79,24 @@ namespace LunarRevenge.Scripts.World.Textures
             worldTextures.Add("capsule_empty_bottom", GetProp(new Rectangle(1, 352, 32, 32)));
 
             // Animated Prop Textures
-            worldTextures.Add("a_smallgate_1", GetProp(new Rectangle(0, 672, 32, 32)));
-            worldTextures.Add("a_smallgate_2", GetProp(new Rectangle(32, 672, 32, 32)));
-            worldTextures.Add("a_smallgate_3", GetProp(new Rectangle(64, 672, 32, 32)));
-            worldTextures.Add("a_smallgate_4", GetProp(new Rectangle(96, 672, 32, 32)));
-            worldTextures.Add("a_smallgate_5", GetProp(new Rectangle(128, 672, 32, 32)));
-            worldTextures.Add("a_smallgate_6", GetProp(new Rectangle(160, 672, 32, 32)));
-            worldTextures.Add("a_smallgate_7", GetProp(new Rectangle(192, 672, 32, 32)));
-            worldTextures.Add("a_smallgate_8", GetProp(new Rectangle(224, 672, 32, 32)));
-            worldTextures.Add("a_smallgate_9", GetProp(new Rectangle(256, 672, 32, 32)));
-            worldTextures.Add("a_smallgate_10", GetProp(new Rectangle(288, 672, 32, 32)));
-            worldTextures.Add("a_smallgate_11", GetProp(new Rectangle(320, 672, 32, 32)));
-            worldTextures.Add("a_smallgate_12", GetProp(new Rectangle(352, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_1", GetProp(new Rectangle(0, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_2", GetProp(new Rectangle(32, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_3", GetProp(new Rectangle(64, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_4", GetProp(new Rectangle(96, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_5", GetProp(new Rectangle(128, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_6", GetProp(new Rectangle(160, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_7", GetProp(new Rectangle(192, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_8", GetProp(new Rectangle(224, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_9", GetProp(new Rectangle(256, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_10", GetProp(new Rectangle(288, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_11", GetProp(new Rectangle(320, 672, 32, 32)));
+            worldTextures.Add("animated_smallgate_12", GetProp(new Rectangle(352, 672, 32, 32)));
 
+            worldTextures.Add("animated_capsule_empty_top_1", GetProp(new Rectangle(1, 256, 32, 32)));
+            worldTextures.Add("animated_capsule_empty_bottom_1", GetProp(new Rectangle(1, 288, 32, 32)));
 
+            worldTextures.Add("animated_capsule_empty_top_2", GetProp(new Rectangle(65, 192, 32, 32)));
+            worldTextures.Add("animated_capsule_empty_bottom_2", GetProp(new Rectangle(65, 222, 32, 32)));
 
 
             // Prop Textures
