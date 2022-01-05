@@ -2,9 +2,6 @@
 using LunarRevenge.Scripts.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LunarRevenge.Scripts.Items.Weapons
 {
@@ -16,6 +13,7 @@ namespace LunarRevenge.Scripts.Items.Weapons
         private int speed = 4;
         public Rectangle collisionBox;
         public Collision collision;
+
         public Projectile(int damage, Entity.Direction direction, Vector2 pos, Collision collision)
         {
             this.damage = damage;
@@ -24,6 +22,7 @@ namespace LunarRevenge.Scripts.Items.Weapons
             this.collision = collision;
             this.collisionBox = new Rectangle((int)pos.X, (int)pos.Y, 5,5);
         }
+
         public void Update()
         {
             if (direction == Entity.Direction.left)

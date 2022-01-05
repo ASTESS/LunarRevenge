@@ -625,6 +625,54 @@
 /processorParam:TextureFormat=Color
 /build:Props and Items/props and items x3.png
 
+#begin Sound/Player/footstep_1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Player/footstep_1.wav
+
+#begin Sound/Player/footstep_2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Player/footstep_2.wav
+
+#begin Sound/Player/footstep_3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Player/footstep_3.wav
+
+#begin Sound/Player/footstep_4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Player/footstep_4.wav
+
+#begin Sound/Player/footstep_5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Player/footstep_5.wav
+
+#begin Sound/Player/footstep_6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Player/footstep_6.wav
+
+#begin Sound/Player/footstep_7.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Player/footstep_7.wav
+
+#begin Sound/Player/footstep_8.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Player/footstep_8.wav
+
 #begin tileset x1.png
 /importer:TextureImporter
 /processor:TextureProcessor

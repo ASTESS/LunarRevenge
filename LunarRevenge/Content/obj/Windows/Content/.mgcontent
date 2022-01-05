@@ -55,6 +55,14 @@
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x1.png</File>
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x2.png</File>
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_1.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_2.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_3.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_4.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_5.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_6.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_7.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_8.wav</File>
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/tileset x1.png</File>
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/tileset x2.png</File>
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/tileset x3.png</File>
@@ -63,6 +71,14 @@
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x3.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

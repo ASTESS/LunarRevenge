@@ -117,7 +117,7 @@ namespace LunarRevenge.Scripts.Entitys
             spriteBatch.Draw(texture, pos, new Rectangle(currentX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
 
             //for testing collision boxes
-            /*Texture2D rect = new Texture2D(graphics, 80, 30);
+            Texture2D rect = new Texture2D(graphics, 80, 30);
             Color[] data = new Color[80 * 30];
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
             rect.SetData(data);
@@ -136,7 +136,7 @@ namespace LunarRevenge.Scripts.Entitys
             for (int e = 0; e < projectiles.Count; e++)
             {
                 spriteBatch.Draw(rect, projectiles[e].collisionBox, Color.White);
-            }*/
+            }
 
             foreach (Projectile projectile in projectiles)
             {

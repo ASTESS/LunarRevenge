@@ -1,5 +1,6 @@
 ﻿using LunarRevenge.Scripts.World;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -37,6 +38,7 @@ namespace LunarRevenge.Scripts.Entitys
         {
             if (Mouse.GetState().LeftButton == ButtonState.Pressed && bullets > 0 && !shooting)
             {
+                // Player is shooting projectiles
                 this.state = EntityState.shooting;
                 shooting = true;
                 Shoot(10, new Vector2(midX - offset.X, midY - offset.Y));
@@ -45,7 +47,7 @@ namespace LunarRevenge.Scripts.Entitys
             if (shooting)
             {
                 shootingTimer += gameTime.ElapsedGameTime.Milliseconds;
-                if (shootingTimer > 150) //delay needs to be changed to animation duration
+                if (shootingTimer > 150)
                 {
                     shootingTimer -= 150;
                     if (frames > 1)
@@ -87,6 +89,7 @@ namespace LunarRevenge.Scripts.Entitys
             {
                 health = 0;
                 state = EntityState.death;
+                // GAME OVER
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.J))
@@ -161,7 +164,7 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 4;
                 duration = 150;
-
+                //playSounds(gameTime);
                 soundDuration = 60;
             }
             if (state == EntityState.shooting)
@@ -211,20 +214,23 @@ namespace LunarRevenge.Scripts.Entitys
                     }
                 }
             }
-
-            playSounds(gameTime);
         }
 
         private int soundTimer = 0;
-        private int soundDuration;
+        private int soundDuration = 1000;
+
+        List<SoundEffect> sfx;
         private void playSounds(GameTime gameTime)
         {
-            soundTimer+=gameTime.ElapsedGameTime.Milliseconds;
+            LunarRevenge l = new LunarRevenge();
+            sfx = new List<SoundEffect>();
+            sfx.Add(l.Content.Load<SoundEffect>("Sound/Player/footstep_1"));
+
+            soundTimer +=gameTime.ElapsedGameTime.Milliseconds;
             if (soundTimer > soundDuration)
             {
                 soundTimer -= soundDuration;
-
-                //play sound me mischien iets van variable da ge ook meegeeft zoals de duration als da mogenlijk is
+                sfx[0].Play();
 
             }
         }

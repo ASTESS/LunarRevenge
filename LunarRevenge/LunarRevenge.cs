@@ -17,6 +17,7 @@ namespace LunarRevenge
         private SpriteBatch spriteBatch;
 
         private ScreenManager screenManager;
+        private SoundManager soundManager;
 
         public LunarRevenge()
         {
@@ -36,6 +37,7 @@ namespace LunarRevenge
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             screenManager = new ScreenManager(this.Content, this.graphics, GraphicsDevice, spriteBatch);
+            soundManager = new SoundManager(this.Content);
         }
 
 

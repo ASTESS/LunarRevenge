@@ -10,6 +10,7 @@ namespace LunarRevenge.Scripts.World
     internal class Collision
     {
         public WorldLoader world;
+
         public Collision(WorldLoader world)
         {
             this.world = world;
@@ -60,6 +61,7 @@ namespace LunarRevenge.Scripts.World
             {
                 if (collisionBox.Intersects(entity.Value.collisionBox) && !(entity.Value.GetType() == typeof(Player)))
                 {
+                    // Projectile hit a collision, remove the projectile
                     entity.Value.damageEntity(60f);
                     return false;
                 }
