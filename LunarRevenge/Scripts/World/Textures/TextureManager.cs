@@ -94,9 +94,32 @@ namespace LunarRevenge.Scripts.World.Textures
 
             worldTextures.Add("animated_capsule_empty_top_1", GetProp(new Rectangle(1, 256, 32, 32)));
             worldTextures.Add("animated_capsule_empty_bottom_1", GetProp(new Rectangle(1, 288, 32, 32)));
+            worldTextures.Add("animated_capsule_empty_top_2", GetProp(new Rectangle(65, 256, 32, 32)));
+            worldTextures.Add("animated_capsule_empty_bottom_2", GetProp(new Rectangle(65, 288, 32, 32)));
+            worldTextures.Add("animated_capsule_empty_top_3", GetProp(new Rectangle(97, 256, 32, 32)));
+            worldTextures.Add("animated_capsule_empty_bottom_3", GetProp(new Rectangle(97, 288, 32, 32)));
+            worldTextures.Add("animated_capsule_empty_top_4", GetProp(new Rectangle(129, 256, 32, 32)));
+            worldTextures.Add("animated_capsule_empty_bottom_4", GetProp(new Rectangle(129, 288, 32, 32)));
 
-            worldTextures.Add("animated_capsule_empty_top_2", GetProp(new Rectangle(65, 192, 32, 32)));
-            worldTextures.Add("animated_capsule_empty_bottom_2", GetProp(new Rectangle(65, 222, 32, 32)));
+            worldTextures.Add("animated_capsule_filled_top_1", GetProp(new Rectangle(1, 192, 32, 32)));
+            worldTextures.Add("animated_capsule_filled_bottom_1", GetProp(new Rectangle(1, 224, 32, 32)));
+            worldTextures.Add("animated_capsule_filled_top_2", GetProp(new Rectangle(65, 192, 32, 32)));
+            worldTextures.Add("animated_capsule_filled_bottom_2", GetProp(new Rectangle(65, 224, 32, 32)));
+            worldTextures.Add("animated_capsule_filled_top_3", GetProp(new Rectangle(97, 192, 32, 32)));
+            worldTextures.Add("animated_capsule_filled_bottom_3", GetProp(new Rectangle(97, 224, 32, 32)));
+            worldTextures.Add("animated_capsule_filled_top_4", GetProp(new Rectangle(129, 192, 32, 32)));
+            worldTextures.Add("animated_capsule_filled_bottom_4", GetProp(new Rectangle(129, 224, 32, 32)));
+
+            worldTextures.Add("animated_monitorscreen_left_1", GetProp(new Rectangle(0, 132, 32, 32)));
+            worldTextures.Add("animated_monitorscreen_right_1", GetProp(new Rectangle(32, 132, 32, 32)));
+            worldTextures.Add("animated_monitorscreen_left_2", GetProp(new Rectangle(96, 132, 32, 32)));
+            worldTextures.Add("animated_monitorscreen_right_2", GetProp(new Rectangle(128, 132, 32, 32)));
+            worldTextures.Add("animated_monitorscreen_left_3", GetProp(new Rectangle(160, 132, 32, 32)));
+            worldTextures.Add("animated_monitorscreen_right_3", GetProp(new Rectangle(192, 132, 32, 32)));
+            worldTextures.Add("animated_monitorscreen_left_4", GetProp(new Rectangle(224, 132, 32, 32)));
+            worldTextures.Add("animated_monitorscreen_right_4", GetProp(new Rectangle(256, 132, 32, 32)));
+
+
 
 
             // Prop Textures
