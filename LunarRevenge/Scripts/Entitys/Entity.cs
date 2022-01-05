@@ -66,6 +66,13 @@ namespace LunarRevenge.Scripts.Entitys
             }
         }
 
+        public double Distance(Entity e1)
+        {
+            Vector2 e2 = this.pos;
+            double distance = Math.Sqrt((Math.Pow(e1.pos.X - e2.X, 2) + Math.Pow(e1.pos.Y - e2.Y, 2)));
+            return distance;
+        }
+
         public Entity(Texture2D texture, Collision collision, string name)
         {
             this.collision = collision;

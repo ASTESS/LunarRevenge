@@ -41,8 +41,12 @@ namespace LunarRevenge.Scripts.Content.Screens
             entitys.Add("player", new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision, "player", content)); //add player //alles x3 voor de x3
             entitys.Add("enemy1", new ShooterEnemy(content.Load<Texture2D>("Enemies/enemies x1"), collision, "enemy1"));
 
-            Vector2 v = new Vector2(500, 500);
-            entitys.Add("gate1", new Gate(content.Load<Texture2D>("Props and Items/props and items x1"), v,  collision, "gate1"));
+            Console.WriteLine();
+            Vector2 v = new Vector2(500, 1000);
+            //entitys.Add("gate1", new Gate(content.Load<Texture2D>("Props and Items/props and items x1"), v,  collision, "gate1"));
+
+            entitys.Add("alien1", new Alien(content.Load<Texture2D>("Enemies/enemies x1"), v, collision, "alien1", entitys["player"]));
+
 
             gui = new GuiScreen(content, entitys["player"]);
         }
