@@ -15,13 +15,13 @@ namespace LunarRevenge.Scripts.Entitys
         private bool NoticedTarget = false;
         private Player Target;
 
-        public Alien(Texture2D texture, Vector2 SpawnPoint, Collision collision, string name, Player p) : base(texture, collision, name)
+        public Alien(Texture2D texture, Vector2 SpawnPoint, Collision collision, string name) : base(texture, collision, name)
         {
             this.health = 100;
             speed = 0.9f;
             postition = SpawnPoint;
             Spawn = SpawnPoint;
-            Target = p;
+            Target = (Player)LevelScreen.entitys["player"];
         }
 
         private Direction direction = Direction.right;
@@ -43,7 +43,7 @@ namespace LunarRevenge.Scripts.Entitys
 
                 collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
 
-                Console.WriteLine("P: " + Target.Location.X + " | E: " + postition.X);
+                Console.WriteLine("P: " + (Target.pos.X) + " | E: " + (postition.X + Player.offset.X));
 
                 if (NoticedTarget)
                 {

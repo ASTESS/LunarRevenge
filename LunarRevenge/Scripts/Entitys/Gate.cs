@@ -54,7 +54,6 @@ namespace LunarRevenge.Scripts.Entitys
             if (canUpdate)
             {
                 string[] split = key.Split('_');
-                Console.WriteLine(key);
                 int number = Convert.ToInt32(split[split.Length - 1]);
 
                 if (number == 12)

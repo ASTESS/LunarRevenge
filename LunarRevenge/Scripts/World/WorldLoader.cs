@@ -153,7 +153,6 @@ namespace LunarRevenge.Scripts.World
             }
 
             wallIsLoaded = true;
-            Console.WriteLine("true");
         }
     }
 }

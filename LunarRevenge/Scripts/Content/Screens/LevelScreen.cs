@@ -44,7 +44,7 @@ namespace LunarRevenge.Scripts.Content.Screens
             Console.WriteLine();
             Vector2 v = new Vector2(500, 500);
 
-            //entitys.Add("alien1", new Alien(content.Load<Texture2D>("Enemies/enemies x1"), v, collision, "alien1", entitys["player"]));
+            entitys.Add("alien1", new Alien(content.Load<Texture2D>("Enemies/enemies x1"), v, collision, "alien1"));
 
 
             gui = new GuiScreen(content, entitys["player"]);

@@ -179,7 +179,6 @@ namespace LunarRevenge.Scripts.Entitys
                 }
 
                 pos.Y += velocity;
-                Console.WriteLine(pos);
             }
         }
 
