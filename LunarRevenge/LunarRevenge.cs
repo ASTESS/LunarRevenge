@@ -43,11 +43,16 @@ namespace LunarRevenge
             soundManager = new SoundManager(this.Content);
         }
 
-
+        TimeSpan timer;
         private double secondcounter = 0;
+
         protected override void Update(GameTime gameTime)
         {
+            timer += gameTime.ElapsedGameTime;
             secondcounter += gameTime.ElapsedGameTime.TotalSeconds;
+
+            // Display time in seconds to console
+            //Console.WriteLine(timer.TotalSeconds);
 
             if (secondcounter >= 1d / 60) //updating game at 60fps
             {

@@ -4,76 +4,76 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss outline x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss outline x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss outline x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/No Outlines/boss x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/No Outlines/boss x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/No Outlines/boss x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/enemies x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/enemies x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/enemies x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Exit Button.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Play Button.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Quit Button.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Resume Button.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Start Button.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/npc x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/npc x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/npc x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players blue x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players blue x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players blue x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players green x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players green x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players green x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players grey x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players grey x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players grey x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players green x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players green x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players green x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players grey x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players grey x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players grey x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players red x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players red x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players red x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Projectiles/projectiles x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Projectiles/projectiles x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Projectiles/projectiles x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_1.wav</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_2.wav</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_3.wav</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_4.wav</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_5.wav</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_6.wav</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_7.wav</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_8.wav</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/tileset x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/tileset x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/tileset x3.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x1.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x2.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss outline x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss outline x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss outline x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/boss x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/No Outlines/boss x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/No Outlines/boss x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Boss/No Outlines/boss x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/enemies x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/enemies x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/enemies x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Exit Button.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Play Button.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Quit Button.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Resume Button.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Start Button.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/npc x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/npc x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/npc x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players blue x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players blue x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players blue x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players green x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players green x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players green x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players grey x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players grey x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players grey x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players green x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players green x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players green x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players grey x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players grey x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players grey x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players red x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players red x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players red x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Projectiles/projectiles x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Projectiles/projectiles x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Projectiles/projectiles x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_1.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_2.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_3.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_4.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_5.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_6.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_7.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_8.wav</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/tileset x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/tileset x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/tileset x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x1.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x2.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x3.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

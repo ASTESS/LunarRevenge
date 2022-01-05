@@ -61,7 +61,6 @@ namespace LunarRevenge.Scripts.World
             {
                 if (collisionBox.Intersects(entity.Value.collisionBox) && !(entity.Value.GetType() == typeof(Player)))
                 {
-                    // Projectile hit a collision, remove the projectile
                     entity.Value.damageEntity(60f);
                     return false;
                 }

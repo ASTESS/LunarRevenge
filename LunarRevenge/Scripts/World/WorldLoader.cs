@@ -19,6 +19,10 @@ namespace LunarRevenge.Scripts.World
         public List<Rectangle> rectangles = new List<Rectangle>();
         ReadLevel levelRendering = new ReadLevel();
 
+        List<string> LeftSideCollision = new List<string> { "", "" };
+        List<string> CenterCollision = new List<string> { "", "" };
+        List<string> RightSideCollision = new List<string> { "", "" };
+
 
         private bool loaded = false;
         public WorldLoader(TextureManager textureManager)
@@ -85,8 +89,7 @@ namespace LunarRevenge.Scripts.World
                             {
                                 spriteBatch.Draw(textureManager.worldTextures[wallKey], new Vector2((offset * xMap) + (x * 32) + Player.offset.X, (offset * yMap) + (y * 32) + Player.offset.Y), Color.White);
 
-                                if (wallKey == "wall_side_1" ||
-                                    wallKey == "wall_2")
+                                if (RightSideCollision.Contains(wallKey))
                                 {
                                     rectangles.Add(new Rectangle((int)((offset * xMap) + 24 + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 8, 32));
                                 }
