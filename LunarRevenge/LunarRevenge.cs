@@ -19,8 +19,11 @@ namespace LunarRevenge
         private ScreenManager screenManager;
         private SoundManager soundManager;
 
+        public static LunarRevenge lunarRevenge;
+
         public LunarRevenge()
         {
+            lunarRevenge = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;

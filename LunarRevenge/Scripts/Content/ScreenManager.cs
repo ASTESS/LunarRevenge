@@ -46,9 +46,9 @@ namespace LunarRevenge.Scripts.Content
 
         private void init()
         {
-            startScreen = new StartScreen(this);
+            startScreen = new StartScreen(this, content, graphicsDevice);
             keyBinding = new KeyBinding();
-            pauseScreen = new PauseScreen(this);
+            pauseScreen = new PauseScreen(this, content, graphicsDevice);
             levelScreen = new LevelScreen(content, graphicsDevice, graphics);
         }
 
@@ -69,7 +69,7 @@ namespace LunarRevenge.Scripts.Content
                 levelScreen.Update(gameTime);
             }else if (state == ScreenStates.paused)
             {
-
+                pauseScreen.Update();
             }
         }
 
@@ -79,7 +79,7 @@ namespace LunarRevenge.Scripts.Content
         {
             if (state == ScreenStates.home)
             {
-                startScreen.Draw(graphicsDevice, spriteBatch);
+                startScreen.Draw(spriteBatch);
             }
             else if (state == ScreenStates.level)
             {

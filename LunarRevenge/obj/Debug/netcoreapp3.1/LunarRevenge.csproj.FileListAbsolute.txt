@@ -290,3 +290,17 @@ C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Player\footstep_6.xnb
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Player\footstep_7.xnb
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Player\footstep_8.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Players\players blue x1 IDLE ANIMATION.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Player\footstep_1.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Player\footstep_2.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Player\footstep_3.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Player\footstep_4.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Player\footstep_5.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Player\footstep_6.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Player\footstep_7.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Player\footstep_8.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Exit Button.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Play Button.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Quit Button.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Resume Button.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Start Button.xnb

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_4.wav</SourceFile>
-  <SourceTime>2022-01-03T03:04:36.1803898+01:00</SourceTime>
-  <DestFile>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/bin/Windows/Sound/Player/footstep_4.xnb</DestFile>
-  <DestTime>2022-01-05T04:22:16.9761607+01:00</DestTime>
+  <SourceFile>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_4.wav</SourceFile>
+  <SourceTime>2022-01-05T14:29:22.2065078+01:00</SourceTime>
+  <DestFile>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/bin/Windows/Sound/Player/footstep_4.xnb</DestFile>
+  <DestTime>2022-01-05T16:00:07.2322527+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

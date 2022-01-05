@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x1.png</SourceFile>
-  <SourceTime>2022-01-02T04:28:53.853032+01:00</SourceTime>
-  <DestFile>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/bin/Windows/Props and Items/props and items x1.xnb</DestFile>
-  <DestTime>2022-01-05T04:22:12.2229728+01:00</DestTime>
+  <SourceFile>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x1.png</SourceFile>
+  <SourceTime>2022-01-02T23:16:32.6620314+01:00</SourceTime>
+  <DestFile>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/bin/Windows/Props and Items/props and items x1.xnb</DestFile>
+  <DestTime>2022-01-05T16:00:01.5882504+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

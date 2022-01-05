@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
 
 namespace LunarRevenge.Scripts.Content
 {
@@ -9,18 +10,36 @@ namespace LunarRevenge.Scripts.Content
         Rectangle startButton = new Rectangle(100, 100, 50, 50);
         ScreenManager screenManager;
 
-        public PauseScreen(ScreenManager screenManager)
+        ContentManager content;
+        GraphicsDevice graphics;
+
+        private Texture2D resumeButton;
+        private Vector2 resumeButtonPos;
+
+        public PauseScreen(ScreenManager screenManager, ContentManager content, GraphicsDevice graphics)
         {
             this.screenManager = screenManager;
+
+            resumeButton = content.Load<Texture2D>("Menu/Resume Button");
+            resumeButtonPos = new Vector2((graphics.Viewport.Width / 2) - (resumeButton.Width * 0.2f) / 2, 50);
+        }
+
+        public void Update()
+        {
+            int x = Mouse.GetState().Position.X;
+            int y = Mouse.GetState().Position.Y;
+
+            if (x >= resumeButtonPos.X && x <= resumeButtonPos.X + resumeButton.Width * 0.2f &&
+                y >= resumeButtonPos.Y && y <= resumeButtonPos.Y + resumeButton.Height * 0.2f &&
+                Mouse.GetState().LeftButton == ButtonState.Pressed)
+            {
+                screenManager.changeState(ScreenManager.ScreenStates.level);
+            }
         }
 
         public void Draw(GraphicsDevice graphics, SpriteBatch spriteBatch)
         {
-            Texture2D rect2 = new Texture2D(graphics, 80, 30);
-            Color[] data2 = new Color[80 * 30];
-            for (int i = 0; i < data2.Length; ++i) data2[i] = Color.White;
-            rect2.SetData(data2);
-            spriteBatch.Draw(rect2, startButton, Color.White);
+            spriteBatch.Draw(resumeButton, resumeButtonPos, new Rectangle(0, 0, resumeButton.Width, resumeButton.Height), Color.White, 0f, new Vector2(0, 0), 0.2f, SpriteEffects.None, 1f);
         }
     }
 }
