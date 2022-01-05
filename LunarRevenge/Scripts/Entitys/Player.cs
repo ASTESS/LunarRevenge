@@ -108,6 +108,9 @@ namespace LunarRevenge.Scripts.Entitys
             }
         }
 
+        private bool jumping = false;
+        private bool faling = false;
+        private float velocity = 0f;
         private void KeyboardInput(GameTime gameTime)
         {
             DamagePlayer();
@@ -149,6 +152,34 @@ namespace LunarRevenge.Scripts.Entitys
                 {
                     MovePlayer(Direction.left);
                 }
+                if (state.IsKeyDown(Keys.Space))
+                {
+                    if (!jumping)
+                    {
+                        velocity = -0.5f;
+                        jumping = true;
+                        faling = false;
+                    }
+                }
+
+                //240 == ground
+                
+
+                if (pos.Y == 230)
+                {
+                    velocity = 0.5f;
+                    faling = true;
+                }
+
+                if (pos.Y == 240 && faling)
+                {
+                    jumping = false;
+                    faling = false;
+                    velocity = 0f;
+                }
+
+                pos.Y += velocity;
+                Console.WriteLine(pos);
             }
         }
 

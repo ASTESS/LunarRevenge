@@ -1,4 +1,5 @@
-﻿using LunarRevenge.Scripts.Entitys;
+﻿using LunarRevenge.Scripts.Content.Screens;
+using LunarRevenge.Scripts.Entitys;
 using LunarRevenge.Scripts.World.Levels;
 using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
@@ -18,6 +19,7 @@ namespace LunarRevenge.Scripts.World
 
         public List<Rectangle> rectangles = new List<Rectangle>();
         ReadLevel levelRendering = new ReadLevel();
+        private bool wallIsLoaded = false;
 
         List<string> LeftSideCollision = new List<string> { "", "" };
         List<string> CenterCollision = new List<string> { "", "" };
@@ -31,7 +33,6 @@ namespace LunarRevenge.Scripts.World
         }
         public void Update(GameTime gametime)
         {
-            updateTimer(gametime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -58,12 +59,12 @@ namespace LunarRevenge.Scripts.World
                     //{
                     //for (int yMap = 0; yMap < /*levelRendering.lvl1.LevelSize*/ 9; yMap++)
                     //{
-                    if (level%3 == 0)
+                    if (level % 3 == 0)
                     {
                         xMap = 0;
                         yMap++;
                     }
-                    
+
                     string[,] walls = levelRendering.lvl1.Levels[level].WallMapping;
                     string[,] floorMap = levelRendering.lvl1.Levels[level].FloorMapping;
                     string[,] props = levelRendering.lvl1.Levels[level].PropMapping;
@@ -86,7 +87,7 @@ namespace LunarRevenge.Scripts.World
                             {
                                 spriteBatch.Draw(textureManager.worldTextures[obstacleKey], new Vector2((offset * xMap) + (x * 32) + Player.offset.X, (offset * yMap) + (y * 32) + Player.offset.Y), Color.White);
                             }
-                            if (textureManager.worldTextures.ContainsKey(wallKey))
+                            if (textureManager.worldTextures.ContainsKey(wallKey) && !wallKey.Contains("animated_smallgate"))
                             {
                                 spriteBatch.Draw(textureManager.worldTextures[wallKey], new Vector2((offset * xMap) + (x * 32) + Player.offset.X, (offset * yMap) + (y * 32) + Player.offset.Y), Color.White);
 
@@ -140,59 +141,19 @@ namespace LunarRevenge.Scripts.World
                                 }
                             }
 
-                            if (wallKey.Contains("animated_"))
+                            if (wallKey.Contains("animated_smallgate") && !wallIsLoaded)
                             {
-                                walls[x,y] = Animate(wallKey);
+                                LevelScreen.entitys.Add("Gate1", new Gate(LevelScreen.content.Load<Texture2D>("Props and Items/props and items x1"), new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16), LevelScreen.collision, "gate1", textureManager));
                             }
 
                         }
                     }
                     xMap++;
                 }
-                loaded = false;
-            }
-        }
-
-        private bool canUpdate = true;
-
-        private string Animate(string key)
-        {
-            if (canUpdate)
-            {
-            string[] split = key.Split('_');
-            int number = Convert.ToInt32(split[split.Length - 1]);
-            number++;
-            string newItem = "";
-            for (int i = 0; i < split.Length -1 ; i++)
-            {
-                newItem += split[i];
-                newItem += '_';
             }
 
-            string test = newItem + number.ToString();
-            if (textureManager.worldTextures.ContainsKey(test))
-            {
-                newItem+=number.ToString();
-            }
-            else {
-                newItem += '1';
-            }
-            canUpdate = false;
-            return newItem;
-            }
-            return key;
-        }
-        float timer;
-
-        private void updateTimer(GameTime gameTime)
-        {
-            timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            //Console.WriteLine(timer);
-            if (timer >= 0.1f)
-            {
-                timer -= 0.1f;
-                canUpdate = true;
-            }
+            wallIsLoaded = true;
+            Console.WriteLine("true");
         }
     }
 }

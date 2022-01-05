@@ -18,16 +18,16 @@ namespace LunarRevenge.Scripts.Content.Screens
         public static Dictionary<string, Entity> entitys = new Dictionary<string, Entity>();
         private WorldLoader world;
         private TextureManager textureManager;
-        ContentManager content;
+        public static ContentManager content;
         GraphicsDevice graphicsDevice;
         GraphicsDeviceManager graphics;
-        private Collision collision;
+        public static Collision collision;
 
         GuiScreen gui;
 
-        public LevelScreen(ContentManager content, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphics)
+        public LevelScreen(ContentManager contentt, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphics)
         {
-            this.content = content;
+            content = contentt;
             this.graphicsDevice = graphicsDevice;
             this.graphics = graphics;
             Init();
@@ -42,10 +42,9 @@ namespace LunarRevenge.Scripts.Content.Screens
             entitys.Add("enemy1", new ShooterEnemy(content.Load<Texture2D>("Enemies/enemies x1"), collision, "enemy1"));
 
             Console.WriteLine();
-            Vector2 v = new Vector2(500, 1000);
-            //entitys.Add("gate1", new Gate(content.Load<Texture2D>("Props and Items/props and items x1"), v,  collision, "gate1"));
+            Vector2 v = new Vector2(500, 500);
 
-            entitys.Add("alien1", new Alien(content.Load<Texture2D>("Enemies/enemies x1"), v, collision, "alien1", (Player)entitys["player"]));
+            //entitys.Add("alien1", new Alien(content.Load<Texture2D>("Enemies/enemies x1"), v, collision, "alien1", entitys["player"]));
 
 
             gui = new GuiScreen(content, entitys["player"]);
