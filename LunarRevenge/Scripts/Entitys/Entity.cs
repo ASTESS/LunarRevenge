@@ -138,10 +138,13 @@ namespace LunarRevenge.Scripts.Entitys
                 spriteBatch.Draw(rect, projectiles[e].collisionBox, Color.White);
             }
 
+
+
             foreach (Projectile projectile in projectiles)
             {
                 projectile.Draw(spriteBatch, graphics, gameTime);
             }
+            
         }
 
         /*public void Move(Direction direction)
