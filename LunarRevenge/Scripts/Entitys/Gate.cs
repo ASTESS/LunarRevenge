@@ -27,6 +27,16 @@ namespace LunarRevenge.Scripts.Entitys
         public override void Update(GameTime gameTime)
         {
             pos = new Vector2(postition.X + Player.offset.X, postition.Y + Player.offset.Y);
+
+            if (Distance(LevelScreen.entitys["player"]) > 100)
+            {
+
+            }
+            else
+            {
+
+            }
+
             updateTimer(gameTime);
             base.Update(gameTime);
         }
