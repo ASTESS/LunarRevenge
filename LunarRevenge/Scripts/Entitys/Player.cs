@@ -1,6 +1,7 @@
 ﻿using LunarRevenge.Scripts.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -15,11 +16,19 @@ namespace LunarRevenge.Scripts.Entitys
         private int midX = 0;
         private int midY = 0;
         private Direction currentDirection;
-        public Player(Texture2D texture, GraphicsDeviceManager graphics, Collision collision, string name) : base(texture, collision, name)
+
+        SoundEffect effect;
+        SoundEffectInstance soundEffect;
+        ContentManager content;
+
+        public Player(Texture2D texture, GraphicsDeviceManager graphics, Collision collision, string name, ContentManager content) : base(texture, collision, name)
         {
             midY = graphics.GraphicsDevice.Viewport.Height / 2;
             midX = graphics.GraphicsDevice.Viewport.Width / 2;
             pos = new Vector2(midX, midY); //stating position
+
+            effect = content.Load<SoundEffect>("Sound/Player/footstep_1");
+            soundEffect = effect.CreateInstance();
         }
 
         public override void Update(GameTime gameTime)
@@ -154,6 +163,9 @@ namespace LunarRevenge.Scripts.Entitys
                 currentX = startingX;
                 duration = 150;
 
+                soundEffect.IsLooped = false;
+                soundEffect.Pause();
+
                 soundDuration = 60;
             }
             if (state == EntityState.running)
@@ -164,7 +176,14 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 4;
                 duration = 150;
-                //playSounds(gameTime);
+
+                if (!soundEffect.IsLooped)
+                {
+                    soundEffect.IsLooped = true;
+                    soundEffect.Play();
+                }
+                
+
                 soundDuration = 60;
             }
             if (state == EntityState.shooting)
@@ -175,6 +194,9 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 4;
                 duration = 240;
+
+                soundEffect.IsLooped = false;
+                soundEffect.Pause();
 
                 soundDuration = 60;
             }
@@ -187,6 +209,9 @@ namespace LunarRevenge.Scripts.Entitys
                 frames = 5;
                 duration = 240;
 
+                soundEffect.IsLooped = false;
+                soundEffect.Pause();
+
                 soundDuration = 60;
             }
             if (state == EntityState.death)
@@ -197,6 +222,9 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 7;
                 duration = 150;
+
+                soundEffect.IsLooped = false;
+                soundEffect.Pause();
 
                 soundDuration = 60;
             }
