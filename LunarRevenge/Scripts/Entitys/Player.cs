@@ -263,6 +263,9 @@ namespace LunarRevenge.Scripts.Entitys
                     flip = SpriteEffects.FlipHorizontally;
                     offset.X += speed;
                 }
+
+                Location = new Vector2((pos.X), (pos.Y));
+
             }
         }
     }

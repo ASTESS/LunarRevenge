@@ -13,9 +13,9 @@ namespace LunarRevenge.Scripts.Entitys
         private Vector2 postition;
         private Vector2 Spawn;
         private bool NoticedTarget = false;
-        private Entity Target;
+        private Player Target;
 
-        public Alien(Texture2D texture, Vector2 SpawnPoint, Collision collision, string name, Entity p) : base(texture, collision, name)
+        public Alien(Texture2D texture, Vector2 SpawnPoint, Collision collision, string name, Player p) : base(texture, collision, name)
         {
             this.health = 100;
             speed = 0.9f;
@@ -30,7 +30,7 @@ namespace LunarRevenge.Scripts.Entitys
             pos = new Vector2(postition.X + Player.offset.X, postition.Y + Player.offset.Y);
             if (!(state == EntityState.death))
             {
-                if (this.Distance(Target) <= 175) { NoticedTarget = true; Console.WriteLine("NOTICED"); }
+                if (this.Distance(Target) <= 175) { NoticedTarget = true; }
 
                 if (NoticedTarget == false)
                 {
@@ -38,15 +38,32 @@ namespace LunarRevenge.Scripts.Entitys
                 }
                 else
                 {
-                    Console.WriteLine("SHOOTING");
-                    Shoot(10, new Vector2(Target.pos.X, Target.pos.Y));
+                    //shoot(10, new Vector2(Target.pos.X, pos.Y));
                 }
 
                 collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
 
+                Console.WriteLine("P: " + Target.Location.X + " | E: " + postition.X);
+
+                if (NoticedTarget)
+                {
+                    if (Target.Location.X < postition.X)
+                    {
+                        MoveEntity(Direction.right);
+                        state = EntityState.running;
+                    }
+                    else if (Target.Location.X > postition.X)
+                    {
+                        MoveEntity(Direction.left);
+                        state = EntityState.running;
+                    }
+                }
+
                 if (!collision.collisionCheck(direction, collisionBox))
                 {
+                    state = EntityState.running;
 
+                    
                 }
 
 

@@ -187,7 +187,7 @@ namespace LunarRevenge.Scripts.World
         private void updateTimer(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            Console.WriteLine(timer);
+            //Console.WriteLine(timer);
             if (timer >= 0.1f)
             {
                 timer -= 0.1f;

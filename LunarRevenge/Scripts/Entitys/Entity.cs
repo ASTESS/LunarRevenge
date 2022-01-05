@@ -36,6 +36,7 @@ namespace LunarRevenge.Scripts.Entitys
         public EntityState state = EntityState.idle;
         public SpriteEffects flip = SpriteEffects.None;
         public string name;
+        public Vector2 Location;
 
         public Rectangle collisionBox = Rectangle.Empty;
 
