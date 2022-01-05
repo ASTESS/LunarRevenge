@@ -1,4 +1,5 @@
-﻿using LunarRevenge.Scripts.World;
+﻿using LunarRevenge.Scripts.Content;
+using LunarRevenge.Scripts.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -19,7 +20,8 @@ namespace LunarRevenge.Scripts.Entitys
 
         SoundEffect effect;
         SoundEffectInstance soundEffect;
-        ContentManager content;
+
+        SoundManager soundManager;
 
         public Player(Texture2D texture, GraphicsDeviceManager graphics, Collision collision, string name, ContentManager content) : base(texture, collision, name)
         {
@@ -27,8 +29,7 @@ namespace LunarRevenge.Scripts.Entitys
             midX = graphics.GraphicsDevice.Viewport.Width / 2;
             pos = new Vector2(midX, midY); //stating position
 
-            effect = content.Load<SoundEffect>("Sound/Player/footstep_1");
-            soundEffect = effect.CreateInstance();
+            soundManager = new SoundManager(content);
         }
 
         public override void Update(GameTime gameTime)
@@ -153,6 +154,7 @@ namespace LunarRevenge.Scripts.Entitys
 
         public override void Animation(GameTime gameTime)
         {
+            playSounds(gameTime);
             if (state == EntityState.idle)
             {
                 startingX = 0;
@@ -162,11 +164,7 @@ namespace LunarRevenge.Scripts.Entitys
                 frames = 2;
                 currentX = startingX;
                 duration = 150;
-
-                soundEffect.IsLooped = false;
                 soundEffect.Pause();
-
-                soundDuration = 60;
             }
             if (state == EntityState.running)
             {
@@ -176,15 +174,7 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 4;
                 duration = 150;
-
-                if (!soundEffect.IsLooped)
-                {
-                    soundEffect.IsLooped = true;
-                    soundEffect.Play();
-                }
-                
-
-                soundDuration = 60;
+                soundEffect.Play();
             }
             if (state == EntityState.shooting)
             {
@@ -194,11 +184,7 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 4;
                 duration = 240;
-
-                soundEffect.IsLooped = false;
                 soundEffect.Pause();
-
-                soundDuration = 60;
             }
             if (state == EntityState.reloading)
             {
@@ -208,11 +194,7 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 5;
                 duration = 240;
-
-                soundEffect.IsLooped = false;
                 soundEffect.Pause();
-
-                soundDuration = 60;
             }
             if (state == EntityState.death)
             {
@@ -222,11 +204,7 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 7;
                 duration = 150;
-
-                soundEffect.IsLooped = false;
                 soundEffect.Pause();
-
-                soundDuration = 60;
             }
 
             timeFromPreFrame += gameTime.ElapsedGameTime.Milliseconds;
@@ -244,22 +222,20 @@ namespace LunarRevenge.Scripts.Entitys
             }
         }
 
-        private int soundTimer = 0;
-        private int soundDuration = 1000;
-
-        List<SoundEffect> sfx;
+        Random random = new Random();
         private void playSounds(GameTime gameTime)
         {
-            LunarRevenge l = new LunarRevenge();
-            sfx = new List<SoundEffect>();
-            sfx.Add(l.Content.Load<SoundEffect>("Sound/Player/footstep_1"));
-
-            soundTimer +=gameTime.ElapsedGameTime.Milliseconds;
-            if (soundTimer > soundDuration)
+            if (soundEffect == null) //for first launch
             {
-                soundTimer -= soundDuration;
-                sfx[0].Play();
+                effect = soundManager.sfx[0];
+                soundEffect = effect.CreateInstance();
+            }
 
+            if (soundEffect.State == SoundState.Stopped) //state is stopped
+            {
+                effect = soundManager.sfx[random.Next(0,8)];
+                soundEffect = effect.CreateInstance();
+                soundEffect.Play();
             }
         }
 
