@@ -10,13 +10,17 @@ namespace LunarRevenge.Scripts.World
     internal class Collision
     {
         public WorldLoader world;
+        public List<Rectangle> collisions;
 
         public Collision(WorldLoader world)
         {
             this.world = world;
+            collisions = new List<Rectangle>();
         }
         public bool collisionCheck(Entity.Direction direction, Rectangle collisionBox)
         {
+            world.rectangles.AddRange(collisions);
+            collisions.Clear();
             foreach (Rectangle rec in world.rectangles)
             {
                 if (rec.Right >= collisionBox.Right &&

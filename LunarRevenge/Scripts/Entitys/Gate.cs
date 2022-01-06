@@ -7,7 +7,7 @@ using System;
 
 namespace LunarRevenge.Scripts.Entitys
 {
-    enum GateState { Open, Closed };
+    enum GateState { Open, Closed, None };
 
     internal class Gate : Entity
     {
@@ -16,13 +16,13 @@ namespace LunarRevenge.Scripts.Entitys
         private Vector2 postition = new Vector2(0, 0);
         TextureManager textureManager;
         private bool canUpdate = true;
-        private bool doorOpen = true;
         string key = "animated_smallgate_1";
+        private bool openDoor = false;
+        private bool closed = true;
+        private bool doorOpen = false;
 
         public Gate(Texture2D texture, Vector2 pos, Collision collision, string name, TextureManager textureManager) : base(texture, collision, name)
         {
-            this.health = 50;
-            speed = 1f;
             this.postition = pos;
             this.textureManager = textureManager;
         }
@@ -33,11 +33,16 @@ namespace LunarRevenge.Scripts.Entitys
 
             if (Distance(LevelScreen.entitys["player"]) > 75)
             {
-                closeGate();
+                openDoor = false;
             }
             else
             {
-                openGate();
+                openDoor = true;
+            }
+
+            if (!doorOpen)
+            {
+                collision.collisions.Add(new Rectangle((int)pos.X - 16, (int)pos.Y - 16, 32, 20));
             }
 
             updateTimer(gameTime);
@@ -48,9 +53,9 @@ namespace LunarRevenge.Scripts.Entitys
         private void updateTimer(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (timer >= 0.5f)
+            if (timer >= 0.08f)
             {
-                timer -= 0.5f;
+                timer -= 0.08f;
                 canUpdate = true;
             }
         }
@@ -60,12 +65,10 @@ namespace LunarRevenge.Scripts.Entitys
             if(CurrentGateState.Equals(GateState.Closed))
             {
                 CurrentGateState = GateState.Open;
-                Console.WriteLine("open");
-
+                openDoor = true;
                 // Animation for opening the gate
 
                 // remove temporary collision
-
             }
             
         }
@@ -75,23 +78,20 @@ namespace LunarRevenge.Scripts.Entitys
             if (CurrentGateState.Equals(GateState.Open))
             {
                 CurrentGateState = GateState.Closed;
-                Console.WriteLine("closed");
-
+                openDoor = false;
+                collision.world.rectangles.Add(new Rectangle(-16, -16, 32, 16));
                 // Animation for closing the gate
 
                 // Add temporary colission
-
             }
         }
 
-
-
-        public void _Animation(GameTime gameTime)
+        public override void Animation(GameTime gameTime)
         {
             startingY = 672;
             width = 32;
             height = 32;
-            frames = 12;
+            frames = 11;
             currentX = startingX;
             duration = 150;
 
@@ -100,22 +100,19 @@ namespace LunarRevenge.Scripts.Entitys
                 string[] split = key.Split('_');
                 int number = Convert.ToInt32(split[split.Length - 1]);
 
-                if (number == 12)
-                {
-                    doorOpen = true;
-                }
-                else if (number == 1)
-                {
-                    doorOpen = false;
-                }
-                if (doorOpen)
+                if (!openDoor && number > 1)
                 {
                     number--;
                 }
-                else if (!doorOpen)
+                else if (openDoor && number < 12)
                 {
                     number++;
                 }
+
+                if (number >= 12)
+                {
+                    doorOpen = true;
+                }else { doorOpen = false;}
 
                 string newItem = "";
                 for (int i = 0; i < split.Length - 1; i++)
@@ -123,16 +120,9 @@ namespace LunarRevenge.Scripts.Entitys
                     newItem += split[i];
                     newItem += '_';
                 }
-
-                Console.WriteLine(newItem);
-
-                string test = newItem + number.ToString();
-                if (textureManager.worldTextures.ContainsKey(test))
-                {
-                    newItem += number.ToString();
-                }
+                newItem += number.ToString();
                 key = newItem;
-                startingX = number * 32;
+                startingX = (number -1) * 32;
                 canUpdate = false;
             }
         }

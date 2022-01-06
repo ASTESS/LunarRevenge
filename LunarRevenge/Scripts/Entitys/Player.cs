@@ -180,7 +180,7 @@ namespace LunarRevenge.Scripts.Entitys
                 }
 
                 pos.Y += velocity;
-                Console.WriteLine($"F: {playerIsFalling} | J: {playerIsJumping}");
+                //Console.WriteLine($"F: {playerIsFalling} | J: {playerIsJumping}");
             }
         }
 

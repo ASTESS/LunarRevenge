@@ -165,6 +165,11 @@ namespace LunarRevenge.Scripts.Entitys
                     spriteBatch.Draw(rect, item, Color.White);
                 }
 
+                foreach (Rectangle item in collision.collisions)
+                {
+                    spriteBatch.Draw(rect, item, Color.White);
+                }
+
                 Texture2D rect2 = new Texture2D(graphics, 80, 30);
                 Color[] data2 = new Color[80 * 30];
                 for (int i = 0; i < data2.Length; ++i) data2[i] = Color.Red;
