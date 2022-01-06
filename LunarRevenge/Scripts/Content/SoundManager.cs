@@ -8,10 +8,12 @@ namespace LunarRevenge.Scripts.Content
     {
         public List<SoundEffect> sfx;
 
-        public SoundManager(ContentManager content)
+        public SoundManager(ContentManager content = null)
         {
             sfx = new List<SoundEffect>();
-            loadSounds(content);
+
+            if(content != null)
+                loadSounds(content);
         }
 
         public void loadSounds(ContentManager content)
@@ -24,13 +26,18 @@ namespace LunarRevenge.Scripts.Content
             sfx.Add(content.Load<SoundEffect>("Sound/Player/footstep_6"));
             sfx.Add(content.Load<SoundEffect>("Sound/Player/footstep_7"));
             sfx.Add(content.Load<SoundEffect>("Sound/Player/footstep_8"));
+            sfx.Add(content.Load<SoundEffect>("Sound/Door/open_door"));
         }
 
         public void PlaySound(string sound)
         {
             int index = sfx.FindIndex(a => a.Name.Equals(sound));
+            sfx[index].Play();
         }
 
-
+        public int getSoundIndex(string sound)
+        {
+            return sfx.FindIndex(a => a.Name.Equals(sound));
+        }
     }
 }

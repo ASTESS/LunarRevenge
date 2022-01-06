@@ -36,7 +36,7 @@ namespace LunarRevenge.Scripts.Content.Screens
         private void Init()
         {
             textureManager = new TextureManager(content.Load<Texture2D>("tileset x1"), content.Load<Texture2D>("Props and Items/props and items x1"), graphicsDevice);
-            world = new WorldLoader(textureManager);
+            world = new WorldLoader(textureManager, content);
             collision = new Collision(world);
 
             entitys.Add("player", new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision, "player", content)); //add player //alles x3 voor de x3

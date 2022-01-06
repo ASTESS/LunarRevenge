@@ -1,13 +1,16 @@
-﻿using LunarRevenge.Scripts.Content.Screens;
+﻿using LunarRevenge.Scripts.Content;
+using LunarRevenge.Scripts.Content.Screens;
 using LunarRevenge.Scripts.World;
 using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
 namespace LunarRevenge.Scripts.Entitys
 {
-    enum GateState { Open, Closed, None };
+    enum GateState { Open, Closed };
 
     internal class Gate : Entity
     {
@@ -16,15 +19,16 @@ namespace LunarRevenge.Scripts.Entitys
         private Vector2 postition = new Vector2(0, 0);
         TextureManager textureManager;
         private bool canUpdate = true;
-        string key = "animated_smallgate_1";
         private bool openDoor = false;
-        private bool closed = true;
         private bool doorOpen = false;
+        SoundManager soundManager;
 
-        public Gate(Texture2D texture, Vector2 pos, Collision collision, string name, TextureManager textureManager) : base(texture, collision, name)
+
+        public Gate(Texture2D texture, Vector2 pos, Collision collision, string name, TextureManager textureManager, ContentManager content) : base(texture, collision, name)
         {
             this.postition = pos;
             this.textureManager = textureManager;
+            soundManager = new SoundManager(content);
 
             startingX = 0;
             startingY = 672;
@@ -42,16 +46,20 @@ namespace LunarRevenge.Scripts.Entitys
             if (Distance(LevelScreen.entitys["player"]) > 75)
             {
                 openDoor = false;
+                closeGateSound();
             }
             else
             {
                 openDoor = true;
+                openGateSound();
             }
 
             if (!doorOpen)
             {
                 collision.collisions.Add(new Rectangle((int)pos.X - 16, (int)pos.Y - 16, 32, 20));
             }
+
+
 
             updateTimer(gameTime);
             base.Update(gameTime);
@@ -68,29 +76,22 @@ namespace LunarRevenge.Scripts.Entitys
             }
         }
 
-        public void openGate()
+        public void openGateSound()
         {
             if(CurrentGateState.Equals(GateState.Closed))
             {
                 CurrentGateState = GateState.Open;
-                openDoor = true;
-                // Animation for opening the gate
-
-                // remove temporary collision
+                soundManager.PlaySound("Sound/Door/open_door");
             }
             
         }
 
-        public void closeGate()
+        public void closeGateSound()
         {
             if (CurrentGateState.Equals(GateState.Open))
             {
                 CurrentGateState = GateState.Closed;
-                openDoor = false;
-                collision.world.rectangles.Add(new Rectangle(-16, -16, 32, 16));
-                // Animation for closing the gate
-
-                // Add temporary colission
+                soundManager.PlaySound("Sound/Door/open_door");
             }
         }
 

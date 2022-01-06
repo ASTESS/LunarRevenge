@@ -3,6 +3,7 @@ using LunarRevenge.Scripts.Entitys;
 using LunarRevenge.Scripts.World.Levels;
 using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace LunarRevenge.Scripts.World
     class WorldLoader
     {
         private TextureManager textureManager;
-
+        private ContentManager content;
 
 
         public List<Rectangle> rectangles = new List<Rectangle>();
@@ -28,9 +29,10 @@ namespace LunarRevenge.Scripts.World
 
 
         private bool loaded = false;
-        public WorldLoader(TextureManager textureManager)
+        public WorldLoader(TextureManager textureManager, ContentManager content)
         {
             this.textureManager = textureManager;
+            this.content = content;
         }
         public void Update(GameTime gametime)
         {
@@ -124,12 +126,10 @@ namespace LunarRevenge.Scripts.World
                                 }
                             }
 
-
-
                             if (propKey.Contains("animated_smallgate") && !wallIsLoaded)
                             {
-                                LevelScreen.entitys.Add($"Gate{GateCounter}", new Gate(LevelScreen.content.Load<Texture2D>("Props and Items/props and items x1"), new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16), LevelScreen.collision, $"gate{GateCounter}", textureManager));
-                                GateCounter++;
+                                LevelScreen.entitys.Add($"Gate{GateCounter}", new Gate(LevelScreen.content.Load<Texture2D>("Props and Items/props and items x1"), new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16), LevelScreen.collision, $"gate{GateCounter}", textureManager, content));
+                                 GateCounter++;
                             }
 
                         }

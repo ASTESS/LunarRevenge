@@ -60,6 +60,7 @@
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x1.png</File>
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x2.png</File>
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x3.png</File>
+    <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Door/open_door.wav</File>
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_1.wav</File>
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_2.wav</File>
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_3.wav</File>
@@ -76,6 +77,7 @@
     <File>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x3.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

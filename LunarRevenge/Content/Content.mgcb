@@ -685,6 +685,12 @@
 /processorParam:TextureFormat=Color
 /build:Props and Items/props and items x3.png
 
+#begin Sound/Door/open_door.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Door/open_door.wav
+
 #begin Sound/Player/footstep_1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
