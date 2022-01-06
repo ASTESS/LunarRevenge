@@ -20,6 +20,7 @@ namespace LunarRevenge.Scripts.World
         public List<Rectangle> rectangles = new List<Rectangle>();
         ReadLevel levelRendering = new ReadLevel();
         private bool wallIsLoaded = false;
+        int GateCounter = 0;
 
         List<string> LeftSideCollision = new List<string> { "wall_side", "wall_side_2", "wall_side_4", "wall_side_6", "wall_side_8", "wall_1", "wall_3", "wall_5", "wall_13", "wall_15", "wall_17" };
         List<string> CenterCollision = new List<string> { "wall", "wall_1", "wall_2", "wall_3", "wall_4", "wall_5", "wall_6", "wall_7", "wall_8", "wall_9", "wall_10", "wall_11", "wall_12", "wall_13", "wall_14", "wall_15", "wall_16", "wall_17", "wall_18", "wall_19", "wall_20" };
@@ -123,9 +124,12 @@ namespace LunarRevenge.Scripts.World
                                 }
                             }
 
-                            if (wallKey.Contains("animated_smallgate") && !wallIsLoaded)
+
+
+                            if (propKey.Contains("animated_smallgate") && !wallIsLoaded)
                             {
-                                LevelScreen.entitys.Add("Gate1", new Gate(LevelScreen.content.Load<Texture2D>("Props and Items/props and items x1"), new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16), LevelScreen.collision, "gate1", textureManager));
+                                LevelScreen.entitys.Add($"Gate{GateCounter}", new Gate(LevelScreen.content.Load<Texture2D>("Props and Items/props and items x1"), new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16), LevelScreen.collision, $"gate{GateCounter}", textureManager));
+                                GateCounter++;
                             }
 
                         }
