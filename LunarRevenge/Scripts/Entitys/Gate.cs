@@ -25,6 +25,14 @@ namespace LunarRevenge.Scripts.Entitys
         {
             this.postition = pos;
             this.textureManager = textureManager;
+
+            startingX = 0;
+            startingY = 672;
+            width = 32;
+            height = 32;
+            frames = 11;
+            currentX = startingX;
+            duration = 150;
         }
 
         public override void Update(GameTime gameTime)
@@ -86,43 +94,26 @@ namespace LunarRevenge.Scripts.Entitys
             }
         }
 
+
+        int frameCounter = 1;
         public override void Animation(GameTime gameTime)
         {
-            startingY = 672;
-            width = 32;
-            height = 32;
-            frames = 11;
-            currentX = startingX;
-            duration = 150;
-
             if (canUpdate)
             {
-                string[] split = key.Split('_');
-                int number = Convert.ToInt32(split[split.Length - 1]);
-
-                if (!openDoor && number > 1)
+                if (!openDoor && frameCounter > 1)
                 {
-                    number--;
+                    frameCounter--;
                 }
-                else if (openDoor && number < 12)
+                else if (openDoor && frameCounter < 12)
                 {
-                    number++;
+                    frameCounter++;
                 }
+                currentX = (frameCounter - 1) * 32;
 
-                if (number >= 12)
+                if (frameCounter == 12)
                 {
                     doorOpen = true;
                 }else { doorOpen = false;}
-
-                string newItem = "";
-                for (int i = 0; i < split.Length - 1; i++)
-                {
-                    newItem += split[i];
-                    newItem += '_';
-                }
-                newItem += number.ToString();
-                key = newItem;
-                startingX = (number -1) * 32;
                 canUpdate = false;
             }
         }
