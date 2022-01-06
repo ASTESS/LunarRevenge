@@ -124,7 +124,7 @@ namespace LunarRevenge.Scripts.Entitys
             //spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White
             spriteBatch.Draw(texture, pos, new Rectangle(currentX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
 
-            DebugCollisionMode(true, spriteBatch, graphics);
+            DebugCollisionMode(false, spriteBatch, graphics);
 
             foreach (Projectile projectile in projectiles)
             {

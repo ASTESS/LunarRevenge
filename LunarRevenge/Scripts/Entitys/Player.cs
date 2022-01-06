@@ -108,8 +108,8 @@ namespace LunarRevenge.Scripts.Entitys
             }
         }
 
-        private bool jumping = false;
-        private bool faling = false;
+        private bool playerIsJumping = false;
+        private bool playerIsFalling = false;
         private float velocity = 0f;
         private void KeyboardInput(GameTime gameTime)
         {
@@ -154,11 +154,12 @@ namespace LunarRevenge.Scripts.Entitys
                 }
                 if (state.IsKeyDown(Keys.Space))
                 {
-                    if (!jumping)
+                    if (!playerIsJumping)
                     {
                         velocity = -0.5f;
-                        jumping = true;
-                        faling = false;
+                        playerIsJumping = true;
+                        playerIsFalling = false;
+                        soundEffect.Pause();
                     }
                 }
 
@@ -168,17 +169,18 @@ namespace LunarRevenge.Scripts.Entitys
                 if (pos.Y == 230)
                 {
                     velocity = 0.5f;
-                    faling = true;
+                    playerIsFalling = true;
                 }
 
-                if (pos.Y == 240 && faling)
+                if (pos.Y == 240 && playerIsFalling)
                 {
-                    jumping = false;
-                    faling = false;
+                    playerIsJumping = false;
+                    playerIsFalling = false;
                     velocity = 0f;
                 }
 
                 pos.Y += velocity;
+                Console.WriteLine($"F: {playerIsFalling} | J: {playerIsJumping}");
             }
         }
 
@@ -204,7 +206,9 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 4;
                 duration = 150;
-                soundEffect.Play();
+
+                if(!playerIsJumping)
+                    soundEffect.Play();
             }
             if (state == EntityState.shooting)
             {

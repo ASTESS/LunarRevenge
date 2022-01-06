@@ -55,10 +55,6 @@ namespace LunarRevenge.Scripts.World
                 int yMap = 0;
                 for (int level = 0; level < levelRendering.lvl1.Levels.Length; level++)
                 {
-                    //for (int xMap = 0; xMap < /*levelRendering.lvl1.LevelSize*/ 9; xMap++)
-                    //{
-                    //for (int yMap = 0; yMap < /*levelRendering.lvl1.LevelSize*/ 9; yMap++)
-                    //{
                     if (level % 3 == 0)
                     {
                         xMap = 0;
@@ -70,16 +66,16 @@ namespace LunarRevenge.Scripts.World
                     string[,] props = levelRendering.lvl1.Levels[level].PropMapping;
                     string[,] obstacles = levelRendering.lvl1.Levels[level].ObstacleMapping;
 
-                    for (int x = 0; x < /*levelRendering.lvl1.LevelSize*/walls.GetLength(0); x++)
+                    for (int x = 0; x < walls.GetLength(0); x++)
                     {
-                        for (int y = 0; y < /*levelRendering.lvl1.LevelSize*/walls.GetLength(1); y++)
+                        for (int y = 0; y < walls.GetLength(1); y++)
                         {
                             string floorKey = floorMap[x, y];
                             string obstacleKey = obstacles[x, y];
                             string wallKey = walls[x, y];
                             string propKey = props[x, y];
 
-                            if (textureManager.worldTextures.ContainsKey(floorKey)) //makes sure everything exist and can load empty squires
+                            if (textureManager.worldTextures.ContainsKey(floorKey)) //makes sure everything exist and can load empty squares
                             {
                                 spriteBatch.Draw(textureManager.worldTextures[floorKey], new Vector2((offset * xMap) + (x * 32) + Player.offset.X, (offset * yMap) + (y * 32) + Player.offset.Y), Color.White);
                             }
