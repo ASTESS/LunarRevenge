@@ -37,6 +37,10 @@ namespace LunarRevenge.Scripts.Entitys
         public EntityState state = EntityState.idle;
         public SpriteEffects flip = SpriteEffects.None;
         public string name;
+
+        public bool NoticedTarget = false;
+        public double TimeOfNotice = 0.0;
+
         public Vector2 Location;
 
         public Rectangle collisionBox = Rectangle.Empty;
@@ -82,7 +86,7 @@ namespace LunarRevenge.Scripts.Entitys
             this.collision = collision;
             this.texture = texture;
             this.name = name;
-            markers = LevelScreen.content.Load<Texture2D>("Props and Items/props and items x1");
+            markers = LevelScreen.content.Load<Texture2D>("UI/UI x1");
         }
 
         public virtual void Update(GameTime gameTime)
@@ -137,18 +141,32 @@ namespace LunarRevenge.Scripts.Entitys
 
             if (this.GetType() != typeof(Player) && this.GetType() != typeof(Gate))
             {
-                DrawMarker(spriteBatch, graphics);
+                DrawMarker(spriteBatch, graphics, gameTime);
             }
         }
 
-        private void DrawMarker(SpriteBatch spriteBatch, GraphicsDevice graphics)
+        private void DrawMarker(SpriteBatch spriteBatch, GraphicsDevice graphics, GameTime gameTime)
         {
             Texture2D rect2 = new Texture2D(graphics, 80, 30);
             Color[] data2 = new Color[80 * 30];
             for (int i = 0; i < data2.Length; ++i) data2[i] = Color.Red;
             rect2.SetData(data2);
 
-            spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(268, 233, 8, 8), Color.White);
+            if (NoticedTarget && (TimeOfNotice + 3 >= gameTime.TotalGameTime.TotalSeconds))
+            {
+                spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(106, 299, 10, 10), Color.White);
+            }
+            else
+            {
+                // Draw Health bar of the Entity
+                if (this.health <= 0) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(40, 168, 10, 10), Color.White); }
+                else if (this.health <= 15) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(72, 168, 10, 10), Color.White); }
+                else if (this.health <= 35) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(104, 168, 10, 10), Color.White); }
+                else if (this.health <= 50) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(136, 168, 10, 10), Color.White); }
+                else if (this.health <= 65) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(168, 168, 10, 10), Color.White); }
+                else if (this.health <= 90) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(200, 168, 10, 10), Color.White); }
+                else { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(232, 168, 10, 10), Color.White); }
+            }
         }
 
         public void DebugCollisionMode(bool condition, SpriteBatch spriteBatch, GraphicsDevice graphics)

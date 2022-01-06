@@ -12,7 +12,6 @@ namespace LunarRevenge.Scripts.Entitys
     {
         private Vector2 postition;
         private Vector2 Spawn;
-        private bool NoticedTarget = false;
         private Player Target;
 
         public Alien(Texture2D texture, Vector2 SpawnPoint, Collision collision, string name) : base(texture, collision, name)
@@ -30,7 +29,11 @@ namespace LunarRevenge.Scripts.Entitys
             pos = new Vector2(postition.X + Player.offset.X, postition.Y + Player.offset.Y);
             if (!(state == EntityState.death))
             {
-                if (this.Distance(Target) <= 175) { NoticedTarget = true; }
+                if (this.Distance(Target) <= 175 && !NoticedTarget)
+                {
+                    NoticedTarget = true;
+                    TimeOfNotice = gameTime.TotalGameTime.TotalSeconds;
+                }
 
                 if (NoticedTarget == false)
                 {
@@ -47,21 +50,12 @@ namespace LunarRevenge.Scripts.Entitys
 
                 if (NoticedTarget)
                 {
-                    if (Target.Location.X < postition.X)
-                    {
-                        MoveEntity(Direction.right);
-                        state = EntityState.running;
-                    }
-                    else if (Target.Location.X > postition.X)
-                    {
-                        MoveEntity(Direction.left);
-                        state = EntityState.running;
-                    }
+
                 }
 
                 if (!collision.collisionCheck(direction, collisionBox))
                 {
-                    state = EntityState.running;
+                    state = EntityState.idle;
 
                     
                 }

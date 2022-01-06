@@ -43,7 +43,7 @@ namespace LunarRevenge.Scripts.Content.Screens
             entitys.Add("enemy1", new ShooterEnemy(content.Load<Texture2D>("Enemies/enemies x1"), collision, "enemy1"));
 
             Console.WriteLine();
-            Vector2 v = new Vector2(500, 500);
+            Vector2 v = new Vector2(400, 500);
 
             entitys.Add("alien1", new Alien(content.Load<Texture2D>("Enemies/enemies x1"), v, collision, "alien1"));
 

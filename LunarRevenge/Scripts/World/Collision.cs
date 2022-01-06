@@ -65,7 +65,7 @@ namespace LunarRevenge.Scripts.World
             {
                 if (collisionBox.Intersects(entity.Value.collisionBox) && !(entity.Value.GetType() == typeof(Player)))
                 {
-                    entity.Value.damageEntity(60f);
+                    entity.Value.damageEntity(10f);
                     return false;
                 }
             }
