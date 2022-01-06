@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using LunarRevenge.Scripts.World;
 using LunarRevenge.Scripts.Items.Weapons;
+using LunarRevenge.Scripts.Content.Screens;
 
 namespace LunarRevenge.Scripts.Entitys
 {
@@ -56,6 +57,8 @@ namespace LunarRevenge.Scripts.Entitys
         public int timeFromPreFrame = 0;
         public int duration;
 
+        private Texture2D markers;
+
         public void damageEntity(float damage)
         {
             Console.WriteLine("dead");
@@ -79,6 +82,7 @@ namespace LunarRevenge.Scripts.Entitys
             this.collision = collision;
             this.texture = texture;
             this.name = name;
+            markers = LevelScreen.content.Load<Texture2D>("Props and Items/props and items x1");
         }
 
         public virtual void Update(GameTime gameTime)
@@ -130,7 +134,21 @@ namespace LunarRevenge.Scripts.Entitys
             {
                 projectile.Draw(spriteBatch, graphics, gameTime);
             }
-            
+
+            if (this.GetType() != typeof(Player) && this.GetType() != typeof(Gate))
+            {
+                DrawMarker(spriteBatch, graphics);
+            }
+        }
+
+        private void DrawMarker(SpriteBatch spriteBatch, GraphicsDevice graphics)
+        {
+            Texture2D rect2 = new Texture2D(graphics, 80, 30);
+            Color[] data2 = new Color[80 * 30];
+            for (int i = 0; i < data2.Length; ++i) data2[i] = Color.Red;
+            rect2.SetData(data2);
+
+            spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(268, 233, 8, 8), Color.White);
         }
 
         public void DebugCollisionMode(bool condition, SpriteBatch spriteBatch, GraphicsDevice graphics)

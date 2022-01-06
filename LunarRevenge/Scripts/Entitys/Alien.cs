@@ -43,7 +43,7 @@ namespace LunarRevenge.Scripts.Entitys
 
                 collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
 
-                //Console.WriteLine("P: " + (Target.pos.X) + " | E: " + (postition.X + Player.offset.X));
+                Console.WriteLine("P: " + (Target.pos.X - Player.offset.X) + " | E: " + (postition.X)); // positie van 
 
                 if (NoticedTarget)
                 {
