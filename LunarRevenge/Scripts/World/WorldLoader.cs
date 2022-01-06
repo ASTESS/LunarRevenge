@@ -19,9 +19,9 @@ namespace LunarRevenge.Scripts.World
 
 
         public List<Rectangle> rectangles = new List<Rectangle>();
-        ReadLevel levelRendering = new ReadLevel();
         private bool wallIsLoaded = false;
         int GateCounter = 0;
+        private Level currentLevel;
 
         List<string> LeftSideCollision = new List<string> { "wall_side", "wall_side_2", "wall_side_4", "wall_side_6", "wall_side_8", "wall_1", "wall_3", "wall_5", "wall_13", "wall_15", "wall_17" };
         List<string> CenterCollision = new List<string> { "wall", "wall_1", "wall_2", "wall_3", "wall_4", "wall_5", "wall_6", "wall_7", "wall_8", "wall_9", "wall_10", "wall_11", "wall_12", "wall_13", "wall_14", "wall_15", "wall_16", "wall_17", "wall_18", "wall_19", "wall_20" };
@@ -29,8 +29,9 @@ namespace LunarRevenge.Scripts.World
 
 
         private bool loaded = false;
-        public WorldLoader(TextureManager textureManager, ContentManager content)
+        public WorldLoader(TextureManager textureManager, Level level, ContentManager content)
         {
+            currentLevel = level;
             this.textureManager = textureManager;
             this.content = content;
         }
@@ -56,7 +57,7 @@ namespace LunarRevenge.Scripts.World
             {
                 int xMap = 0;
                 int yMap = 0;
-                for (int level = 0; level < levelRendering.lvl1.Levels.Length; level++)
+                for (int level = 0; level < currentLevel.Levels.Length; level++)
                 {
                     if (level % 3 == 0)
                     {
@@ -64,10 +65,10 @@ namespace LunarRevenge.Scripts.World
                         yMap++;
                     }
 
-                    string[,] walls = levelRendering.lvl1.Levels[level].WallMapping;
-                    string[,] floorMap = levelRendering.lvl1.Levels[level].FloorMapping;
-                    string[,] props = levelRendering.lvl1.Levels[level].PropMapping;
-                    string[,] obstacles = levelRendering.lvl1.Levels[level].ObstacleMapping;
+                    string[,] walls = currentLevel.Levels[level].WallMapping;
+                    string[,] floorMap = currentLevel.Levels[level].FloorMapping;
+                    string[,] props = currentLevel.Levels[level].PropMapping;
+                    string[,] obstacles = currentLevel.Levels[level].ObstacleMapping;
 
                     for (int x = 0; x < walls.GetLength(0); x++)
                     {

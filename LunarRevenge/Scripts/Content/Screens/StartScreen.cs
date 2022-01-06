@@ -45,7 +45,7 @@ namespace LunarRevenge.Scripts.Content
                 y >= startButtonPos.Y && y <= startButtonPos.Y + startButton.Height * 0.2f &&
                 Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
-                screenManager.changeState(ScreenManager.ScreenStates.level);
+                screenManager.changeState(ScreenManager.ScreenStates.levelSelect);
             }
 
             if (x >= quitButtonPos.X && x <= quitButtonPos.X + quitButton.Width * 0.2f &&

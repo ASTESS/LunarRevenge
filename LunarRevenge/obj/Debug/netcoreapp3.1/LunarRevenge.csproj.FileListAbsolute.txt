@@ -309,4 +309,5 @@ C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Quit Button.xnb
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Resume Button.xnb
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Start Button.xnb
-C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Door\open_door.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Numbers.xnb
+C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Door\open_door.xnb

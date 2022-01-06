@@ -1,5 +1,6 @@
 ﻿using LunarRevenge.Scripts.Entitys;
 using LunarRevenge.Scripts.World;
+using LunarRevenge.Scripts.World.Levels;
 using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -22,22 +23,25 @@ namespace LunarRevenge.Scripts.Content.Screens
         GraphicsDevice graphicsDevice;
         GraphicsDeviceManager graphics;
         public static Collision collision;
+        private Level level;
 
         GuiScreen gui;
 
-        public LevelScreen(ContentManager contentt, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphics)
+        public LevelScreen(ContentManager contentt, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphics, Level level)
         {
             content = contentt;
             this.graphicsDevice = graphicsDevice;
             this.graphics = graphics;
+            this.level = level;
             Init();
         }
 
         private void Init()
         {
             textureManager = new TextureManager(content.Load<Texture2D>("tileset x1"), content.Load<Texture2D>("Props and Items/props and items x1"), graphicsDevice);
-            world = new WorldLoader(textureManager, content);
+            world = new WorldLoader(textureManager, level, content);
             collision = new Collision(world);
+            entitys.Clear();
 
             entitys.Add("player", new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision, "player", content)); //add player //alles x3 voor de x3
             entitys.Add("enemy1", new ShooterEnemy(content.Load<Texture2D>("Enemies/enemies x1"), collision, "enemy1"));

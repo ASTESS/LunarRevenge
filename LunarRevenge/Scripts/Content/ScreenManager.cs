@@ -1,6 +1,7 @@
 ﻿using LunarRevenge.Scripts.Content.Screens;
 using LunarRevenge.Scripts.Entitys;
 using LunarRevenge.Scripts.World;
+using LunarRevenge.Scripts.World.Levels;
 using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -19,12 +20,14 @@ namespace LunarRevenge.Scripts.Content
             home,
             level,
             paused,
+            levelSelect
         }
 
         private StartScreen startScreen;
         private KeyBinding keyBinding;
         private PauseScreen pauseScreen;
-        private LevelScreen levelScreen;
+        public LevelScreen levelScreen;
+        private LevelSelectionScreen levelSelectionScreen;
 
         private ContentManager content;
         private GraphicsDeviceManager graphics;
@@ -35,12 +38,17 @@ namespace LunarRevenge.Scripts.Content
 
         public ScreenStates state = ScreenStates.home;
 
+        public Level level;
+        public ReadLevel readLevel;
+
         public ScreenManager(ContentManager content, GraphicsDeviceManager graphics, GraphicsDevice graphicsDevice, SpriteBatch spriteBatch)
         {
             this.content = content;
             this.graphics = graphics;
             this.graphicsDevice = graphicsDevice;
             this.spriteBatch = spriteBatch;
+            this.readLevel = new ReadLevel();
+            this.level = readLevel.lvl1;
             init();
         }
 
@@ -49,7 +57,7 @@ namespace LunarRevenge.Scripts.Content
             startScreen = new StartScreen(this, content, graphicsDevice);
             keyBinding = new KeyBinding();
             pauseScreen = new PauseScreen(this, content, graphicsDevice);
-            levelScreen = new LevelScreen(content, graphicsDevice, graphics);
+            levelSelectionScreen = new LevelSelectionScreen(content, this, graphicsDevice, graphics);
         }
 
         public void changeState(ScreenStates states)
@@ -64,10 +72,16 @@ namespace LunarRevenge.Scripts.Content
             if (state == ScreenStates.home)
             {
                 startScreen.Update();
-            }else if (state == ScreenStates.level)
+            }
+            else if (state == ScreenStates.level)
             {
                 levelScreen.Update(gameTime);
-            }else if (state == ScreenStates.paused)
+            }
+            else if (state == ScreenStates.levelSelect)
+            {
+                levelSelectionScreen.Update(gameTime);
+            }
+            else if (state == ScreenStates.paused)
             {
                 pauseScreen.Update();
             }
@@ -84,6 +98,10 @@ namespace LunarRevenge.Scripts.Content
             else if (state == ScreenStates.level)
             {
                 levelScreen.Draw(spriteBatch, gameTime);
+            }
+            else if (state == ScreenStates.levelSelect)
+            {
+                levelSelectionScreen.Draw(spriteBatch);
             }
             else if (state == ScreenStates.paused)
             {
