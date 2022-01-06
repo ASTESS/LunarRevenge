@@ -21,9 +21,9 @@ namespace LunarRevenge.Scripts.World
         ReadLevel levelRendering = new ReadLevel();
         private bool wallIsLoaded = false;
 
-        List<string> LeftSideCollision = new List<string> { "", "" };
-        List<string> CenterCollision = new List<string> { "", "" };
-        List<string> RightSideCollision = new List<string> { "", "" };
+        List<string> LeftSideCollision = new List<string> { "wall_side", "wall_side_2", "wall_side_4", "wall_side_6", "wall_side_8", "wall_1", "wall_3", "wall_5", "wall_13", "wall_15", "wall_17" };
+        List<string> CenterCollision = new List<string> { "wall", "wall_1", "wall_2", "wall_3", "wall_4", "wall_5", "wall_6", "wall_7", "wall_8", "wall_9", "wall_10", "wall_11", "wall_12", "wall_13", "wall_14", "wall_15", "wall_16", "wall_17", "wall_18", "wall_19", "wall_20" };
+        List<string> RightSideCollision = new List<string> { "wall_side_1", "wall_side_3", "wall_side_5", "wall_side_7", "wall_side_9", "wall_2", "wall_4", "wall_6", "wall_14", "wall_16", "wall_18" };
 
 
         private bool loaded = false;
@@ -96,27 +96,13 @@ namespace LunarRevenge.Scripts.World
                                     rectangles.Add(new Rectangle((int)((offset * xMap) + 24 + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 8, 32));
                                 }
 
-                                if (wallKey == "wall" ||
-                                    wallKey == "wall_1" ||
-                                    wallKey == "wall_2" ||
-                                    wallKey == "wall_3" ||
-                                    wallKey == "wall_11" ||
-                                    wallKey == "wall_12" ||
-                                    wallKey == "wall_7" ||
-                                    wallKey == "wall_8"
-                                    )
+                                if (CenterCollision.Contains(wallKey))
                                 {
-                                    rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + 16 + (y * 32) + Player.offset.Y), 32, 10));
-                                    rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 32, 10));
+                                    //rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + 16 + (y * 32) + Player.offset.Y), 32, 18));
+                                    rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 32, 20));
                                 }
 
-                                if (wallKey == "wall_side" ||
-                                    wallKey == "wall_side_2" ||
-                                    wallKey == "wall_3" ||
-                                    wallKey == "wall_1" ||
-                                    wallKey == "wallLeftSideEndBottom" ||
-                                    wallKey == "wallLeftSideEndTop"
-                                    )
+                                if (LeftSideCollision.Contains(wallKey))
                                 {
                                     rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 8, 32));
                                 }
