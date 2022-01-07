@@ -62,6 +62,7 @@ namespace LunarRevenge.Scripts.Entitys
         public int duration;
 
         private Texture2D markers;
+        private int markerX;
 
         public void damageEntity(float damage)
         {
@@ -159,13 +160,14 @@ namespace LunarRevenge.Scripts.Entitys
             else
             {
                 // Draw Health bar of the Entity
-                if (this.health <= 0) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(40, 168, 10, 10), Color.White); }
-                else if (this.health <= 15) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(72, 168, 10, 10), Color.White); }
-                else if (this.health <= 35) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(104, 168, 10, 10), Color.White); }
-                else if (this.health <= 50) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(136, 168, 10, 10), Color.White); }
-                else if (this.health <= 65) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(168, 168, 10, 10), Color.White); }
-                else if (this.health <= 90) { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(200, 168, 10, 10), Color.White); }
-                else { spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(232, 168, 10, 10), Color.White); }
+                if (this.health <= 0) { markerX = 40; }
+                else if (this.health <= 15) { markerX = 72; }
+                else if (this.health <= 35) { markerX = 104; }
+                else if (this.health <= 50) { markerX = 136; }
+                else if (this.health <= 65) { markerX = 168; }
+                else if (this.health <= 90) { markerX = 200; }
+                else { markerX = 232; }
+                spriteBatch.Draw(markers, new Vector2(pos.X - 7, pos.Y - 20), new Rectangle(markerX, 173, 16, 6), Color.White);
             }
         }
 
