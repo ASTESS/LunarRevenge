@@ -69,16 +69,49 @@ namespace LunarRevenge.Scripts.Content.Screens
             spriteBatch.Draw(healthBar, new Vector2(40, graphics.GraphicsDevice.Viewport.Height - 13), new Rectangle(x, y, 64, 7), Color.White);
         }
 
+        private int xHealth;
         public void drawHealth(SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
         {
-            if (player.health == 100)
+            if (player.health >= 90)
             {
-                spriteBatch.Draw(healthBar, new Vector2(10, graphics.GraphicsDevice.Viewport.Height - 13), new Rectangle(323, 12, 26, 7), Color.White);
-            }
-            else
+                xHealth = 323;
+            }else if (player. health >= 80)
             {
-                spriteBatch.Draw(healthBar, new Vector2(10, graphics.GraphicsDevice.Viewport.Height - 13), new Rectangle(35, 12, 26, 7), Color.White);
+                xHealth = 291;
             }
+            else if (player.health >= 70)
+            {
+                xHealth = 259;
+            }
+            else if (player.health >= 60)
+            {
+                xHealth = 227;
+            }
+            else if (player.health >= 50)
+            {
+                xHealth = 195;
+            }
+            else if (player.health >= 40)
+            {
+                xHealth = 163;
+            }
+            else if (player.health >= 30)
+            {
+                xHealth = 131;
+            }
+            else if (player.health >= 20)
+            {
+                xHealth = 99;
+            }
+            else if (player.health >= 10)
+            {
+                xHealth = 67;
+            }
+            else if(player.health <= 0)
+            {
+                xHealth = 35;
+            }
+            spriteBatch.Draw(healthBar, new Vector2(10, graphics.GraphicsDevice.Viewport.Height - 13), new Rectangle(xHealth, 12, 26, 7), Color.White);
         }
     }
 }

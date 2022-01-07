@@ -45,6 +45,7 @@
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x1.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x2.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x3.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x1 IDLE ANIMATION.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x1.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x2.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x3.png</File>
@@ -80,6 +81,7 @@
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x3.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

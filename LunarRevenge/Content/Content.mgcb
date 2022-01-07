@@ -505,6 +505,18 @@
 /processorParam:TextureFormat=Color
 /build:Players/No Outlines/players red x3.png
 
+#begin Players/players blue x1 IDLE ANIMATION.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Players/players blue x1 IDLE ANIMATION.png
+
 #begin Players/players blue x1.png
 /importer:TextureImporter
 /processor:TextureProcessor

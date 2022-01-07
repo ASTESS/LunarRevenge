@@ -20,7 +20,8 @@ namespace LunarRevenge.Scripts.Entitys
             running,
             shooting,
             death,
-            activate
+            activate,
+            hurt
         }
 
         public enum Direction
@@ -64,15 +65,16 @@ namespace LunarRevenge.Scripts.Entitys
         private Texture2D markers;
         private int markerX;
 
-        public void damageEntity(float damage)
+        public bool canTakeDamage = true;
+
+        public virtual void damageEntity(float damage)
         {
-            Console.WriteLine("dead");
-            health -= damage;
-            if (health <= 0) // player died
-            {
-                health = 0;
-                state = EntityState.death;
-            }
+                health -= damage;
+                if (health <= 0) // player died
+                {
+                    health = 0;
+                    state = EntityState.death;
+                }
         }
 
         public double Distance(Entity e1)

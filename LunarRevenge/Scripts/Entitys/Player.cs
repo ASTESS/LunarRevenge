@@ -38,6 +38,12 @@ namespace LunarRevenge.Scripts.Entitys
         public override void Update(GameTime gameTime)
         {
             KeyboardInput(gameTime);
+
+            if (!canTakeDamage)
+            {
+                updateTimer(gameTime);
+            }
+
             base.Update(gameTime);
         }
 
@@ -100,14 +106,42 @@ namespace LunarRevenge.Scripts.Entitys
         {
             if (Keyboard.GetState().IsKeyDown(Keys.H))
             {
-                health = 0;
-                state = EntityState.death;
-                // GAME OVER
+                damageEntity(10);
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.J))
             {
                 health = 100;
+            }
+        }
+
+        public override void damageEntity(float damage)
+        {
+            if (canTakeDamage)
+            {
+                health -= damage;
+                if (health <= 0) // player died
+                {
+                    health = 0;
+                    state = EntityState.death;
+                }
+                else
+                {
+                    canTakeDamage = false;
+                    state = EntityState.hurt;
+                }
+            }
+        }
+
+        float timer;
+        private void updateTimer(GameTime gameTime)
+        {
+            timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (timer >= 0.5f)
+            {
+                timer -= 0.5f;
+                canTakeDamage = true;
+                state = EntityState.idle;
             }
         }
 
@@ -128,11 +162,11 @@ namespace LunarRevenge.Scripts.Entitys
                     shoot(gameTime);
                     if (!shooting)
                     {
-                        if (state.GetPressedKeys().Length > 0 && !shooting && !reloading)
+                        if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.S) || state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.D) || state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.Q) || state.IsKeyDown(Keys.Left) && !shooting && !reloading)
                         {
                             this.state = EntityState.running;
                         }
-                        else if (!shooting && !reloading)
+                        else if (!shooting && !reloading && this.state != EntityState.hurt)
                         {
                             this.state = EntityState.idle;
                         }
@@ -240,6 +274,17 @@ namespace LunarRevenge.Scripts.Entitys
                 width = 32;
                 height = 32;
                 frames = 7;
+                duration = 150;
+                soundEffect.Pause();
+            }
+            if (state == EntityState.hurt)
+            {
+                Console.WriteLine("hurt");
+                startingX = 0;
+                startingY = 0;
+                width = 32;
+                height = 32;
+                frames = 3;
                 duration = 150;
                 soundEffect.Pause();
             }
