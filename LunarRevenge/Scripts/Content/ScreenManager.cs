@@ -60,7 +60,7 @@ namespace LunarRevenge.Scripts.Content
             keyBinding = new KeyBinding();
             pauseScreen = new PauseScreen(this, content, graphicsDevice);
             levelSelectionScreen = new LevelSelectionScreen(content, this, graphicsDevice, graphics);
-            deathScreen = new DeathScreen(this);
+            deathScreen = new DeathScreen(this, content, graphicsDevice);
         }
 
         public void changeState(ScreenStates states)

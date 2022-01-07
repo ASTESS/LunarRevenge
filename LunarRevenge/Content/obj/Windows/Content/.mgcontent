@@ -26,6 +26,7 @@
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Quit Button.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Resume Button.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Start Button.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/You died.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x1.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x2.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x3.png</File>
@@ -79,6 +80,7 @@
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x3.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
