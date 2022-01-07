@@ -20,16 +20,19 @@ namespace LunarRevenge.Scripts.Entitys
 
         SoundEffect effect;
         SoundEffectInstance soundEffect;
+        ScreenManager screenManager;
 
         SoundManager soundManager;
 
-        public Player(Texture2D texture, GraphicsDeviceManager graphics, Collision collision, string name, ContentManager content) : base(texture, collision, name)
+        public Player(Texture2D texture, GraphicsDeviceManager graphics, Collision collision, string name, ContentManager content, ScreenManager screenManager) : base(texture, collision, name)
         {
             midY = graphics.GraphicsDevice.Viewport.Height / 2;
             midX = graphics.GraphicsDevice.Viewport.Width / 2;
             pos = new Vector2(midX, midY); //stating position
-
+            this.screenManager = screenManager;
+            offset = new Vector2(0, 0);
             soundManager = new SoundManager(content);
+            this.bullets = 0;
         }
 
         public override void Update(GameTime gameTime)
@@ -251,6 +254,11 @@ namespace LunarRevenge.Scripts.Entitys
                     if (32 * (frames - 1) < currentX)
                     {
                         currentX = startingX;
+
+                        if (state == EntityState.death)
+                        {
+                            screenManager.state = ScreenManager.ScreenStates.death;
+                        }
                     }
                 }
             }

@@ -20,6 +20,7 @@
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x2.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x3.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Exit Button.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Menu Button.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Numbers.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Play Button.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Quit Button.png</File>
@@ -78,6 +79,7 @@
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x3.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

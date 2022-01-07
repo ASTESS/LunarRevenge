@@ -20,7 +20,8 @@ namespace LunarRevenge.Scripts.Content
             home,
             level,
             paused,
-            levelSelect
+            levelSelect,
+            death
         }
 
         private StartScreen startScreen;
@@ -28,6 +29,7 @@ namespace LunarRevenge.Scripts.Content
         private PauseScreen pauseScreen;
         public LevelScreen levelScreen;
         private LevelSelectionScreen levelSelectionScreen;
+        private DeathScreen deathScreen;
 
         private ContentManager content;
         private GraphicsDeviceManager graphics;
@@ -37,6 +39,7 @@ namespace LunarRevenge.Scripts.Content
 
 
         public ScreenStates state = ScreenStates.home;
+        public static ButtonState lastState = ButtonState.Released;
 
         public Level level;
         public ReadLevel readLevel;
@@ -48,7 +51,6 @@ namespace LunarRevenge.Scripts.Content
             this.graphicsDevice = graphicsDevice;
             this.spriteBatch = spriteBatch;
             this.readLevel = new ReadLevel();
-            this.level = readLevel.lvl1;
             init();
         }
 
@@ -58,6 +60,7 @@ namespace LunarRevenge.Scripts.Content
             keyBinding = new KeyBinding();
             pauseScreen = new PauseScreen(this, content, graphicsDevice);
             levelSelectionScreen = new LevelSelectionScreen(content, this, graphicsDevice, graphics);
+            deathScreen = new DeathScreen(this);
         }
 
         public void changeState(ScreenStates states)
@@ -68,6 +71,11 @@ namespace LunarRevenge.Scripts.Content
         public void Update(GameTime gameTime)
         {
             keyBinding.Update(this, graphics);
+
+            if (Mouse.GetState().LeftButton == ButtonState.Released)
+            {
+                lastState = ButtonState.Released;
+            }
 
             if (state == ScreenStates.home)
             {
@@ -84,6 +92,9 @@ namespace LunarRevenge.Scripts.Content
             else if (state == ScreenStates.paused)
             {
                 pauseScreen.Update();
+            }else if (state == ScreenStates.death)
+            {
+                deathScreen.Update();
             }
         }
 
@@ -106,6 +117,9 @@ namespace LunarRevenge.Scripts.Content
             else if (state == ScreenStates.paused)
             {
                 pauseScreen.Draw(graphicsDevice, spriteBatch);
+            }else if (state == ScreenStates.death)
+            {
+                deathScreen.Draw(spriteBatch);
             }
         }
     }

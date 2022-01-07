@@ -24,26 +24,28 @@ namespace LunarRevenge.Scripts.Content.Screens
         GraphicsDeviceManager graphics;
         public static Collision collision;
         private Level level;
+        private ScreenManager screenManager;
 
         GuiScreen gui;
 
-        public LevelScreen(ContentManager contentt, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphics, Level level)
+        public LevelScreen(ContentManager contentt, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphics, ScreenManager screenManager)
         {
             content = contentt;
             this.graphicsDevice = graphicsDevice;
             this.graphics = graphics;
-            this.level = level;
-            Init();
+            this.level = screenManager.level;
+            this.screenManager = screenManager;
         }
 
-        private void Init()
+        public void Init()
         {
+            Console.WriteLine("test");
             textureManager = new TextureManager(content.Load<Texture2D>("tileset x1"), content.Load<Texture2D>("Props and Items/props and items x1"), graphicsDevice);
             world = new WorldLoader(textureManager, level, content);
             collision = new Collision(world);
             entitys.Clear();
 
-            entitys.Add("player", new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision, "player", content)); //add player //alles x3 voor de x3
+            entitys.Add("player", new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision, "player", content, screenManager)); //add player //alles x3 voor de x3
             entitys.Add("enemy1", new ShooterEnemy(content.Load<Texture2D>("Enemies/enemies x1"), collision, "enemy1"));
 
             Console.WriteLine();

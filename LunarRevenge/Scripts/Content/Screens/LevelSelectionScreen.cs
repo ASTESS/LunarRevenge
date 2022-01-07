@@ -26,32 +26,46 @@ namespace LunarRevenge.Scripts.Content.Screens
             spriteSheet = content.Load<Texture2D>("Menu/Numbers");
         }
 
+        private bool loadLevel = false;
+
         public void Update(GameTime gameTime)
         {
             int x = Mouse.GetState().Position.X;
             int y = Mouse.GetState().Position.Y;
-            if (x >= 103 && x <= 103 + 103 &&
+
+            if (ScreenManager.lastState == ButtonState.Released)
+            {
+                if (x >= 103 && x <= 103 + 103 &&
                 y >= 10 && y <= 10 + 103 &&
                 Mouse.GetState().LeftButton == ButtonState.Pressed)
-            {
-                screenManager.level = screenManager.readLevel.lvl1;
-                screenManager.changeState(ScreenManager.ScreenStates.level);
+                {
+                    screenManager.level = screenManager.readLevel.lvl1;
+                    loadLevel = true;
+                }
+                if (x >= 206 && x <= 206 + 103 &&
+                    y >= 10 && y <= 10 + 103 &&
+                    Mouse.GetState().LeftButton == ButtonState.Pressed)
+                {
+                    screenManager.level = screenManager.readLevel.lvl1;
+                    loadLevel = true;
+                }
+                if (x >= 309 && x <= 309 + 103 &&
+                    y >= 10 && y <= 10 + 103 &&
+                    Mouse.GetState().LeftButton == ButtonState.Pressed)
+                {
+                    screenManager.level = screenManager.readLevel.lvl1;
+                    loadLevel = true;
+                }
+
+                if (loadLevel)
+                {
+                    loadLevel = false;
+                    screenManager.levelScreen = new LevelScreen(content, graphicsDevice, graphics, screenManager);
+                    screenManager.levelScreen.Init();
+                    screenManager.changeState(ScreenManager.ScreenStates.level);
+                }
+                
             }
-            if (x >= 206 && x <= 206 + 103 &&
-                y >= 10 && y <= 10 + 103 &&
-                Mouse.GetState().LeftButton == ButtonState.Pressed)
-            {
-                screenManager.level = screenManager.readLevel.lvl1;
-                screenManager.changeState(ScreenManager.ScreenStates.level);
-            }
-            if (x >= 309 && x <= 309 + 103 &&
-                y >= 10 && y <= 10 + 103 &&
-                Mouse.GetState().LeftButton == ButtonState.Pressed)
-            {
-                screenManager.level = screenManager.readLevel.lvl1;
-                screenManager.changeState(ScreenManager.ScreenStates.level);
-            }
-            screenManager.levelScreen = new LevelScreen(content, graphicsDevice, graphics, screenManager.level);
         }
 
         public void Draw(SpriteBatch spriteBatch)

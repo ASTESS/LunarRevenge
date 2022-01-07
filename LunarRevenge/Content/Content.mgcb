@@ -205,6 +205,18 @@
 /processorParam:TextureFormat=Color
 /build:Menu/Exit Button.png
 
+#begin Menu/Menu Button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Menu/Menu Button.png
+
 #begin Menu/Numbers.png
 /importer:TextureImporter
 /processor:TextureProcessor

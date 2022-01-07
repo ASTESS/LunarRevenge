@@ -41,25 +41,31 @@ namespace LunarRevenge.Scripts.Content
         {
             int x = Mouse.GetState().Position.X;
             int y = Mouse.GetState().Position.Y;
-            if (x >= startButtonPos.X && x <= startButtonPos.X + startButton.Width * 0.2f &&
+            if (ScreenManager.lastState == ButtonState.Released)
+            {
+                if (x >= startButtonPos.X && x <= startButtonPos.X + startButton.Width * 0.2f &&
                 y >= startButtonPos.Y && y <= startButtonPos.Y + startButton.Height * 0.2f &&
                 Mouse.GetState().LeftButton == ButtonState.Pressed)
-            {
-                screenManager.changeState(ScreenManager.ScreenStates.levelSelect);
-            }
+                {
+                    ScreenManager.lastState = ButtonState.Pressed;
+                    screenManager.changeState(ScreenManager.ScreenStates.levelSelect);
+                }
 
-            if (x >= quitButtonPos.X && x <= quitButtonPos.X + quitButton.Width * 0.2f &&
-                y >= quitButtonPos.Y && y <= quitButtonPos.Y + quitButton.Height * 0.2f &&
-                Mouse.GetState().LeftButton == ButtonState.Pressed)
-            {
-                LunarRevenge.lunarRevenge.Exit();
-            }
+                if (x >= quitButtonPos.X && x <= quitButtonPos.X + quitButton.Width * 0.2f &&
+                    y >= quitButtonPos.Y && y <= quitButtonPos.Y + quitButton.Height * 0.2f &&
+                    Mouse.GetState().LeftButton == ButtonState.Pressed)
+                {
+                    ScreenManager.lastState = ButtonState.Pressed;
+                    LunarRevenge.lunarRevenge.Exit();
+                }
 
-            if (x >= resumeButtonPos.X && x <= resumeButtonPos.X + resumeButton.Width * 0.2f &&
-                y >= resumeButtonPos.Y && y <= resumeButtonPos.Y + resumeButton.Height * 0.2f &&
-                Mouse.GetState().LeftButton == ButtonState.Pressed)
-            {
-                screenManager.changeState(ScreenManager.ScreenStates.level);
+                if (x >= resumeButtonPos.X && x <= resumeButtonPos.X + resumeButton.Width * 0.2f &&
+                    y >= resumeButtonPos.Y && y <= resumeButtonPos.Y + resumeButton.Height * 0.2f &&
+                    Mouse.GetState().LeftButton == ButtonState.Pressed && screenManager.level != null)
+                {
+                    ScreenManager.lastState = ButtonState.Pressed;
+                    screenManager.changeState(ScreenManager.ScreenStates.level);
+                }
             }
         }
 
