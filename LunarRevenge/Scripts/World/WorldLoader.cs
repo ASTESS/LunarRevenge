@@ -35,8 +35,9 @@ namespace LunarRevenge.Scripts.World
             this.textureManager = textureManager;
             this.content = content;
         }
-        public void Update(GameTime gametime)
+        public void Update(GameTime gameTime)
         {
+            updateTimer(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -133,13 +134,57 @@ namespace LunarRevenge.Scripts.World
                                  GateCounter++;
                             }
 
+                            if (propKey.Contains("animated_") && !propKey.Contains("animated_smallgate") && canUpdate)
+                            {
+                                props[x, y] = animate(propKey);
+                            }
                         }
                     }
                     xMap++;
+                    canUpdate = false;
                 }
             }
 
             wallIsLoaded = true;
+        }
+
+        private bool canUpdate = true;
+        private string animate(string key)
+        {
+            string[] split = key.Split('_');
+            int number = Convert.ToInt32(split[split.Length - 1]);
+
+            string newItem = "";
+            for (int i = 0; i < split.Length - 1; i++)
+            {
+                newItem += split[i];
+                newItem += '_';
+            }
+            number++;
+
+            string test = newItem + number.ToString();
+            if (textureManager.worldTextures.ContainsKey(test))
+            {
+                newItem += number.ToString();
+            }else
+            {
+                newItem += '1';
+            }
+
+            key = newItem;
+            Console.WriteLine(key);
+            return key;
+        }
+
+        float timer;
+        private void updateTimer(GameTime gameTime)
+        {
+            timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (timer >= 0.08f)
+            {
+                timer -= 0.08f;
+                canUpdate = true;
+            }
         }
     }
 }
