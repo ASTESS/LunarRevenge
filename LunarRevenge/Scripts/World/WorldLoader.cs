@@ -19,8 +19,9 @@ namespace LunarRevenge.Scripts.World
 
 
         public List<Rectangle> rectangles = new List<Rectangle>();
-        private bool wallIsLoaded = false;
+        private bool specialLoaded = false;
         int GateCounter = 0;
+        int acidCounter = 0;
         private Level currentLevel;
 
         List<string> LeftSideCollision = new List<string> { "wall_side", "wall_side_2", "wall_side_4", "wall_side_6", "wall_side_8", "wall_1", "wall_3", "wall_5", "wall_13", "wall_15", "wall_17" };
@@ -80,7 +81,7 @@ namespace LunarRevenge.Scripts.World
                             string wallKey = walls[x, y];
                             string propKey = props[x, y];
 
-                            if (textureManager.worldTextures.ContainsKey(floorKey)) //makes sure everything exist and can load empty squares
+                            if (textureManager.worldTextures.ContainsKey(floorKey) && !floorKey.Contains("acid")) //makes sure everything exist and can load empty squares
                             {
                                 spriteBatch.Draw(textureManager.worldTextures[floorKey], new Vector2((offset * xMap) + (x * 32) + Player.offset.X, (offset * yMap) + (y * 32) + Player.offset.Y), Color.White);
                             }
@@ -128,7 +129,7 @@ namespace LunarRevenge.Scripts.World
                                 }
                             }
 
-                            if (propKey.Contains("animated_smallgate") && !wallIsLoaded)
+                            if (propKey.Contains("animated_smallgate") && !specialLoaded)
                             {
                                 LevelScreen.entitys.Add($"Gate{GateCounter}", new Gate(LevelScreen.content.Load<Texture2D>("Props and Items/props and items x1"), new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16), LevelScreen.collision, $"gate{GateCounter}", textureManager, content));
                                  GateCounter++;
@@ -138,6 +139,12 @@ namespace LunarRevenge.Scripts.World
                             {
                                 props[x, y] = animate(propKey);
                             }
+
+                            if (floorKey.Contains("acid") && !specialLoaded)
+                            {
+                                LevelScreen.acid.Add(new Acid(textureManager.worldTextures[floorKey], LevelScreen.collision, $"acid_{acidCounter}", new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16)));
+                                acidCounter++;
+                            }
                         }
                     }
                     xMap++;
@@ -145,7 +152,7 @@ namespace LunarRevenge.Scripts.World
                 }
             }
 
-            wallIsLoaded = true;
+            specialLoaded = true;
         }
 
         private bool canUpdate = true;

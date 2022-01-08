@@ -71,5 +71,17 @@ namespace LunarRevenge.Scripts.World
             }
             return true;
         }
+
+        public bool collisionCheck(Player player)
+        {
+            foreach(Acid acid in LevelScreen.acid)
+            {
+                if (player.collisionBox.Intersects(acid.collisionBox) && player.GetType() == typeof(Player) && !player.playerIsJumping)
+                {
+                    player.damageEntity(10f);
+                }
+            }
+            return true;
+        }
     }
 }

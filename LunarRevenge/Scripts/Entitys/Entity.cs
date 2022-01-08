@@ -142,7 +142,7 @@ namespace LunarRevenge.Scripts.Entitys
                 projectile.Draw(spriteBatch, graphics, gameTime);
             }
 
-            if (this.GetType() != typeof(Player) && this.GetType() != typeof(Gate))
+            if (this.GetType() != typeof(Player) && this.GetType() != typeof(Gate) && this.GetType() != typeof(Acid))
             {
                 DrawMarker(spriteBatch, graphics, gameTime);
             }
@@ -150,11 +150,6 @@ namespace LunarRevenge.Scripts.Entitys
 
         private void DrawMarker(SpriteBatch spriteBatch, GraphicsDevice graphics, GameTime gameTime)
         {
-            Texture2D rect2 = new Texture2D(graphics, 80, 30);
-            Color[] data2 = new Color[80 * 30];
-            for (int i = 0; i < data2.Length; ++i) data2[i] = Color.Red;
-            rect2.SetData(data2);
-
             if (NoticedTarget && (TimeOfNotice + 3 >= gameTime.TotalGameTime.TotalSeconds))
             {
                 spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(106, 299, 10, 10), Color.White);
@@ -177,30 +172,39 @@ namespace LunarRevenge.Scripts.Entitys
         {
             if (condition)
             {
-                Texture2D rect = new Texture2D(graphics, 80, 30);
-                Color[] data = new Color[80 * 30];
-                for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
-                rect.SetData(data);
+                Texture2D wallsCollisonBox = new Texture2D(graphics, 80, 30);
+                Color[] wallsCollisonBoxData = new Color[80 * 30];
+                for (int i = 0; i < wallsCollisonBoxData.Length; ++i) wallsCollisonBoxData[i] = Color.Chocolate;
+                wallsCollisonBox.SetData(wallsCollisonBoxData);
 
                 foreach (Rectangle item in collision.world.rectangles)
                 {
-                    spriteBatch.Draw(rect, item, Color.White);
+                    spriteBatch.Draw(wallsCollisonBox, item, Color.White);
                 }
 
                 foreach (Rectangle item in collision.collisions)
                 {
-                    spriteBatch.Draw(rect, item, Color.White);
+                    spriteBatch.Draw(wallsCollisonBox, item, Color.White);
                 }
 
-                Texture2D rect2 = new Texture2D(graphics, 80, 30);
-                Color[] data2 = new Color[80 * 30];
-                for (int i = 0; i < data2.Length; ++i) data2[i] = Color.Red;
-                rect2.SetData(data2);
-                spriteBatch.Draw(rect2, collisionBox, Color.White);
+                Texture2D projectileCollisionBox = new Texture2D(graphics, 80, 30);
+                Color[] projectileCollisionBoxData = new Color[80 * 30];
+                for (int i = 0; i < projectileCollisionBoxData.Length; ++i) projectileCollisionBoxData[i] = Color.Red;
+                projectileCollisionBox.SetData(projectileCollisionBoxData);
 
                 for (int e = 0; e < projectiles.Count; e++)
                 {
-                    spriteBatch.Draw(rect, projectiles[e].collisionBox, Color.White);
+                    spriteBatch.Draw(projectileCollisionBox, projectiles[e].collisionBox, Color.White);
+                }
+
+                Texture2D acidCollisonBox = new Texture2D(graphics, 80, 30);
+                Color[] acidCollisonBoxData = new Color[80 * 30];
+                for (int i = 0; i < acidCollisonBoxData.Length; ++i) acidCollisonBoxData[i] = Color.Green;
+                acidCollisonBox.SetData(acidCollisonBoxData);
+
+                foreach (Acid acid in LevelScreen.acid)
+                {
+                    spriteBatch.Draw(acidCollisonBox, acid.collisionBox, Color.White);
                 }
             }
         }

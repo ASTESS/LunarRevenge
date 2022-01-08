@@ -145,7 +145,7 @@ namespace LunarRevenge.Scripts.Entitys
             }
         }
 
-        private bool playerIsJumping = false;
+        public bool playerIsJumping = false;
         private bool playerIsFalling = false;
         private float velocity = 0f;
         private void KeyboardInput(GameTime gameTime)
