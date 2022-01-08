@@ -43,17 +43,13 @@ namespace LunarRevenge.Scripts.Content.Screens
             textureManager = new TextureManager(content.Load<Texture2D>("tileset x1"), content.Load<Texture2D>("Props and Items/props and items x1"), graphicsDevice);
             world = new WorldLoader(textureManager, level, content);
             collision = new Collision(world);
-
             entitys.Clear();
-            entitys.Add("player", new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision, "player", content, screenManager)); //add player //alles x3 voor de x3
+            entitys.Add("player", new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision, "player", content, screenManager, new Vector2(0, 0))); //add player //alles x3 voor de x3
             entitys.Add("enemy1", new Droid(content.Load<Texture2D>("Enemies/enemies x1"), collision, "enemy1"));
             Vector2 v = new Vector2(400, 500);
             entitys.Add("alien1", new Alien(content.Load<Texture2D>("Enemies/enemies x1"), v, collision, "alien1"));
             entitys.Add("sentinal1", new Sentinal(content.Load<Texture2D>("Enemies/enemies x1"), new Vector2(v.X+ 160, v.Y), collision, "sentinal1"));
-
             acid.Clear();
-
-
             gui = new GuiScreen(content, entitys["player"]);
         }
 

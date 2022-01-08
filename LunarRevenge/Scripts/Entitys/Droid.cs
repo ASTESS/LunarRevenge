@@ -22,8 +22,7 @@ namespace LunarRevenge.Scripts.Entitys
         {
             pos = new Vector2(postition.X + Player.offset.X, postition.Y + Player.offset.Y);
             if (!(state == EntityState.death))
-            {
-            
+            {  
             collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
             if (!collision.collisionCheck(direction, collisionBox))
             {
@@ -34,7 +33,6 @@ namespace LunarRevenge.Scripts.Entitys
                 {
                     direction = Direction.left;
                 }
-                //Shoot(10, new Vector2(postition.X, postition.Y));
             }
             state = EntityState.running;
             MoveEnemy(direction);

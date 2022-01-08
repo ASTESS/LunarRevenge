@@ -24,13 +24,13 @@ namespace LunarRevenge.Scripts.Entitys
 
         SoundManager soundManager;
 
-        public Player(Texture2D texture, GraphicsDeviceManager graphics, Collision collision, string name, ContentManager content, ScreenManager screenManager) : base(texture, collision, name)
+        public Player(Texture2D texture, GraphicsDeviceManager graphics, Collision collision, string name, ContentManager content, ScreenManager screenManager, Vector2 pos) : base(texture, collision, name)
         {
             midY = graphics.GraphicsDevice.Viewport.Height / 2;
             midX = graphics.GraphicsDevice.Viewport.Width / 2;
-            pos = new Vector2(midX, midY); //stating position
+            this.pos = new Vector2(midX, midY); //stating position for drawing
             this.screenManager = screenManager;
-            offset = new Vector2(0, 0);
+            offset = pos;
             soundManager = new SoundManager(content);
             this.bullets = 0;
         }

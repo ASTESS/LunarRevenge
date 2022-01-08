@@ -57,12 +57,22 @@ namespace LunarRevenge.Scripts.Entitys
                 {
                     state = EntityState.idle;
 
-                    
+
                 }
 
-
-                //state = EntityState.running;
-                //MoveEntity(direction);
+                if (!collision.collisionCheck(direction, collisionBox))
+                {
+                    if (direction == Direction.left)
+                    {
+                        direction = Direction.right;
+                    }
+                    else if (direction == Direction.right)
+                    {
+                        direction = Direction.left;
+                    }
+                }
+                state = EntityState.running;
+                MoveEntity(direction);
             }
             base.Update(gameTime);
         }

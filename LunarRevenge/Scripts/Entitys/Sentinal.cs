@@ -37,18 +37,7 @@ namespace LunarRevenge.Scripts.Entitys
                     TimeOfNotice = gameTime.TotalGameTime.TotalSeconds;
                 }
 
-                if (NoticedTarget == false)
-                {
-
-                }
-                else
-                {
-                    //shoot(10, new Vector2(Target.pos.X, pos.Y));
-                }
-
                 collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
-
-                //Console.WriteLine("P: " + (Target.pos.X - Player.offset.X) + " | E: " + (postition.X)); // positie van 
 
                 if (NoticedTarget)
                 {
@@ -58,17 +47,30 @@ namespace LunarRevenge.Scripts.Entitys
                     }
                     
                 }
+                if (!collision.collisionCheck(direction, collisionBox))
+                {
+                    state = EntityState.idle;           
+                }
 
                 if (!collision.collisionCheck(direction, collisionBox))
                 {
-                    state = EntityState.idle;
-
-                    
+                    if (direction == Direction.left)
+                    {
+                        direction = Direction.right;
+                    }
+                    else if (direction == Direction.right)
+                    {
+                        direction = Direction.left;
+                    }
                 }
+                
 
-
-                //state = EntityState.running;
-                //MoveEntity(direction);
+                if (activated)
+                {
+                    state = EntityState.running;
+                    MoveEntity(direction);
+                }
+                
             }
             base.Update(gameTime);
         }
@@ -118,10 +120,10 @@ namespace LunarRevenge.Scripts.Entitys
                 currentX = startingX;
                 duration = 150;
             }
-            if (state == EntityState.running)
+            if (state == EntityState.running && activated)
             {
                 startingX = 0;
-                startingY = 416;
+                startingY = 256;
                 width = 32;
                 height = 32;
                 frames = 4;
@@ -153,7 +155,6 @@ namespace LunarRevenge.Scripts.Entitys
                 height = 32;
                 frames = 5;
                 duration = 150;
-                activated = true;
             }
 
             timeFromPreFrame += gameTime.ElapsedGameTime.Milliseconds;
@@ -166,6 +167,11 @@ namespace LunarRevenge.Scripts.Entitys
                     if (32 * (frames - 1) < currentX)
                     {
                         currentX = startingX;
+
+                        if (!activated)
+                        {
+                            activated = true;
+                        }
                         if (activated && state == EntityState.activate)
                         {
                             state = EntityState.idle;
