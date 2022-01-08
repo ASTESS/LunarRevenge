@@ -8,13 +8,21 @@ using System.Text;
 
 namespace LunarRevenge.Scripts.Entitys
 {
-    internal class ShooterEnemy : Entity
+    internal class Sentinal : Entity
     {
-        private Vector2 postition = new Vector2(200, 1100);
-        public ShooterEnemy(Texture2D texture, Collision collision, string name) : base(texture, collision, name)
+        private Vector2 postition;
+        private Vector2 Spawn;
+        private Player Target;
+
+        private bool activated = false;
+
+        public Sentinal(Texture2D texture, Vector2 SpawnPoint, Collision collision, string name) : base(texture, collision, name)
         {
-            this.health = 50;
-            speed = 1f;
+            this.health = 100;
+            speed = 0.9f;
+            postition = SpawnPoint;
+            Spawn = SpawnPoint;
+            Target = (Player)LevelScreen.entitys["player"];
         }
 
         private Direction direction = Direction.right;
@@ -23,26 +31,50 @@ namespace LunarRevenge.Scripts.Entitys
             pos = new Vector2(postition.X + Player.offset.X, postition.Y + Player.offset.Y);
             if (!(state == EntityState.death))
             {
-            
-            collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
-            if (!collision.collisionCheck(direction, collisionBox))
-            {
-                if (direction == Direction.left)
+                if (this.Distance(Target) <= 175 && !NoticedTarget)
                 {
-                    direction = Direction.right;
-                }else if (direction == Direction.right)
-                {
-                    direction = Direction.left;
+                    NoticedTarget = true;
+                    TimeOfNotice = gameTime.TotalGameTime.TotalSeconds;
                 }
-                //Shoot(10, new Vector2(postition.X, postition.Y));
-            }
-            state = EntityState.running;
-            MoveEnemy(direction);
+
+                if (NoticedTarget == false)
+                {
+
+                }
+                else
+                {
+                    //shoot(10, new Vector2(Target.pos.X, pos.Y));
+                }
+
+                collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
+
+                //Console.WriteLine("P: " + (Target.pos.X - Player.offset.X) + " | E: " + (postition.X)); // positie van 
+
+                if (NoticedTarget)
+                {
+                    if (!activated)
+                    {
+                        state = EntityState.activate;
+                    }
+                    
+                }
+
+                if (!collision.collisionCheck(direction, collisionBox))
+                {
+                    state = EntityState.idle;
+
+                    
+                }
+
+
+                //state = EntityState.running;
+                //MoveEntity(direction);
             }
             base.Update(gameTime);
         }
 
-        public void MoveEnemy(Direction direction)
+        // Moving the Entity
+        public void MoveEntity(Direction direction)
         {
             if (collision.collisionCheck(direction, collisionBox))
             {
@@ -57,12 +89,12 @@ namespace LunarRevenge.Scripts.Entitys
                 if (direction == Direction.left)
                 {
                     postition.X -= speed;
-                    flip = SpriteEffects.FlipHorizontally; // Turn character to the left
+                    flip = SpriteEffects.FlipHorizontally;
                 }
                 if (direction == Direction.right)
                 {
                     postition.X += speed;
-                    flip = SpriteEffects.None; // Turn Character to the right
+                    flip = SpriteEffects.None;
                 }
             }
         }
@@ -72,7 +104,14 @@ namespace LunarRevenge.Scripts.Entitys
             if (state == EntityState.idle)
             {
                 startingX = 0;
-                startingY = 384;
+                if (activated)
+                {
+                    startingY = 192;
+                }else
+                {
+                    startingY = 160;
+                }
+                
                 width = 32;
                 height = 32;
                 frames = 1;
@@ -91,7 +130,7 @@ namespace LunarRevenge.Scripts.Entitys
             if (state == EntityState.shooting)
             {
                 startingX = 0;
-                startingY = 448;
+                startingY = 288;
                 width = 32;
                 height = 32;
                 frames = 4;
@@ -100,11 +139,21 @@ namespace LunarRevenge.Scripts.Entitys
             if (state == EntityState.death)
             {
                 startingX = 0;
-                startingY = 480;
+                startingY = 320;
                 width = 32;
                 height = 32;
                 frames = 8;
                 duration = 150;
+            }
+            if (state == EntityState.activate)
+            {
+                startingX = 0;
+                startingY = 224;
+                width = 32;
+                height = 32;
+                frames = 5;
+                duration = 150;
+                activated = true;
             }
 
             timeFromPreFrame += gameTime.ElapsedGameTime.Milliseconds;
@@ -117,6 +166,10 @@ namespace LunarRevenge.Scripts.Entitys
                     if (32 * (frames - 1) < currentX)
                     {
                         currentX = startingX;
+                        if (activated && state == EntityState.activate)
+                        {
+                            state = EntityState.idle;
+                        }
 
                         if (state == EntityState.death)
                         {

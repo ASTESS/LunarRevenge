@@ -21,7 +21,7 @@ namespace LunarRevenge.Scripts.Entitys
             shooting,
             death,
             activate,
-            hurt
+            hurt,
         }
 
         public enum Direction
