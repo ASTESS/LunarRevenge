@@ -27,21 +27,12 @@ namespace LunarRevenge.Scripts.Entitys
         public override void Update(GameTime gameTime)
         {
             pos = new Vector2(postition.X + Player.offset.X, postition.Y + Player.offset.Y);
-            if (!(state == EntityState.death))
+            if (state != EntityState.death)
             {
                 if (this.Distance(Target) <= 175 && !NoticedTarget)
                 {
                     NoticedTarget = true;
                     TimeOfNotice = gameTime.TotalGameTime.TotalSeconds;
-                }
-
-                if (NoticedTarget == false)
-                {
-
-                }
-                else
-                {
-                    //shoot(10, new Vector2(Target.pos.X, pos.Y));
                 }
 
                 collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
@@ -50,14 +41,22 @@ namespace LunarRevenge.Scripts.Entitys
 
                 if (NoticedTarget)
                 {
-
+                    if (postition.X >= (Target.pos.X - Player.offset.X))
+                    {
+                        flip = SpriteEffects.FlipHorizontally;
+                    }else if (postition.X <= (Target.pos.X - Player.offset.X))
+                    {
+                        flip = SpriteEffects.None;
+                    }
+                    if (postition.Y + 10 >= (Target.pos.Y - Player.offset.Y) && postition.Y - 10 <= (Target.pos.Y - Player.offset.Y) && state != EntityState.shooting)
+                    {
+                        Shoot(10, new Vector2(postition.X, postition.Y));
+                    }
                 }
 
                 if (!collision.collisionCheck(direction, collisionBox))
                 {
                     state = EntityState.idle;
-
-
                 }
 
                 if (!collision.collisionCheck(direction, collisionBox))
@@ -71,10 +70,27 @@ namespace LunarRevenge.Scripts.Entitys
                         direction = Direction.left;
                     }
                 }
-                state = EntityState.running;
-                MoveEntity(direction);
+                
+                if (state != EntityState.shooting)
+                {
+                    state = EntityState.running;
+                    MoveEntity(direction);
+                }
+                
             }
+            updateTimer(gameTime);
             base.Update(gameTime);
+        }
+
+        float timer;
+        private void updateTimer(GameTime gameTime)
+        {
+            timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (timer >= 0.5f)
+            {
+                timer -= 0.5f;
+                state = EntityState.running;
+            }
         }
 
         // Moving the Entity

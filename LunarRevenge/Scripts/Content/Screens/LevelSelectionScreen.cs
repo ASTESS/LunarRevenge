@@ -11,11 +11,12 @@ namespace LunarRevenge.Scripts.Content.Screens
     internal class LevelSelectionScreen
     {
         private ContentManager content;
-        private int levelsUnlocked = 0;
-        private Texture2D spriteSheet;
         private ScreenManager screenManager;
         private GraphicsDevice graphicsDevice;
         private GraphicsDeviceManager graphics;
+
+        private Texture2D menuButton;
+        private Vector2 menuButtonPos;
 
         public LevelSelectionScreen(ContentManager content, ScreenManager screenManager, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphics)
         {
@@ -23,7 +24,8 @@ namespace LunarRevenge.Scripts.Content.Screens
             this.screenManager = screenManager;
             this.graphicsDevice = graphicsDevice;
             this.graphics = graphics;
-            spriteSheet = content.Load<Texture2D>("Menu/Numbers");
+            menuButton = content.Load<Texture2D>("Menu/Menu Button");
+            menuButtonPos = new Vector2((graphicsDevice.Viewport.Width / 2) - (menuButton.Width * 0.2f) / 2, 250);
         }
 
         private bool loadLevel = false;
@@ -35,26 +37,12 @@ namespace LunarRevenge.Scripts.Content.Screens
 
             if (ScreenManager.lastState == ButtonState.Released)
             {
-                if (x >= 103 && x <= 103 + 103 &&
-                y >= 10 && y <= 10 + 103 &&
-                Mouse.GetState().LeftButton == ButtonState.Pressed)
-                {
-                    screenManager.level = screenManager.readLevel.lvl1;
-                    loadLevel = true;
-                }
-                if (x >= 206 && x <= 206 + 103 &&
-                    y >= 10 && y <= 10 + 103 &&
+                if (x >= menuButtonPos.X && x <= menuButtonPos.X + menuButton.Width * 0.2f &&
+                    y >= menuButtonPos.Y && y <= menuButtonPos.Y + menuButton.Height * 0.2f &&
                     Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
-                    screenManager.level = screenManager.readLevel.lvl1;
-                    loadLevel = true;
-                }
-                if (x >= 309 && x <= 309 + 103 &&
-                    y >= 10 && y <= 10 + 103 &&
-                    Mouse.GetState().LeftButton == ButtonState.Pressed)
-                {
-                    screenManager.level = screenManager.readLevel.lvl1;
-                    loadLevel = true;
+                    ScreenManager.lastState = ButtonState.Pressed;
+                    screenManager.changeState(ScreenManager.ScreenStates.home);
                 }
 
                 if (loadLevel)
@@ -70,9 +58,7 @@ namespace LunarRevenge.Scripts.Content.Screens
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(spriteSheet, new Vector2(103, 10), new Rectangle(103, 0, 103, 103), Color.White);
-            spriteBatch.Draw(spriteSheet, new Vector2(206, 10), new Rectangle(206, 0, 103, 103), Color.White);
-            spriteBatch.Draw(spriteSheet, new Vector2(309, 10), new Rectangle(309, 0, 103, 103), Color.White);
+            spriteBatch.Draw(menuButton, menuButtonPos, new Rectangle(0, 0, menuButton.Width, menuButton.Height), Color.White, 0f, new Vector2(0, 0), 0.2f, SpriteEffects.None, 1f);
         }
     }
 }

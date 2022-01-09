@@ -17,7 +17,7 @@ namespace LunarRevenge.Scripts.Content.Screens
         private int currentLevel;
 
         public static Dictionary<string, Entity> entitys = new Dictionary<string, Entity>();
-        public static List<Entity> acid = new List<Entity>();
+        public static List<Entity> specialTiles = new List<Entity>();
         private WorldLoader world;
         private TextureManager textureManager;
         public static ContentManager content;
@@ -40,16 +40,17 @@ namespace LunarRevenge.Scripts.Content.Screens
 
         public void Init()
         {
+            Player.score = 0;
             textureManager = new TextureManager(content.Load<Texture2D>("tileset x1"), content.Load<Texture2D>("Props and Items/props and items x1"), graphicsDevice);
             world = new WorldLoader(textureManager, level, content);
-            collision = new Collision(world);
+            collision = new Collision(world, screenManager);
             entitys.Clear();
             entitys.Add("player", new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision, "player", content, screenManager, new Vector2(0, 0))); //add player //alles x3 voor de x3
             entitys.Add("enemy1", new Droid(content.Load<Texture2D>("Enemies/enemies x1"), collision, "enemy1"));
             Vector2 v = new Vector2(400, 500);
             entitys.Add("alien1", new Alien(content.Load<Texture2D>("Enemies/enemies x1"), v, collision, "alien1"));
             entitys.Add("sentinal1", new Sentinal(content.Load<Texture2D>("Enemies/enemies x1"), new Vector2(v.X+ 160, v.Y), collision, "sentinal1"));
-            acid.Clear();
+            specialTiles.Clear();
             gui = new GuiScreen(content, entitys["player"]);
         }
 
@@ -58,28 +59,28 @@ namespace LunarRevenge.Scripts.Content.Screens
             world.Update(gameTime);
             
             UpdateEntitys(gameTime);
-            UpdateAcid(gameTime);
+            UpdateSpecialTiles(gameTime);
             gui.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             world.Draw(spriteBatch);
-            DrawAcid(spriteBatch, gameTime);
+            DrawSpecialTiles(spriteBatch, gameTime);
             DrawEntitys(spriteBatch, gameTime);
             gui.Draw(gameTime, graphics, spriteBatch);
         }
 
-        public void DrawAcid(SpriteBatch spriteBatch, GameTime gameTime)
+        public void DrawSpecialTiles(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            foreach (Entity e in acid)
+            foreach (Entity e in specialTiles)
             {
                 e.Draw(spriteBatch, graphicsDevice, gameTime);
             }
         }
-        public void UpdateAcid(GameTime gameTime)
+        public void UpdateSpecialTiles(GameTime gameTime)
         {
-            foreach (Entity e in acid)
+            foreach (Entity e in specialTiles)
             {
                 e.Update(gameTime);
             }

@@ -12,9 +12,11 @@ namespace LunarRevenge.Scripts.Content.Screens
     {
         Texture2D healthBar;
         Entity player;
+        SpriteFont font;
         public GuiScreen(ContentManager content, Entity player)
         {
             healthBar = content.Load<Texture2D>("UI/ui x1");
+            font = content.Load<SpriteFont>("Font");
             this.player = player;
         }
 
@@ -25,18 +27,22 @@ namespace LunarRevenge.Scripts.Content.Screens
 
         public void Draw(GameTime gameTIme, GraphicsDeviceManager graphics, SpriteBatch spriteBatch)
         {
-            Rectangle rectangle = new Rectangle(0, graphics.GraphicsDevice.Viewport.Height - 20, graphics.GraphicsDevice.Viewport.Width, 20);
+            Texture2D grayBar = new Texture2D(graphics.GraphicsDevice, 80, 30);
+            Color[] grayBarData = new Color[80 * 30];
+            for (int i = 0; i < grayBarData.Length; ++i) grayBarData[i] = Color.Gray;
+            grayBar.SetData(grayBarData);
+            spriteBatch.Draw(grayBar, new Rectangle(0, graphics.GraphicsDevice.Viewport.Height - 20, graphics.GraphicsDevice.Viewport.Width, 20), Color.White);
 
-
-            Texture2D rect2 = new Texture2D(graphics.GraphicsDevice, 80, 30);
-            Color[] data2 = new Color[80 * 30];
-            for (int i = 0; i < data2.Length; ++i) data2[i] = Color.Gray;
-            rect2.SetData(data2);
-            spriteBatch.Draw(rect2, rectangle, Color.White);
+            Texture2D blackBar = new Texture2D(graphics.GraphicsDevice, 80, 30);
+            Color[] blackBarData = new Color[80 * 30];
+            for (int i = 0; i < blackBarData.Length; ++i) blackBarData[i] = new Color(18,17,15);
+            blackBar.SetData(blackBarData);
+            spriteBatch.Draw(blackBar, new Rectangle(0, graphics.GraphicsDevice.Viewport.Height - 20, graphics.GraphicsDevice.Viewport.Width, 20), Color.White);
 
 
             drawHealth(spriteBatch, graphics);
             drawAmo(spriteBatch, graphics);
+            drawScore(spriteBatch, graphics);
         }
 
         public void drawAmo(SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
@@ -112,6 +118,11 @@ namespace LunarRevenge.Scripts.Content.Screens
                 xHealth = 35;
             }
             spriteBatch.Draw(healthBar, new Vector2(10, graphics.GraphicsDevice.Viewport.Height - 13), new Rectangle(xHealth, 12, 26, 7), Color.White);
+        }
+
+        public void drawScore(SpriteBatch spriteBatch, GraphicsDeviceManager graphics)
+        {
+            spriteBatch.DrawString(font, "score: " + Player.score.ToString(), new Vector2(graphics.GraphicsDevice.Viewport.Width - 100, graphics.GraphicsDevice.Viewport.Height - 15), Color.White);
         }
     }
 }

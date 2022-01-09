@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x1.png</SourceFile>
-  <SourceTime>2022-01-05T17:49:16.9933944+01:00</SourceTime>
-  <DestFile>C:/Users/matth/Documents/GitHub/LunarRevenge/LunarRevenge/Content/bin/Windows/Enemies/No Outlines/enemies x1.xnb</DestFile>
-  <DestTime>2022-01-06T23:12:34.3872072+01:00</DestTime>
+  <SourceFile>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x1.png</SourceFile>
+  <SourceTime>2021-12-28T22:42:42.7672958+01:00</SourceTime>
+  <DestFile>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/bin/Windows/Enemies/No Outlines/enemies x1.xnb</DestFile>
+  <DestTime>2022-01-09T20:10:01.3038559+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

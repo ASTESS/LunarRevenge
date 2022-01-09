@@ -1,4 +1,5 @@
-﻿using LunarRevenge.Scripts.Content.Screens;
+﻿using LunarRevenge.Scripts.Content;
+using LunarRevenge.Scripts.Content.Screens;
 using LunarRevenge.Scripts.Entitys;
 using Microsoft.Xna.Framework;
 using System;
@@ -11,10 +12,12 @@ namespace LunarRevenge.Scripts.World
     {
         public WorldLoader world;
         public List<Rectangle> collisions;
+        private ScreenManager screenManager;
 
-        public Collision(WorldLoader world)
+        public Collision(WorldLoader world, ScreenManager screenManager)
         {
             this.world = world;
+            this.screenManager = screenManager;
             collisions = new List<Rectangle>();
         }
         public bool collisionCheck(Entity.Direction direction, Rectangle collisionBox)
@@ -63,7 +66,7 @@ namespace LunarRevenge.Scripts.World
         {
             foreach (KeyValuePair<string, Entity> entity in LevelScreen.entitys)
             {
-                if (collisionBox.Intersects(entity.Value.collisionBox) && !(entity.Value.GetType() == typeof(Player)))
+                if (collisionBox.Intersects(entity.Value.collisionBox))
                 {
                     entity.Value.damageEntity(10f);
                     return false;
@@ -74,11 +77,16 @@ namespace LunarRevenge.Scripts.World
 
         public bool collisionCheck(Player player)
         {
-            foreach(Acid acid in LevelScreen.acid)
+            foreach(Entity entity in LevelScreen.specialTiles)
             {
-                if (player.collisionBox.Intersects(acid.collisionBox) && player.GetType() == typeof(Player) && !player.playerIsJumping)
+                if (player.collisionBox.Intersects(entity.collisionBox) && player.GetType() == typeof(Player) && !player.playerIsJumping && entity.GetType() == typeof(Acid))
                 {
                     player.damageEntity(10f);
+                }
+
+                if (player.collisionBox.Intersects(entity.collisionBox) && player.GetType() == typeof(Player) && entity.GetType() == typeof(Finish))
+                {
+                    screenManager.state = ScreenManager.ScreenStates.win;
                 }
             }
             return true;

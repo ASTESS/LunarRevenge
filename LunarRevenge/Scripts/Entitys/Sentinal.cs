@@ -47,6 +47,22 @@ namespace LunarRevenge.Scripts.Entitys
                     }
                     
                 }
+
+                if (NoticedTarget && activated)
+                {
+                    if (postition.X >= (Target.pos.X - Player.offset.X))
+                    {
+                        flip = SpriteEffects.FlipHorizontally;
+                    }
+                    else if (postition.X <= (Target.pos.X - Player.offset.X))
+                    {
+                        flip = SpriteEffects.None;
+                    }
+                    if (postition.Y + 10 >= (Target.pos.Y - Player.offset.Y) && postition.Y - 10 <= (Target.pos.Y - Player.offset.Y) && state != EntityState.shooting)
+                    {
+                        Shoot(10, new Vector2(postition.X, postition.Y));
+                    }
+                }
                 if (!collision.collisionCheck(direction, collisionBox))
                 {
                     state = EntityState.idle;           
@@ -65,14 +81,26 @@ namespace LunarRevenge.Scripts.Entitys
                 }
                 
 
-                if (activated)
+                if (activated && state != EntityState.shooting)
                 {
                     state = EntityState.running;
                     MoveEntity(direction);
                 }
                 
             }
+            updateTimer(gameTime);
             base.Update(gameTime);
+        }
+
+        float timer;
+        private void updateTimer(GameTime gameTime)
+        {
+            timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (timer >= 0.5f)
+            {
+                timer -= 0.5f;
+                state = EntityState.running;
+            }
         }
 
         // Moving the Entity

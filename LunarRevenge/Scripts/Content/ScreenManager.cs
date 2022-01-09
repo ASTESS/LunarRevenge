@@ -21,7 +21,8 @@ namespace LunarRevenge.Scripts.Content
             level,
             paused,
             levelSelect,
-            death
+            death,
+            win
         }
 
         private StartScreen startScreen;
@@ -30,6 +31,7 @@ namespace LunarRevenge.Scripts.Content
         public LevelScreen levelScreen;
         private LevelSelectionScreen levelSelectionScreen;
         private DeathScreen deathScreen;
+        private WinScreen winScreen;
 
         private ContentManager content;
         private GraphicsDeviceManager graphics;
@@ -56,11 +58,12 @@ namespace LunarRevenge.Scripts.Content
 
         private void init()
         {
-            startScreen = new StartScreen(this, content, graphicsDevice);
+            startScreen = new StartScreen(this, content, graphics);
             keyBinding = new KeyBinding();
             pauseScreen = new PauseScreen(this, content, graphicsDevice);
             levelSelectionScreen = new LevelSelectionScreen(content, this, graphicsDevice, graphics);
             deathScreen = new DeathScreen(this, content, graphicsDevice);
+            winScreen = new WinScreen(content, graphicsDevice, this);
         }
 
         public void changeState(ScreenStates states)
@@ -95,6 +98,9 @@ namespace LunarRevenge.Scripts.Content
             }else if (state == ScreenStates.death)
             {
                 deathScreen.Update();
+            }else if (state == ScreenStates.win)
+            {
+                winScreen.Update();
             }
         }
 
@@ -120,6 +126,10 @@ namespace LunarRevenge.Scripts.Content
             }else if (state == ScreenStates.death)
             {
                 deathScreen.Draw(spriteBatch);
+            }
+            else if (state == ScreenStates.win)
+            {
+                winScreen.Draw(spriteBatch);
             }
         }
     }

@@ -13,7 +13,8 @@ namespace LunarRevenge.Scripts.Entitys
 {
     class Player : Entity
     {
-        public static Vector2 offset = new Vector2(0, 0);
+        public static Vector2 offset;
+        public static int score = 0;
         private int midX = 0;
         private int midY = 0;
         private Direction currentDirection;
@@ -279,7 +280,6 @@ namespace LunarRevenge.Scripts.Entitys
             }
             if (state == EntityState.hurt)
             {
-                Console.WriteLine("hurt");
                 startingX = 0;
                 startingY = 0;
                 width = 32;

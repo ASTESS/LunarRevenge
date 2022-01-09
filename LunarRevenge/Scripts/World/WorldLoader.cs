@@ -140,18 +140,26 @@ namespace LunarRevenge.Scripts.World
                                 props[x, y] = animate(propKey);
                             }
 
-                            if (floorKey.Contains("acid") && !specialLoaded)
+                            if (floorKey.Contains("acid") && !specialLoaded && LevelScreen.entitys.ContainsKey("player"))
                             {
-                                LevelScreen.acid.Add(new Acid(textureManager.worldTextures[floorKey], LevelScreen.collision, $"acid_{acidCounter}", new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16)));
+                                LevelScreen.specialTiles.Add(new Acid(textureManager.worldTextures[floorKey], LevelScreen.collision, $"acid_{acidCounter}", new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16)));
                                 acidCounter++;
+                            }
+                            if (floorKey == "floor_2" && !specialLoaded)
+                            {
+                                LevelScreen.specialTiles.Add(new Finish(textureManager.worldTextures[floorKey], LevelScreen.collision, "finish", new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16)));
                             }
                         }
                     }
                     xMap++;
-                    canUpdate = false;
+                    
                 }
+                canUpdate = false;
             }
-
+            if (!specialLoaded)
+            {
+                Player.offset = new Vector2(350, -290); //set player position after loading everything in
+            }
             specialLoaded = true;
         }
 

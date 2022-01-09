@@ -20,11 +20,18 @@
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x2.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Enemies/No Outlines/enemies x3.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Exit Button.png</File>
-    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Numbers.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Level1.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Level2.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Level3.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/lr-bg.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Menu Button.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/numers.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Play Button.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Quit Button.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Resume Button.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/Start Button.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/You died.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Menu/youWin.jpg</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x1.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x2.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/NPC/No Outlines/npc x3.png</File>
@@ -43,6 +50,7 @@
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x1.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x2.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/No Outlines/players red x3.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x1 IDLE ANIMATION.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x1.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x2.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Players/players blue x3.png</File>
@@ -61,6 +69,7 @@
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x1.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x2.png</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Props and Items/props and items x3.png</File>
+    <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Door/open_door.wav</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_1.wav</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_2.wav</File>
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/Sound/Player/footstep_3.wav</File>
@@ -77,6 +86,15 @@
     <File>C:/Users/Gebruiker/Documents/GitHub/LunarRevenge/LunarRevenge/Content/UI/ui x3.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

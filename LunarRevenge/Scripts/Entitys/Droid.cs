@@ -11,10 +11,12 @@ namespace LunarRevenge.Scripts.Entitys
     internal class Droid : Entity
     {
         private Vector2 postition = new Vector2(200, 1100);
+        private Player Target;
         public Droid(Texture2D texture, Collision collision, string name) : base(texture, collision, name)
         {
-            this.health = 50;
+            this.health = 100;
             speed = 1f;
+            Target = (Player)LevelScreen.entitys["player"];
         }
 
         private Direction direction = Direction.right;
@@ -22,25 +24,65 @@ namespace LunarRevenge.Scripts.Entitys
         {
             pos = new Vector2(postition.X + Player.offset.X, postition.Y + Player.offset.Y);
             if (!(state == EntityState.death))
-            {  
-            collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
-            if (!collision.collisionCheck(direction, collisionBox))
             {
-                if (direction == Direction.left)
+                collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
+
+                if (this.Distance(Target) <= 175 && !NoticedTarget)
                 {
-                    direction = Direction.right;
-                }else if (direction == Direction.right)
+                    NoticedTarget = true;
+                    TimeOfNotice = gameTime.TotalGameTime.TotalSeconds;
+                }
+
+                if (!collision.collisionCheck(direction, collisionBox))
                 {
-                    direction = Direction.left;
+                    if (direction == Direction.left)
+                    {
+                        direction = Direction.right;
+                    }
+                    else if (direction == Direction.right)
+                    {
+                        direction = Direction.left;
+                    }
+                }
+
+                if (NoticedTarget)
+                {
+                    if (postition.X >= (Target.pos.X - Player.offset.X))
+                    {
+                        flip = SpriteEffects.FlipHorizontally;
+                    }
+                    else if (postition.X <= (Target.pos.X - Player.offset.X))
+                    {
+                        flip = SpriteEffects.None;
+                    }
+                    if (postition.Y + 10 >= (Target.pos.Y - Player.offset.Y) && postition.Y - 10 <= (Target.pos.Y - Player.offset.Y) && state != EntityState.shooting)
+                    {
+                        Shoot(10, new Vector2(postition.X, postition.Y));
+                    }
+                }
+
+                if (state != EntityState.shooting)
+                {
+                    state = EntityState.running;
+                    MoveEntity(direction);
                 }
             }
-            state = EntityState.running;
-            MoveEnemy(direction);
-            }
+            updateTimer(gameTime);
             base.Update(gameTime);
         }
 
-        public void MoveEnemy(Direction direction)
+        float timer;
+        private void updateTimer(GameTime gameTime)
+        {
+            timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (timer >= 0.5f)
+            {
+                timer -= 0.5f;
+                state = EntityState.running;
+            }
+        }
+
+        public void MoveEntity(Direction direction)
         {
             if (collision.collisionCheck(direction, collisionBox))
             {

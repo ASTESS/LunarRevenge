@@ -70,10 +70,11 @@ namespace LunarRevenge.Scripts.Entitys
         public virtual void damageEntity(float damage)
         {
                 health -= damage;
-                if (health <= 0) // player died
+                if (health <= 0 && state != EntityState.death) // player died
                 {
                     health = 0;
                     state = EntityState.death;
+                    Player.score += 100;
                 }
         }
 
@@ -116,17 +117,22 @@ namespace LunarRevenge.Scripts.Entitys
 
         List<Projectile> projectiles = new List<Projectile>();
 
+
+        private int bulletOffset;
         public void Shoot(int damage, Vector2 pos)
         {
             Direction direct;
             if (flip == SpriteEffects.None)
             {
+                bulletOffset = 20;
                 direct = Direction.right;
             }
             else {
+                bulletOffset = -20;
                 direct = Direction.left;               
             }
-            projectiles.Add(new Projectile(damage, direct, pos, collision));
+            state = EntityState.shooting;
+            projectiles.Add(new Projectile(damage, direct, new Vector2(pos.X + bulletOffset, pos.Y), collision));
         }
 
         public virtual void Draw(SpriteBatch spriteBatch, GraphicsDevice graphics, GameTime gameTime)
@@ -202,7 +208,7 @@ namespace LunarRevenge.Scripts.Entitys
                 for (int i = 0; i < acidCollisonBoxData.Length; ++i) acidCollisonBoxData[i] = Color.Green;
                 acidCollisonBox.SetData(acidCollisonBoxData);
 
-                foreach (Acid acid in LevelScreen.acid)
+                foreach (Acid acid in LevelScreen.specialTiles)
                 {
                     spriteBatch.Draw(acidCollisonBox, acid.collisionBox, Color.White);
                 }
