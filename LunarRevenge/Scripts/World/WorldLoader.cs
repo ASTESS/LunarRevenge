@@ -126,9 +126,18 @@ namespace LunarRevenge.Scripts.World
                                  GateCounter++;
                             }
 
+                            if (propKey.Contains("capsule") && propKey.Contains("bottom"))
+                            {
+                                rectangles.Add(new Rectangle((int)((offset * xMap) + 8 + (x * 32) + Player.offset.X), (int)((offset * yMap) - 18 + (y * 32) + Player.offset.Y), 16, 38));
+                            }
+
+
+
                             if (propKey.Contains("animated_") && !propKey.Contains("animated_smallgate") && canUpdate)
                             {
                                 props[x, y] = animate(propKey);
+
+                               
                             }
 
                             if (floorKey.Contains("acid") && !specialLoaded && LevelScreen.entitys.ContainsKey("player"))

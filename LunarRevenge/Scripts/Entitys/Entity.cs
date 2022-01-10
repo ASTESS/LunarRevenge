@@ -131,10 +131,9 @@ namespace LunarRevenge.Scripts.Entitys
         public virtual void Draw(SpriteBatch spriteBatch, GraphicsDevice graphics, GameTime gameTime)
         {
             Animation(gameTime);
-            //spriteBatch.Draw(texture, pos, new Rectangle(startingX, startingY, width, height), Color.White
             spriteBatch.Draw(texture, pos, new Rectangle(currentX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
 
-            DebugCollisionMode(false, spriteBatch, graphics);
+            DebugCollisionMode(true, spriteBatch, graphics);
 
             foreach (Projectile projectile in projectiles)
             {
@@ -202,10 +201,6 @@ namespace LunarRevenge.Scripts.Entitys
                 for (int i = 0; i < acidCollisonBoxData.Length; ++i) acidCollisonBoxData[i] = Color.Green;
                 acidCollisonBox.SetData(acidCollisonBoxData);
 
-                foreach (Acid acid in LevelScreen.specialTiles)
-                {
-                    spriteBatch.Draw(acidCollisonBox, acid.collisionBox, Color.White);
-                }
             }
         }
     }
