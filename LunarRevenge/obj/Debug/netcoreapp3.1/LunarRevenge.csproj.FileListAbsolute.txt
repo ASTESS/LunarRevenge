@@ -272,7 +272,6 @@ C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
-C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\obj\Debug\netcoreapp3.1\LunarRevenge.csproj.AssemblyReference.cache
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\obj\Debug\netcoreapp3.1\LunarRevenge.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\obj\Debug\netcoreapp3.1\LunarRevenge.AssemblyInfoInputs.cache
 C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\obj\Debug\netcoreapp3.1\LunarRevenge.AssemblyInfo.cs
@@ -321,3 +320,15 @@ C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcorea
 C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\numers.xnb
 C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Font.xnb
 C:\Users\Gebruiker\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\mainMenuMusic.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Numbers.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Font.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Level1.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Level2.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Level3.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\lr-bg.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\Menu Button.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\numers.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\You died.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Menu\youWin.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\Door\open_door.xnb
+C:\Users\matth\Documents\GitHub\LunarRevenge\LunarRevenge\bin\Debug\netcoreapp3.1\Content\Sound\mainMenuMusic.xnb
