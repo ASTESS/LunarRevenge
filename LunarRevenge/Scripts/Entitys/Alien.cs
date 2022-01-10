@@ -76,9 +76,9 @@ namespace LunarRevenge.Scripts.Entitys
                     state = EntityState.running;
                     MoveEntity(direction);
                 }
-                
+                updateTimer(gameTime);
             }
-            updateTimer(gameTime);
+            
             base.Update(gameTime);
         }
 

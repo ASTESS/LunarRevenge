@@ -46,12 +46,25 @@ namespace LunarRevenge.Scripts.Content.Screens
             collision = new Collision(world, screenManager);
             entitys.Clear();
             entitys.Add("player", new Player(content.Load<Texture2D>("Players/players blue x1 IDLE ANIMATION"), graphics, collision, "player", content, screenManager, new Vector2(0, 0))); //add player //alles x3 voor de x3
-            entitys.Add("enemy1", new Droid(content.Load<Texture2D>("Enemies/enemies x1"), collision, "enemy1"));
-            Vector2 v = new Vector2(400, 500);
-            entitys.Add("alien1", new Alien(content.Load<Texture2D>("Enemies/enemies x1"), v, collision, "alien1"));
-            entitys.Add("sentinal1", new Sentinal(content.Load<Texture2D>("Enemies/enemies x1"), new Vector2(v.X+ 160, v.Y), collision, "sentinal1"));
             specialTiles.Clear();
             gui = new GuiScreen(content, entitys["player"]);
+        }
+
+        public static int enemyCounter = 0;
+        public static void addAlien(Vector2 pos)
+        {
+            entitys.Add($"alien{enemyCounter}", new Alien(content.Load<Texture2D>("Enemies/enemies x1"), pos, collision, $"alien{enemyCounter}"));
+            enemyCounter++;
+        }
+        public static void addDroid(Vector2 pos)
+        {
+            entitys.Add($"droid{enemyCounter}", new Droid(content.Load<Texture2D>("Enemies/enemies x1"), pos ,collision, $"droid{enemyCounter}"));
+            enemyCounter++;
+        }
+        public static void addSentinal(Vector2 pos)
+        {
+            entitys.Add($"sentinal{enemyCounter}", new Sentinal(content.Load<Texture2D>("Enemies/enemies x1"), pos, collision, $"sentinal{enemyCounter}"));
+            enemyCounter++;
         }
 
         public void Update(GameTime gameTime)

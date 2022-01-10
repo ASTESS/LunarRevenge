@@ -149,6 +149,19 @@ namespace LunarRevenge.Scripts.World
                             {
                                 LevelScreen.specialTiles.Add(new Finish(textureManager.worldTextures[floorKey], LevelScreen.collision, "finish", new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16)));
                             }
+
+                            if (obstacleKey == "alien" && !specialLoaded)
+                            {
+                                LevelScreen.addAlien(new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16));
+                            }
+                            if (obstacleKey == "droid" && !specialLoaded)
+                            {
+                                LevelScreen.addDroid(new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16));
+                            }
+                            if (obstacleKey == "sentinal" && !specialLoaded)
+                            {
+                                LevelScreen.addSentinal(new Vector2((offset * xMap) + (x * 32) + Player.offset.X + 16, (offset * yMap) + (y * 32) + Player.offset.Y + 16));
+                            }
                         }
                     }
                     xMap++;

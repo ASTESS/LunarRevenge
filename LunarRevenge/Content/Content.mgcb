@@ -806,6 +806,12 @@
 /processorParam:Quality=Best
 /build:Sound/Door/open_door.wav
 
+#begin Sound/mainMenuMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/mainMenuMusic.wav
+
 #begin Sound/Player/footstep_1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using LunarRevenge.Scripts.Content.Screens;
+using Microsoft.Xna.Framework.Audio;
 
 namespace LunarRevenge.Scripts.Content
 {
@@ -15,6 +16,8 @@ namespace LunarRevenge.Scripts.Content
         private GraphicsDevice graphics;
         private GraphicsDeviceManager graphicsManager;
         private ContentManager content;
+        SoundEffectInstance soundEffect;
+        SoundManager soundManager;
 
 
         private Texture2D startButton;
@@ -43,6 +46,10 @@ namespace LunarRevenge.Scripts.Content
             this.graphicsManager = graphicsManager;
             this.graphics = graphicsManager.GraphicsDevice;
             this.content = content;
+            soundManager = new SoundManager(content);
+            soundEffect = soundManager.sfx[9].CreateInstance();
+            soundEffect.IsLooped = true;
+            soundEffect.Play();
 
             backGround = content.Load<Texture2D>("Menu/lr-bg");
 
@@ -65,6 +72,7 @@ namespace LunarRevenge.Scripts.Content
 
         public void Update()
         {
+            soundEffect.Play();
             int x = Mouse.GetState().Position.X;
             int y = Mouse.GetState().Position.Y;
             if (ScreenManager.lastState == ButtonState.Released)
@@ -122,6 +130,7 @@ namespace LunarRevenge.Scripts.Content
 
                 if (loadLevel) //loads level
                 {
+                    soundEffect.Pause();
                     loadLevel = false;
                     screenManager.levelScreen = new LevelScreen(content, graphics, graphicsManager, screenManager);
                     screenManager.levelScreen.Init();

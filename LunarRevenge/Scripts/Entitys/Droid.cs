@@ -12,10 +12,11 @@ namespace LunarRevenge.Scripts.Entitys
     {
         private Vector2 postition = new Vector2(200, 1100);
         private Player Target;
-        public Droid(Texture2D texture, Collision collision, string name) : base(texture, collision, name)
+        public Droid(Texture2D texture, Vector2 pos ,Collision collision, string name) : base(texture, collision, name)
         {
             this.health = 100;
             speed = 1f;
+            postition = pos;
             Target = (Player)LevelScreen.entitys["player"];
         }
 
@@ -66,8 +67,9 @@ namespace LunarRevenge.Scripts.Entitys
                     state = EntityState.running;
                     MoveEntity(direction);
                 }
+                updateTimer(gameTime);
             }
-            updateTimer(gameTime);
+            
             base.Update(gameTime);
         }
 

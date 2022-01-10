@@ -27,6 +27,7 @@ namespace LunarRevenge.Scripts.Content
             sfx.Add(content.Load<SoundEffect>("Sound/Player/footstep_7"));
             sfx.Add(content.Load<SoundEffect>("Sound/Player/footstep_8"));
             sfx.Add(content.Load<SoundEffect>("Sound/Door/open_door"));
+            sfx.Add(content.Load<SoundEffect>("Sound/mainMenuMusic"));
         }
 
         public void PlaySound(string sound)

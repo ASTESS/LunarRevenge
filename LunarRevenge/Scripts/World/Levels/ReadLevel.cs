@@ -15,9 +15,9 @@ namespace LunarRevenge.Scripts.World.Levels
 
         public ReadLevel()
         {
-            lvl1 = new Level($@"Content\exampledata.json");
-            lvl2 = new Level($@"Content\exampledata.json");
-            lvl3 = new Level($@"Content\exampledata.json");
+            lvl1 = new Level($@"Content\Level1.json");
+            lvl2 = new Level($@"Content\Level2.json");
+            lvl3 = new Level($@"Content\Level3.json");
         }
     }
 }

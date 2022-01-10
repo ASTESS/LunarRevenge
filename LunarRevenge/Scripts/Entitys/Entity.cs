@@ -72,7 +72,6 @@ namespace LunarRevenge.Scripts.Entitys
                 health -= damage;
                 if (health <= 0 && state != EntityState.death) // player died
                 {
-                    health = 0;
                     state = EntityState.death;
                     Player.score += 100;
                 }
