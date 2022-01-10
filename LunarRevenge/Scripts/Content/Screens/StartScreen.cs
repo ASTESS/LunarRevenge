@@ -19,10 +19,6 @@ namespace LunarRevenge.Scripts.Content
         SoundEffectInstance soundEffect;
         SoundManager soundManager;
 
-
-        private Texture2D startButton;
-        private Vector2 startButtonPos;
-
         private Texture2D quitButton;
         private Vector2 quitButtonPos;
 
@@ -56,9 +52,6 @@ namespace LunarRevenge.Scripts.Content
             resumeButton = content.Load<Texture2D>("Menu/Resume Button");
             resumeButtonPos = new Vector2((graphics.Viewport.Width / 2) - (resumeButton.Width * 0.2f) / 2, 150);
 
-            startButton = content.Load<Texture2D>("Menu/Start Button");
-            startButtonPos = new Vector2((graphics.Viewport.Width / 2) - (startButton.Width*0.2f)/2, 350);
-
             quitButton = content.Load<Texture2D>("Menu/Quit Button");
             quitButtonPos = new Vector2((graphics.Viewport.Width / 2) - (quitButton.Width * 0.2f)/2, 400);
 
@@ -77,14 +70,6 @@ namespace LunarRevenge.Scripts.Content
             int y = Mouse.GetState().Position.Y;
             if (ScreenManager.lastState == ButtonState.Released)
             {
-                if (x >= startButtonPos.X && x <= startButtonPos.X + startButton.Width * 0.2f &&
-                y >= startButtonPos.Y && y <= startButtonPos.Y + startButton.Height * 0.2f &&
-                Mouse.GetState().LeftButton == ButtonState.Pressed)
-                {
-                    ScreenManager.lastState = ButtonState.Pressed;
-                    screenManager.changeState(ScreenManager.ScreenStates.levelSelect);
-                }
-
                 if (x >= quitButtonPos.X && x <= quitButtonPos.X + quitButton.Width * 0.2f &&
                     y >= quitButtonPos.Y && y <= quitButtonPos.Y + quitButton.Height * 0.2f &&
                     Mouse.GetState().LeftButton == ButtonState.Pressed)
@@ -147,7 +132,6 @@ namespace LunarRevenge.Scripts.Content
             spriteBatch.Draw(level2, level2Pos, new Rectangle(0, 43, level1.Width, 45), Color.White);
             spriteBatch.Draw(level3, level3Pos, new Rectangle(0, 43, level1.Width, 45), Color.White);
             spriteBatch.Draw(resumeButton, resumeButtonPos, new Rectangle(0, 0, resumeButton.Width, resumeButton.Height), Color.White, 0f, new Vector2(0, 0), 0.2f, SpriteEffects.None, 1f);
-            spriteBatch.Draw(startButton, startButtonPos, new Rectangle(0, 0, startButton.Width, startButton.Height), Color.White, 0f, new Vector2(0,0), 0.2f, SpriteEffects.None, 1f);
             spriteBatch.Draw(quitButton, quitButtonPos, new Rectangle(0, 0, quitButton.Width, quitButton.Height), Color.White, 0f, new Vector2(0, 0), 0.2f, SpriteEffects.None, 1f);
         }
     }
