@@ -133,7 +133,8 @@ namespace LunarRevenge.Scripts.Entitys
             Animation(gameTime);
             spriteBatch.Draw(texture, pos, new Rectangle(currentX, startingY, width, height), Color.White, 0f, new Vector2(width/2, height/2), 1f, flip, 1f);
 
-            DebugCollisionMode(true, spriteBatch, graphics);
+            // This method is used to debug the collisions
+            DebugCollisionMode(false, spriteBatch, graphics);
 
             foreach (Projectile projectile in projectiles)
             {
