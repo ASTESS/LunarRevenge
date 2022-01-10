@@ -35,10 +35,5 @@ namespace LunarRevenge.Scripts.Content
             int index = sfx.FindIndex(a => a.Name.Equals(sound));
             sfx[index].Play();
         }
-
-        public int getSoundIndex(string sound)
-        {
-            return sfx.FindIndex(a => a.Name.Equals(sound));
-        }
     }
 }

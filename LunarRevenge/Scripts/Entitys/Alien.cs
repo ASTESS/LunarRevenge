@@ -2,9 +2,6 @@
 using LunarRevenge.Scripts.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LunarRevenge.Scripts.Entitys
 {
@@ -36,8 +33,6 @@ namespace LunarRevenge.Scripts.Entitys
                 }
 
                 collisionBox = new Rectangle(((int)pos.X - width / 2) + 10, ((int)pos.Y - height / 2) + 15, width - 14, height - 14);
-
-                //Console.WriteLine("P: " + (Target.pos.X - Player.offset.X) + " | E: " + (postition.X)); // positie van 
 
                 if (NoticedTarget)
                 {

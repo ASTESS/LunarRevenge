@@ -7,8 +7,6 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 
 namespace LunarRevenge.Scripts.World
 {
@@ -16,7 +14,6 @@ namespace LunarRevenge.Scripts.World
     {
         private TextureManager textureManager;
         private ContentManager content;
-
 
         public List<Rectangle> rectangles = new List<Rectangle>();
         private bool specialLoaded = false;
@@ -44,11 +41,6 @@ namespace LunarRevenge.Scripts.World
         public void Draw(SpriteBatch spriteBatch)
         {
             renderMap(spriteBatch);
-            /*
-            spriteBatch.Draw(textureManager.worldTextures["floor"], new Vector2(100, 100), Color.White);
-            spriteBatch.Draw(textureManager.worldTextures["floor"], new Vector2(133, 100), Color.White);
-            spriteBatch.Draw(textureManager.worldTextures["floor"], new Vector2(133, 133), Color.White);
-            spriteBatch.Draw(textureManager.worldTextures["floor"], new Vector2(100, 133), Color.White);*/
         }
 
         private void renderMap(SpriteBatch spriteBatch)
@@ -81,7 +73,7 @@ namespace LunarRevenge.Scripts.World
                             string wallKey = walls[x, y];
                             string propKey = props[x, y];
 
-                            if (textureManager.worldTextures.ContainsKey(floorKey) && !floorKey.Contains("acid")) //makes sure everything exist and can load empty squares
+                            if (textureManager.worldTextures.ContainsKey(floorKey) && !floorKey.Contains("acid"))
                             {
                                 spriteBatch.Draw(textureManager.worldTextures[floorKey], new Vector2((offset * xMap) + (x * 32) + Player.offset.X, (offset * yMap) + (y * 32) + Player.offset.Y), Color.White);
                             }
@@ -100,7 +92,6 @@ namespace LunarRevenge.Scripts.World
 
                                 if (CenterCollision.Contains(wallKey))
                                 {
-                                    //rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + 16 + (y * 32) + Player.offset.Y), 32, 18));
                                     rectangles.Add(new Rectangle((int)((offset * xMap) + (x * 32) + Player.offset.X), (int)((offset * yMap) + (y * 32) + Player.offset.Y), 32, 20));
                                 }
 
@@ -165,13 +156,13 @@ namespace LunarRevenge.Scripts.World
                         }
                     }
                     xMap++;
-                    
                 }
                 canUpdate = false;
             }
             if (!specialLoaded)
             {
-                Player.offset = new Vector2(350, -290); //set player position after loading everything in
+                // Deciding the player position after loading in the textures.
+                Player.offset = new Vector2(350, -290);
             }
             specialLoaded = true;
         }

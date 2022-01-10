@@ -1,11 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-
-namespace LunarRevenge.Scripts.World.Levels
+﻿namespace LunarRevenge.Scripts.World.Levels
 {
     class ReadLevel
     {

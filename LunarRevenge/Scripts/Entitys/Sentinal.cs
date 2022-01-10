@@ -2,9 +2,6 @@
 using LunarRevenge.Scripts.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LunarRevenge.Scripts.Entitys
 {
@@ -29,6 +26,7 @@ namespace LunarRevenge.Scripts.Entitys
         public override void Update(GameTime gameTime)
         {
             pos = new Vector2(postition.X + Player.offset.X, postition.Y + Player.offset.Y);
+
             if (!(state == EntityState.death))
             {
                 if (this.Distance(Target) <= 175 && !NoticedTarget)
@@ -63,6 +61,7 @@ namespace LunarRevenge.Scripts.Entitys
                         Shoot(10, new Vector2(postition.X, postition.Y));
                     }
                 }
+
                 if (!collision.collisionCheck(direction, collisionBox))
                 {
                     state = EntityState.idle;           
@@ -88,7 +87,6 @@ namespace LunarRevenge.Scripts.Entitys
                 }
                 updateTimer(gameTime);
             }
-            
             base.Update(gameTime);
         }
 

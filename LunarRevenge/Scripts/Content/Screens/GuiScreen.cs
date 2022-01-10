@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using LunarRevenge.Scripts.Entitys;
 
 namespace LunarRevenge.Scripts.Content.Screens
@@ -50,13 +47,13 @@ namespace LunarRevenge.Scripts.Content.Screens
             int x = 64;
             int y = 76;
             int bulletsFired = 26 - player.bullets;
+
             if (player.bullets >= 19)
             {
                 x = 448 - 64 * bulletsFired;
-                y = 140;
-                //8
-                
-            }else if (player.bullets <= 8)
+                y = 140;   
+            }
+            else if (player.bullets <= 8)
             {
                 x = 576 - (64 * (bulletsFired - 17));
                 y = 76;
@@ -64,12 +61,11 @@ namespace LunarRevenge.Scripts.Content.Screens
                 {
                     x = 64;
                 }
-                //9
-            }else if(player.bullets < 19)
+            }
+            else if(player.bullets < 19)
             {
                 x = 576 - (64 * (bulletsFired - 8));
                 y = 108;
-                //10
             }
 
             spriteBatch.Draw(healthBar, new Vector2(40, graphics.GraphicsDevice.Viewport.Height - 13), new Rectangle(x, y, 64, 7), Color.White);
@@ -81,7 +77,8 @@ namespace LunarRevenge.Scripts.Content.Screens
             if (player.health >= 90)
             {
                 xHealth = 323;
-            }else if (player. health >= 80)
+            }
+            else if (player. health >= 80)
             {
                 xHealth = 291;
             }
@@ -117,6 +114,7 @@ namespace LunarRevenge.Scripts.Content.Screens
             {
                 xHealth = 35;
             }
+
             spriteBatch.Draw(healthBar, new Vector2(10, graphics.GraphicsDevice.Viewport.Height - 13), new Rectangle(xHealth, 12, 26, 7), Color.White);
         }
 

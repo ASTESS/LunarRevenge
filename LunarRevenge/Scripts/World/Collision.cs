@@ -2,9 +2,7 @@
 using LunarRevenge.Scripts.Content.Screens;
 using LunarRevenge.Scripts.Entitys;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace LunarRevenge.Scripts.World
 {
@@ -20,6 +18,7 @@ namespace LunarRevenge.Scripts.World
             this.screenManager = screenManager;
             collisions = new List<Rectangle>();
         }
+
         public bool collisionCheck(Entity.Direction direction, Rectangle collisionBox)
         {
             world.rectangles.AddRange(collisions);
@@ -31,33 +30,29 @@ namespace LunarRevenge.Scripts.World
                     rec.Bottom + 16 >= collisionBox.Bottom &&
                     rec.Top - 16 <= collisionBox.Top &&
                     direction == Entity.Direction.right)
-                {
-                    return false;
-                }
+                { return false; }
+
                 if (rec.Left <= collisionBox.Left &&
                     rec.Right >= collisionBox.Left &&
                     rec.Bottom + 16 >= collisionBox.Bottom &&
                     rec.Top - 16 <= collisionBox.Top &&
                     direction == Entity.Direction.left)
-                {
-                    return false;
-                }
+                {  return false; }
+
                 if (rec.Bottom >= collisionBox.Top &&
                     rec.Top <= collisionBox.Top
                     && rec.Right + 16 >= collisionBox.Right &&
                     rec.Left - 10 <= collisionBox.Left &&
                     direction == Entity.Direction.up)
-                {
-                    return false;
-                }
+                { return false;  }
+                
                 if (rec.Top <= collisionBox.Bottom &&
                     rec.Bottom >= collisionBox.Bottom
                     && rec.Right + 16 >= collisionBox.Right &&
                     rec.Left - 10 <= collisionBox.Left &&
                     direction == Entity.Direction.down)
-                {
-                    return false;
-                }
+                { return false; }
+
             }
             return true;
         }

@@ -3,9 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LunarRevenge.Scripts.Content.Screens
 {
@@ -51,7 +48,6 @@ namespace LunarRevenge.Scripts.Content.Screens
         {
             spriteBatch.Draw(winTexture, new Vector2(-20,-20), new Rectangle(0, 0, winTexture.Width, winTexture.Height), Color.White, 0f, new Vector2(0, 0), 1.5f, SpriteEffects.None, 1f);
             spriteBatch.Draw(menuButton, menuButtonPos, new Rectangle(0, 0, menuButton.Width, menuButton.Height), Color.White, 0f, new Vector2(0, 0), 0.2f, SpriteEffects.None, 1f);
-
             spriteBatch.DrawString(font, "score: " + Player.score.ToString(), new Vector2(graphics.Viewport.Width - 100, graphics.Viewport.Height - 15), Color.White);
         }
     }

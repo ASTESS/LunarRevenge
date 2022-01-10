@@ -7,15 +7,9 @@ namespace LunarRevenge.Scripts.Content
 {
     internal class PauseScreen
     {
-        Rectangle startButton = new Rectangle(100, 100, 50, 50);
         ScreenManager screenManager;
-
-        ContentManager content;
-        GraphicsDevice graphics;
-
         private Texture2D resumeButton;
         private Vector2 resumeButtonPos;
-
         private Texture2D menuButton;
         private Vector2 menuButtonPos;
 
@@ -25,7 +19,6 @@ namespace LunarRevenge.Scripts.Content
 
             resumeButton = content.Load<Texture2D>("Menu/Resume Button");
             resumeButtonPos = new Vector2((graphics.Viewport.Width / 2) - (resumeButton.Width * 0.2f) / 2, 50);
-
             menuButton = content.Load<Texture2D>("Menu/Menu Button");
             menuButtonPos = new Vector2((graphics.Viewport.Width / 2) - (menuButton.Width * 0.2f) / 2, 100);
         }

@@ -6,8 +6,6 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LunarRevenge.Scripts.Entitys
 {
@@ -29,7 +27,7 @@ namespace LunarRevenge.Scripts.Entitys
         {
             midY = graphics.GraphicsDevice.Viewport.Height / 2;
             midX = graphics.GraphicsDevice.Viewport.Width / 2;
-            this.pos = new Vector2(midX, midY); //stating position for drawing
+            this.pos = new Vector2(midX, midY);
             this.screenManager = screenManager;
             offset = pos;
             soundManager = new SoundManager(content);
@@ -40,10 +38,7 @@ namespace LunarRevenge.Scripts.Entitys
         {
             KeyboardInput(gameTime);
 
-            if (!canTakeDamage)
-            {
-                updateTimer(gameTime);
-            }
+            if (!canTakeDamage) { updateTimer(gameTime); }
 
             base.Update(gameTime);
         }
@@ -121,7 +116,7 @@ namespace LunarRevenge.Scripts.Entitys
             if (canTakeDamage)
             {
                 health -= damage;
-                if (health <= 0) // player died
+                if (health <= 0)
                 {
                     health = 0;
                     state = EntityState.death;
@@ -199,10 +194,7 @@ namespace LunarRevenge.Scripts.Entitys
                         playerIsFalling = false;
                         soundEffect.Pause();
                     }
-                }
-
-                //240 == ground
-                
+                }           
 
                 if (pos.Y == 230)
                 {
@@ -216,9 +208,7 @@ namespace LunarRevenge.Scripts.Entitys
                     playerIsFalling = false;
                     velocity = 0f;
                 }
-
                 pos.Y += velocity;
-                //Console.WriteLine($"F: {playerIsFalling} | J: {playerIsJumping}");
             }
         }
 
@@ -352,7 +342,6 @@ namespace LunarRevenge.Scripts.Entitys
                 }
 
                 Location = new Vector2((pos.X), (pos.Y));
-
             }
         }
     }

@@ -1,27 +1,23 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LunarRevenge.Scripts.Content
 {
     internal class KeyBinding
     {
         private bool isPausedPressed = false;
-        private bool isFullschreenPressed = false;
+        private bool isFullscreenPressed = false;
         public void Update(ScreenManager screenManager, GraphicsDeviceManager graphics)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.F) && !isFullschreenPressed)
+            if (Keyboard.GetState().IsKeyDown(Keys.F) && !isFullscreenPressed)
             {
-                isFullschreenPressed=true;
+                isFullscreenPressed = true;
                 graphics.ToggleFullScreen();
 
                 //graphics.ApplyChanges();
             }else if (Keyboard.GetState().IsKeyUp(Keys.F))
             {
-                isFullschreenPressed = false;
+                isFullscreenPressed = false;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.P) && !isPausedPressed)
             {

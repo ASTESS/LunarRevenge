@@ -3,10 +3,8 @@ using LunarRevenge.Scripts.Content.Screens;
 using LunarRevenge.Scripts.World;
 using LunarRevenge.Scripts.World.Textures; 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 
 namespace LunarRevenge.Scripts.Entitys
 {
@@ -58,8 +56,6 @@ namespace LunarRevenge.Scripts.Entitys
             {
                 collision.collisions.Add(new Rectangle((int)pos.X - 16, (int)pos.Y - 16, 32, 20));
             }
-
-
 
             updateTimer(gameTime);
             base.Update(gameTime);

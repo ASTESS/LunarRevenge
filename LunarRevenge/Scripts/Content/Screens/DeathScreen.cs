@@ -3,9 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LunarRevenge.Scripts.Content.Screens
 {
@@ -20,6 +17,7 @@ namespace LunarRevenge.Scripts.Content.Screens
         private Texture2D youDied;
         private Vector2 youDiedPos;
         SpriteFont font;
+
         public DeathScreen(ScreenManager screenManager, ContentManager content, GraphicsDevice graphics)
         {
             this.screenManager = screenManager;
@@ -31,6 +29,7 @@ namespace LunarRevenge.Scripts.Content.Screens
             youDied = content.Load<Texture2D>("Menu/You died");
             youDiedPos = new Vector2((graphics.Viewport.Width / 2) - (menuButton.Width * 0.2f) / 2, 100);
         }
+
         public void Update()
         {
             int x = Mouse.GetState().Position.X;
@@ -54,7 +53,6 @@ namespace LunarRevenge.Scripts.Content.Screens
         {
             spriteBatch.Draw(menuButton, menuButtonPos, new Rectangle(0, 0, menuButton.Width, menuButton.Height), Color.White, 0f, new Vector2(0, 0), 0.2f, SpriteEffects.None, 1f);
             spriteBatch.Draw(youDied, youDiedPos, new Rectangle(30, 225, 600, 200), Color.White, 0f, new Vector2(0, 0), 0.2f, SpriteEffects.None, 1f);
-
             spriteBatch.DrawString(font, "score: " + Player.score.ToString(), new Vector2(graphics.Viewport.Width - 100, graphics.Viewport.Height - 15), Color.White);
         }
     }

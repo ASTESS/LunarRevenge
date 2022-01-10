@@ -6,11 +6,12 @@ namespace LunarRevenge.Scripts.World.Textures
 {
     class TextureManager
     {
+
         public Dictionary<string, Texture2D> worldTextures = new Dictionary<string, Texture2D>();
         private Texture2D texture;
         private Texture2D props;
         private GraphicsDevice graphicsDevice;
-        private Color[] color = new Color[9216];
+
         public TextureManager(Texture2D texture, Texture2D props, GraphicsDevice graphics)
         {
             this.texture = texture;
@@ -18,10 +19,10 @@ namespace LunarRevenge.Scripts.World.Textures
             this.props = props;
 
             // Texture Explaination:
-            // new Rectangle(x, y, z, z)
+            // new Rectangle(x, y, z1, z2)
             // x = X Coordinate of LeftTop of the texture
             // y = Y Coordinate of LeffTop of the texture
-            // z = The texture size (example: 32x32 => 32)
+            // z1 and z2 = The texture size (example: 32x32 => 32)
 
             // Floor Textures
             worldTextures.Add("floor", GetTile(new Rectangle(1088, 32, 32, 32)));
@@ -118,23 +119,15 @@ namespace LunarRevenge.Scripts.World.Textures
             worldTextures.Add("animated_monitorscreen_right_3", GetProp(new Rectangle(192, 132, 32, 32)));
             worldTextures.Add("animated_monitorscreen_left_4", GetProp(new Rectangle(224, 132, 32, 32)));
             worldTextures.Add("animated_monitorscreen_right_4", GetProp(new Rectangle(256, 132, 32, 32)));
-
-
-
-
-            // Prop Textures
-            worldTextures.Add("ComputerON", GetProp(new Rectangle(0, 62, 32, 32)));
-            worldTextures.Add("ComputerOFF", GetProp(new Rectangle(0, 94, 32, 32)));
-            worldTextures.Add("MonitorOFF", GetProp(new Rectangle(9, 169, 47, 22)));
-            worldTextures.Add("gate_small_locked", GetProp(new Rectangle(0, 544, 32, 32)));
-            worldTextures.Add("gate_small_locked_1", GetProp(new Rectangle(64, 544, 32, 32)));
-            worldTextures.Add("gate_small_locked_2", GetProp(new Rectangle(96, 544, 32, 32)));
-            worldTextures.Add("gate_small_locked_3", GetProp(new Rectangle(128, 544, 32, 32)));
-            worldTextures.Add("chest_locked", GetProp(new Rectangle(352, 191, 32, 32)));
-            worldTextures.Add("chest_open", GetProp(new Rectangle(384, 191, 32, 32)));
-            worldTextures.Add("chest_locked_1", GetProp(new Rectangle(416, 191, 32, 32)));
-            worldTextures.Add("chest_unlocked_1", GetProp(new Rectangle(448, 191, 32, 32)));
         }
+
+        /*
+         * Note:
+         * 
+         * The following idea was used for deviding up the spritesheet in to smaller textures to build levels.
+         * We got the idea from: https://gamedev.stackexchange.com/questions/35358/create-a-texture2d-from-larger-image.
+         * 
+         */
 
         public Texture2D GetProp(Rectangle box) 
         {
@@ -145,7 +138,7 @@ namespace LunarRevenge.Scripts.World.Textures
             return cropTexture;
         }
 
-        public Texture2D GetTile(Rectangle box) //will split up sprite for easy use, code idea from https://gamedev.stackexchange.com/questions/35358/create-a-texture2d-from-larger-image
+        public Texture2D GetTile(Rectangle box) 
         {
             Texture2D cropTexture = new Texture2D(graphicsDevice, box.Width, box.Height);
             Color[] data = new Color[box.Width * box.Height];

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using LunarRevenge.Scripts.World;
 using LunarRevenge.Scripts.Items.Weapons;
 using LunarRevenge.Scripts.Content.Screens;
@@ -109,13 +107,9 @@ namespace LunarRevenge.Scripts.Entitys
             }
         }
 
-        public virtual void Animation(GameTime gameTime)
-        {
-            
-        }
+        public virtual void Animation(GameTime gameTime) { }
 
         List<Projectile> projectiles = new List<Projectile>();
-
 
         private int bulletOffset;
         public void Shoot(int damage, Vector2 pos)
@@ -158,6 +152,7 @@ namespace LunarRevenge.Scripts.Entitys
             if (NoticedTarget && (TimeOfNotice + 3 >= gameTime.TotalGameTime.TotalSeconds))
             {
                 spriteBatch.Draw(markers, new Vector2(pos.X - 4, pos.Y - 20), new Rectangle(106, 299, 10, 10), Color.White);
+                
             }
             else
             {
@@ -213,29 +208,5 @@ namespace LunarRevenge.Scripts.Entitys
                 }
             }
         }
-
-        /*public void Move(Direction direction)
-        {
-            if(collisionCheck(direction)){ 
-                if (direction == Direction.up)
-                {
-                    pos.Y -= speed;
-                }
-                if (direction == Direction.down)
-                {
-                    pos.Y += speed;
-                }
-                if (direction == Direction.left)
-                {
-                    pos.X -= speed;
-                    flip = SpriteEffects.FlipHorizontally; // Turn character to the left
-                }
-                if (direction == Direction.right)
-                {
-                    pos.X += speed;
-                    flip = SpriteEffects.None; // Turn Character to the right
-                }
-            }       
-        }*/
     }
 }

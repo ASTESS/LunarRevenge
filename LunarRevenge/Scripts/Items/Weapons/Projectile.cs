@@ -25,14 +25,9 @@ namespace LunarRevenge.Scripts.Items.Weapons
 
         public void Update()
         {
-            if (direction == Entity.Direction.left)
-            {
-                pos.X -= speed;
-            }
-            else if (direction == Entity.Direction.right)
-            {
-                pos.X += speed;
-            }
+            if (direction == Entity.Direction.left) {  pos.X -= speed; }
+            else if (direction == Entity.Direction.right)  {  pos.X += speed; }
+
             collisionBox = new Rectangle((int)(pos.X + Player.offset.X), (int)(pos.Y + Player.offset.Y), 16, 16);
         }
 

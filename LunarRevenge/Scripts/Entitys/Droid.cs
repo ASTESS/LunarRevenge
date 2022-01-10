@@ -2,9 +2,6 @@
 using LunarRevenge.Scripts.World;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LunarRevenge.Scripts.Entitys
 {
@@ -69,7 +66,6 @@ namespace LunarRevenge.Scripts.Entitys
                 }
                 updateTimer(gameTime);
             }
-            
             base.Update(gameTime);
         }
 

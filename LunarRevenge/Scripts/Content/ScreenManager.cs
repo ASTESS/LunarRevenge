@@ -1,15 +1,9 @@
 ﻿using LunarRevenge.Scripts.Content.Screens;
-using LunarRevenge.Scripts.Entitys;
-using LunarRevenge.Scripts.World;
 using LunarRevenge.Scripts.World.Levels;
-using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LunarRevenge.Scripts.Content
 {
@@ -32,17 +26,12 @@ namespace LunarRevenge.Scripts.Content
         private LevelSelectionScreen levelSelectionScreen;
         private DeathScreen deathScreen;
         private WinScreen winScreen;
-
         private ContentManager content;
         private GraphicsDeviceManager graphics;
         private GraphicsDevice graphicsDevice;
         private SpriteBatch spriteBatch;
-
-
-
         public ScreenStates state = ScreenStates.home;
         public static ButtonState lastState = ButtonState.Released;
-
         public Level level;
         public ReadLevel readLevel;
 
@@ -103,8 +92,6 @@ namespace LunarRevenge.Scripts.Content
                 winScreen.Update();
             }
         }
-
-        
 
         public void Draw(GameTime gameTime)
         {

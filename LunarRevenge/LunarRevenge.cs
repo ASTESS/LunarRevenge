@@ -1,13 +1,8 @@
 ﻿using LunarRevenge.Scripts.Content;
-using LunarRevenge.Scripts.Entitys;
-using LunarRevenge.Scripts.World;
-using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace LunarRevenge
 {
@@ -31,8 +26,7 @@ namespace LunarRevenge
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic 
-            IsFixedTimeStep = false; //fix's lag after a few minutes
+            IsFixedTimeStep = false; // Lag fix
             base.Initialize();
         }
 
@@ -43,12 +37,10 @@ namespace LunarRevenge
             soundManager = new SoundManager(this.Content);
         }
 
-        TimeSpan timer;
         private double secondcounter = 0;
 
         protected override void Update(GameTime gameTime)
         {
-            timer += gameTime.ElapsedGameTime;
             secondcounter += gameTime.ElapsedGameTime.TotalSeconds;
 
             // Display time in seconds to console

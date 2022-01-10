@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
@@ -11,7 +10,6 @@ namespace LunarRevenge.Scripts.Content
 {
     internal class StartScreen
     {
-        //Rectangle startButton = new Rectangle(50, 50, 50, 50);
         ScreenManager screenManager;
         private GraphicsDevice graphics;
         private GraphicsDeviceManager graphicsManager;
@@ -68,52 +66,43 @@ namespace LunarRevenge.Scripts.Content
             soundEffect.Play();
             int x = Mouse.GetState().Position.X;
             int y = Mouse.GetState().Position.Y;
+
             if (ScreenManager.lastState == ButtonState.Released)
             {
-                if (x >= quitButtonPos.X && x <= quitButtonPos.X + quitButton.Width * 0.2f &&
-                    y >= quitButtonPos.Y && y <= quitButtonPos.Y + quitButton.Height * 0.2f &&
-                    Mouse.GetState().LeftButton == ButtonState.Pressed)
+                if (x >= quitButtonPos.X && x <= quitButtonPos.X + quitButton.Width * 0.2f && y >= quitButtonPos.Y && y <= quitButtonPos.Y + quitButton.Height * 0.2f && Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
                     ScreenManager.lastState = ButtonState.Pressed;
                     LunarRevenge.lunarRevenge.Exit();
                 }
 
-                if (x >= resumeButtonPos.X && x <= resumeButtonPos.X + resumeButton.Width * 0.2f &&
-                    y >= resumeButtonPos.Y && y <= resumeButtonPos.Y + resumeButton.Height * 0.2f &&
-                    Mouse.GetState().LeftButton == ButtonState.Pressed && screenManager.level != null)
+                if (x >= resumeButtonPos.X && x <= resumeButtonPos.X + resumeButton.Width * 0.2f && y >= resumeButtonPos.Y && y <= resumeButtonPos.Y + resumeButton.Height * 0.2f && Mouse.GetState().LeftButton == ButtonState.Pressed && screenManager.level != null)
                 {
                     ScreenManager.lastState = ButtonState.Pressed;
                     screenManager.changeState(ScreenManager.ScreenStates.level);
                 }
 
-                if (x >= level1Pos.X && x <= level1Pos.X + level1.Width &&
-                    y >= level1Pos.Y && y <= level1Pos.Y + 45 &&
-                    Mouse.GetState().LeftButton == ButtonState.Pressed)
+                if (x >= level1Pos.X && x <= level1Pos.X + level1.Width && y >= level1Pos.Y && y <= level1Pos.Y + 45 && Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
                     Console.Write("level1");
                     screenManager.level = screenManager.readLevel.lvl1;
                     loadLevel = true;
                 }
 
-                if (x >= level2Pos.X && x <= level2Pos.X + level2.Width &&
-                    y >= level2Pos.Y && y <= level2Pos.Y + 45 &&
-                    Mouse.GetState().LeftButton == ButtonState.Pressed)
+                if (x >= level2Pos.X && x <= level2Pos.X + level2.Width &&  y >= level2Pos.Y && y <= level2Pos.Y + 45 && Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
                     Console.Write("level2");
                     screenManager.level = screenManager.readLevel.lvl2;
                     loadLevel = true;
                 }
 
-                if (x >= level3Pos.X && x <= level3Pos.X + level3.Width &&
-                    y >= level3Pos.Y && y <= level3Pos.Y + 45 &&
-                    Mouse.GetState().LeftButton == ButtonState.Pressed)
+                if (x >= level3Pos.X && x <= level3Pos.X + level3.Width && y >= level3Pos.Y && y <= level3Pos.Y + 45 && Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
                     Console.Write("level3");
                     screenManager.level = screenManager.readLevel.lvl3;
                     loadLevel = true;
                 }
 
-                if (loadLevel) //loads level
+                if (loadLevel) // Load in the different levels.
                 {
                     soundEffect.Pause();
                     loadLevel = false;
@@ -127,7 +116,6 @@ namespace LunarRevenge.Scripts.Content
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(backGround, new Vector2(-25,0), new Rectangle(0, 0, backGround.Width, backGround.Height), Color.White, 0f, new Vector2(0, 0), 1.35f, SpriteEffects.None, 1f);
-
             spriteBatch.Draw(level1, level1Pos, new Rectangle(0, 43, level1.Width, 45), Color.White);
             spriteBatch.Draw(level2, level2Pos, new Rectangle(0, 43, level1.Width, 45), Color.White);
             spriteBatch.Draw(level3, level3Pos, new Rectangle(0, 43, level1.Width, 45), Color.White);

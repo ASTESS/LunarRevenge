@@ -5,17 +5,12 @@ using LunarRevenge.Scripts.World.Textures;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace LunarRevenge.Scripts.Content.Screens
 {
     internal class LevelScreen
     {
-
-        private int currentLevel;
-
         public static Dictionary<string, Entity> entitys = new Dictionary<string, Entity>();
         public static List<Entity> specialTiles = new List<Entity>();
         private WorldLoader world;
@@ -26,8 +21,8 @@ namespace LunarRevenge.Scripts.Content.Screens
         public static Collision collision;
         private Level level;
         private ScreenManager screenManager;
-
         GuiScreen gui;
+        public static int enemyCounter = 0;
 
         public LevelScreen(ContentManager contentt, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphics, ScreenManager screenManager)
         {
@@ -50,7 +45,8 @@ namespace LunarRevenge.Scripts.Content.Screens
             gui = new GuiScreen(content, entitys["player"]);
         }
 
-        public static int enemyCounter = 0;
+        
+
         public static void addAlien(Vector2 pos)
         {
             entitys.Add($"alien{enemyCounter}", new Alien(content.Load<Texture2D>("Enemies/enemies x1"), pos, collision, $"alien{enemyCounter}"));
@@ -70,7 +66,6 @@ namespace LunarRevenge.Scripts.Content.Screens
         public void Update(GameTime gameTime)
         {
             world.Update(gameTime);
-            
             UpdateEntitys(gameTime);
             UpdateSpecialTiles(gameTime);
             gui.Update(gameTime);
